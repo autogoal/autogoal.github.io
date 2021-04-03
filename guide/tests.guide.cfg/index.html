@@ -1,0 +1,1428 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://autogoal.github.io/guide/tests.guide.cfg/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../autogoal-logo-embedded.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Class-based API - AutoGOAL</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-172957751-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#class-based-api" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://autogoal.github.io" title="AutoGOAL" aria-label="AutoGOAL" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../autogoal-logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              AutoGOAL
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Class-based API
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/autogoal/autogoal/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" class="md-tabs__link md-tabs__link--active">
+          User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../api/autogoal.__init__/" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://autogoal.github.io" title="AutoGOAL" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../autogoal-logo.svg" width="48" height="48">
+      
+    </a>
+    AutoGOAL
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/autogoal/autogoal/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/" title="CLI" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../dependencies/" title="Dependencies" class="md-nav__link">
+      Dependencies
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="First steps" class="md-nav__link">
+      First steps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tests.guide.predefined/" title="Predefined pipelines" class="md-nav__link">
+      Predefined pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tests.guide.include_algorithm/" title="Using custom algorithms" class="md-nav__link">
+      Using custom algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Class-based API
+      </label>
+    
+    <a href="./" title="Class-based API" class="md-nav__link md-nav__link--active">
+      Class-based API
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trying-multiple-logistic-regressions" class="md-nav__link">
+    Trying multiple logistic regressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trying-different-algorithms" class="md-nav__link">
+    Trying different algorithms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-more-steps" class="md-nav__link">
+    Adding more steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-the-best-pipeline" class="md-nav__link">
+    Finding the best pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-remarks" class="md-nav__link">
+    Final remarks
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tests.guide.graph/" title="Graph-based API" class="md-nav__link">
+      Graph-based API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tests.guide.functional/" title="Functional API" class="md-nav__link">
+      Functional API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
+      Solving UCI datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_haha_2019/" title="Solving HAHA 2019" class="md-nav__link">
+      Solving HAHA 2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
+      Solving MEDDOCAN 2019
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://autogoal.github.io/demo" title="Demo" class="md-nav__link">
+      Demo
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://autogoal.github.io/dashboard" title="Dashboard" class="md-nav__link">
+      Dashboard
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-1" type="checkbox" id="nav-10-1">
+    
+    <label class="md-nav__link" for="nav-10-1">
+      Top level
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-1">
+        Top level
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/autogoal.__init__/" title="autogoal" class="md-nav__link">
+      autogoal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/autogoal.__main__/" title="cli" class="md-nav__link">
+      cli
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-2" type="checkbox" id="nav-10-2">
+    
+    <label class="md-nav__link" for="nav-10-2">
+      Grammars
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-2">
+        Grammars
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/autogoal.grammar.__init__/" title="autogoal.grammar" class="md-nav__link">
+      autogoal.grammar
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3" type="checkbox" id="nav-10-3">
+    
+    <label class="md-nav__link" for="nav-10-3">
+      Contrib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-3">
+        Contrib
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/autogoal.contrib.__init__/" title="autogoal.contrib" class="md-nav__link">
+      autogoal.contrib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3-2" type="checkbox" id="nav-10-3-2">
+    
+    <label class="md-nav__link" for="nav-10-3-2">
+      scikit-learn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-10-3-2">
+        scikit-learn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/autogoal.contrib.sklearn.__init__/" title="autogoal.contrib.sklearn" class="md-nav__link">
+      autogoal.contrib.sklearn
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trying-multiple-logistic-regressions" class="md-nav__link">
+    Trying multiple logistic regressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trying-different-algorithms" class="md-nav__link">
+    Trying different algorithms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-more-steps" class="md-nav__link">
+    Adding more steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-the-best-pipeline" class="md-nav__link">
+    Finding the best pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-remarks" class="md-nav__link">
+    Final remarks
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/autogoal/autogoal/edit/main/docs/guide/tests.guide.cfg.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="class-based-api">Class-based API<a class="headerlink" href="#class-based-api" title="Permanent link">&para;</a></h1>
+<p>AutoGOAL's class-based API allows to automatically find optimal instances of complex objects
+in user-defined class hierarchies that solve a given task. A task is simply some method that
+evaluates an object's performance. The solution space is defined by a class hierarchy and
+all possible ways of combining instances of different types, and creating them with different parameters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following code requires <code>sklearn</code> dependencies. Read the <a href="/dependencies/">dependencies section</a> for more information.</p>
+</div>
+<p>For example, suppose we want to build the best possible classifier in <code>scikit-learn</code> for a given dataset.
+Let's begin with a simple classification problem.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</code></pre></div>
+
+<p>We use <code>make_classification</code> to create a toy classification problem.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Fixed seed for reproducibility</span>
+</code></pre></div>
+
+<p>One first idea is to use a specific algorithm, such as Logistic Regression, to solve this problem.
+Since the nature of these problems is stochastic, we need to train in one subset, test on another,
+and perform a sensible number of evaluations to actually know if this is any good.</p>
+<p><a name="ref:evaluate"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+
+<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">iters</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iters</span><span class="p">):</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+        <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">lr</span><span class="p">)</span>  <span class="c1"># around 0.83</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>  <span class="c1"># :hide:</span>
+</code></pre></div>
+
+<p>So far so good, but maybe we could do better with a different set of parameters.
+Logistic regression has at least two parameters that influence heavily its performance: the penalty function
+and the regularization strength.</p>
+<p>Instead of writing a loop through a bunch of different parameters, we can use AutoGOAL to automatically
+explore the space of possible combinations.
+We can do this with the class-based API by providing annotations for the parameters we want to explore.</p>
+<h2 id="trying-multiple-logistic-regressions">Trying multiple logistic regressions<a class="headerlink" href="#trying-multiple-logistic-regressions" title="Permanent link">&para;</a></h2>
+<p>First we import some annotation types from AutoGOAL</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">ContinuousValue</span><span class="p">,</span> <span class="n">CategoricalValue</span>
+</code></pre></div>
+
+<p>Next we annotate the parameters we want to explore.
+Since we cannot modify the class <code>LogisticRegression</code> we will inherit from it.</p>
+<p><a name="ref:LR"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">LR</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">penalty</span><span class="p">:</span> <span class="n">CategoricalValue</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span> <span class="s2">&quot;l2&quot;</span><span class="p">),</span> <span class="n">C</span><span class="p">:</span> <span class="n">ContinuousValue</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="n">penalty</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;liblinear&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>The <code>penalty: Categorical("l1", "l2")</code> annotation tells AutoGOAL that for this class the
+parameter <code>penalty</code> can take values from a list of predefined values. Likewise the
+<code>C: Continuous(0.1, 10)</code> annotation indicates that the parameter <code>C</code> can take a float value in a specified range.</p>
+<p>Now we will use AutoGOAL to automatically generate different instances of our <code>LR</code> class.
+With the class-based API we achieve this by building a <strong>context-free grammar</strong> that describes all possible instances.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">generate_cfg</span>
+
+<span class="n">grammar</span> <span class="o">=</span> <span class="n">generate_cfg</span><span class="p">(</span><span class="n">LR</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>&lt;LR&gt;         :<span class="o">=</span> LR <span class="o">(</span><span class="nv">penalty</span><span class="o">=</span>&lt;LR_penalty&gt;, <span class="nv">C</span><span class="o">=</span>&lt;LR_C&gt;<span class="o">)</span>
+&lt;LR_penalty&gt; :<span class="o">=</span> categorical <span class="o">(</span><span class="nv">options</span><span class="o">=[</span><span class="s1">&#39;l1&#39;</span>, <span class="s1">&#39;l2&#39;</span><span class="o">])</span>
+&lt;LR_C&gt;       :<span class="o">=</span> continuous <span class="o">(</span><span class="nv">min</span><span class="o">=</span><span class="m">0</span>.1, <span class="nv">max</span><span class="o">=</span><span class="m">10</span><span class="o">)</span>
+</code></pre></div>
+
+<p>As you can see, this grammar describes the set of all possible instances of <code>LR</code> by
+describing how to call the constructor, and how to generate random values for its parameters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Formally, this a called a <strong>Context-free grammar</strong>. They are used in Computer Science to describe formal languages,
+such as programming languages, mathematical expresions, etc.
+Context-free grammars work by describing a set of replacement rules that you can apply recursively to
+construct a string of a specific language. In this case we are using grammars to describe the language
+of all possible Python codes that instantiates an <code>LR</code>.
+You can read more in <a href="https://en.wikipedia.org/wiki/Context-free_grammar">Wikipedia</a>.</p>
+</div>
+<p>You can use this grammar to generate a bunch of random instances.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>LR<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">4</span>.015231900472649, <span class="nv">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="o">)</span>
+LR<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">9</span>.556786605505499, <span class="nv">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="o">)</span>
+LR<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">4</span>.05716261883461, <span class="nv">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="o">)</span>
+LR<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">3</span>.2786487445120858, <span class="nv">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="o">)</span>
+LR<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">4</span>.655510386502897, <span class="nv">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="o">)</span>
+</code></pre></div>
+
+<p>Now we can search for the best combination of constructor parameters by
+trying a bunch of different instances and see which one obtains the best score.
+AutoGOAL also has tools for automating this process.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.search</span> <span class="kn">import</span> <span class="n">RandomSearch</span>
+
+<span class="n">search</span> <span class="o">=</span> <span class="n">RandomSearch</span><span class="p">(</span><span class="n">grammar</span><span class="p">,</span> <span class="n">evaluate</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Fixed seed</span>
+<span class="n">best</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best:&quot;</span><span class="p">,</span> <span class="n">best</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Score:&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+</code></pre></div>
+
+<p>The <code>RandomSearch</code> will try 100 different random instances, and for each one
+run the <code>evaluate</code> method we defined earlier. It returns the best one and the corresponding score.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Best</span><span class="o">:</span> <span class="n">LR</span><span class="o">(</span><span class="n">C</span><span class="o">=</span><span class="mf">0.7043201482743121</span><span class="o">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="o">)</span>
+<span class="n">Score</span><span class="o">:</span> <span class="mf">0.8853333333333337</span>
+</code></pre></div>
+
+<p>So we can do a little bit better by carefully selecting the right parameters.
+However, maybe we can do even better.</p>
+<h2 id="trying-different-algorithms">Trying different algorithms<a class="headerlink" href="#trying-different-algorithms" title="Permanent link">&para;</a></h2>
+<p>To continue this line of thought, maybe we could do better with a different classifier.
+We could try decision trees,
+support vector machines, naive bayes, and many more.
+Here is the first time AutoGOAL can come to our aid. Instead of writing ourselves
+a loop through all the possible classes, we can do the following.</p>
+<p>First, we import everything we need.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+</code></pre></div>
+
+<p>Now that we have all the classes we want to try, we have to tell AutoGOAL that there is something
+to optimize.
+We start by defining a space of possible parameters that we want to tune for each of these
+classes. Like with <code>LR</code>, we will wrap these classes in our own to provide the corresponding annotations.</p>
+<p><a name="ref:SVM"></a>
+<a name="ref:DT"></a>
+<a name="ref:NB"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SVM</span><span class="p">(</span><span class="n">SVC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">kernel</span><span class="p">:</span> <span class="n">CategoricalValue</span><span class="p">(</span><span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;poly&quot;</span><span class="p">),</span>
+        <span class="n">C</span><span class="p">:</span> <span class="n">ContinuousValue</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">DT</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion</span><span class="p">:</span> <span class="n">CategoricalValue</span><span class="p">(</span><span class="s2">&quot;gini&quot;</span><span class="p">,</span> <span class="s2">&quot;entropy&quot;</span><span class="p">)):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="n">criterion</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">NB</span><span class="p">(</span><span class="n">GaussianNB</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var_smoothing</span><span class="p">:</span> <span class="n">ContinuousValue</span><span class="p">(</span><span class="mf">1e-10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">var_smoothing</span><span class="o">=</span><span class="n">var_smoothing</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Next, we use AutoGOAL to construct a grammar for the union of the possible instances
+of each of these clases.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">generate_cfg</span>
+
+<span class="n">grammar</span> <span class="o">=</span> <span class="n">generate_cfg</span><span class="p">(</span><span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Classifier&quot;</span><span class="p">,</span> <span class="n">LR</span><span class="p">,</span> <span class="n">SVM</span><span class="p">,</span> <span class="n">NB</span><span class="p">,</span> <span class="n">DT</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The method <a href="/api/grammar/#generate_cfg"><code>generate_cfg</code></a> works not only with annotated classes
+but also with plain methods, or anything that has a <code>__call__</code> and suitable annotations.</p>
+</div>
+<p>This grammar defines all possible ways to obtain a <code>Classifier</code>, which is basically
+by instantiating one of the classes we gave it with a suitable value for each parameter.
+We can test it by generating a few of them.</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>&lt;Classifier&gt;       :<span class="o">=</span> &lt;LR&gt; <span class="p">|</span> &lt;SVM&gt; <span class="p">|</span> &lt;NB&gt; <span class="p">|</span> &lt;DT&gt;
+&lt;LR&gt;               :<span class="o">=</span> LR <span class="o">(</span><span class="nv">penalty</span><span class="o">=</span>&lt;LR_penalty&gt;, <span class="nv">C</span><span class="o">=</span>&lt;LR_C&gt;<span class="o">)</span>
+&lt;LR_penalty&gt;       :<span class="o">=</span> categorical <span class="o">(</span><span class="nv">options</span><span class="o">=[</span><span class="s1">&#39;l1&#39;</span>, <span class="s1">&#39;l2&#39;</span><span class="o">])</span>
+&lt;LR_C&gt;             :<span class="o">=</span> continuous <span class="o">(</span><span class="nv">min</span><span class="o">=</span><span class="m">0</span>.1, <span class="nv">max</span><span class="o">=</span><span class="m">10</span><span class="o">)</span>
+&lt;SVM&gt;              :<span class="o">=</span> SVM <span class="o">(</span><span class="nv">kernel</span><span class="o">=</span>&lt;SVM_kernel&gt;, <span class="nv">C</span><span class="o">=</span>&lt;SVM_C&gt;<span class="o">)</span>
+&lt;SVM_kernel&gt;       :<span class="o">=</span> categorical <span class="o">(</span><span class="nv">options</span><span class="o">=[</span><span class="s1">&#39;rbf&#39;</span>, <span class="s1">&#39;linear&#39;</span>, <span class="s1">&#39;poly&#39;</span><span class="o">])</span>
+&lt;SVM_C&gt;            :<span class="o">=</span> continuous <span class="o">(</span><span class="nv">min</span><span class="o">=</span><span class="m">0</span>.1, <span class="nv">max</span><span class="o">=</span><span class="m">10</span><span class="o">)</span>
+&lt;NB&gt;               :<span class="o">=</span> NB <span class="o">(</span><span class="nv">var_smoothing</span><span class="o">=</span>&lt;NB_var_smoothing&gt;<span class="o">)</span>
+&lt;NB_var_smoothing&gt; :<span class="o">=</span> continuous <span class="o">(</span><span class="nv">min</span><span class="o">=</span>1e-10, <span class="nv">max</span><span class="o">=</span><span class="m">0</span>.1<span class="o">)</span>
+&lt;DT&gt;               :<span class="o">=</span> DT <span class="o">(</span><span class="nv">criterion</span><span class="o">=</span>&lt;DT_criterion&gt;<span class="o">)</span>
+&lt;DT_criterion&gt;     :<span class="o">=</span> categorical <span class="o">(</span><span class="nv">options</span><span class="o">=[</span><span class="s1">&#39;gini&#39;</span>, <span class="s1">&#39;entropy&#39;</span><span class="o">])</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The constructor for <code>Union</code> requires as first parameter a <code>name</code> so that in the grammar
+a suitable production can be defined. Think of it as the name of an abstract class that
+groups all your classes, just there is no actual type ever created, it's just for organizational purposes.</p>
+</div>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>NB<span class="o">(</span><span class="nv">var_smoothing</span><span class="o">=</span><span class="m">0</span>.04620465447733762<span class="o">)</span>
+DT<span class="o">(</span><span class="nv">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="o">)</span>
+SVM<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">3</span>.2914771222720116, <span class="nv">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="o">)</span>
+LR<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">7</span>.809744923904822, <span class="nv">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="o">)</span>
+DT<span class="o">(</span><span class="nv">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="o">)</span>
+</code></pre></div>
+
+<p>Now that we have a bunch of possible algorithms, let's see which one is best.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">search</span> <span class="o">=</span> <span class="n">RandomSearch</span><span class="p">(</span><span class="n">grammar</span><span class="p">,</span> <span class="n">evaluate</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">best</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best:&quot;</span><span class="p">,</span> <span class="n">best</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Score:&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>Best: NB<span class="o">(</span><span class="nv">var_smoothing</span><span class="o">=</span><span class="m">0</span>.08450775758264377<span class="o">)</span>
+Score: <span class="m">0</span>.8840000000000003
+</code></pre></div>
+
+<p>So it doesn't really seem that we can do much better, which is unsurprising given that we are only
+doing a random search (there are <a href="/api/search/">better search methods</a> in AutoGOAL), and this
+is a toy problem which basically any algorithm can solve fairly well.</p>
+<p>However, to continue with the example, now that we know how to optimize any given grammar,
+what is interesting is can we increase the complexity of our pipeline by adding more
+and more layers and steps to it, to solve more challenging problems.</p>
+<h2 id="adding-more-steps">Adding more steps<a class="headerlink" href="#adding-more-steps" title="Permanent link">&para;</a></h2>
+<p>To illustrate how to build more complex pipelines, let's change our focus to a bit more challenging problem:
+<a href="https://en.wikipedia.org/wiki/Sentiment_analysis">sentiment analysis</a>.
+We will use the ultra-know <a href="https://www.cs.cornell.edu/people/pabo/movie-review-data/">movie reviews corpus</a>
+as a testbed in the next few examples.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.datasets</span> <span class="kn">import</span> <span class="n">movie_reviews</span>
+</code></pre></div>
+
+<p>To solve sentiment analysis we need to add a step before the actual classification in order to get
+feature matrices from text. The simplest solution is to use a vectorizer from <code>scikit-learn</code>.
+There are two options to choose from.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+</code></pre></div>
+
+<p>The <code>CountVectorizer</code> class has many parameters that we might want to tune, but
+in this example we are interested only in trying different n-gram combinations.
+Hence, we will wrap <code>CountVectorizer</code> in our own <code>Count</code> class, and redefine its constructor
+to receive an <code>ngram</code> parameter. We annotate this parameter with <code>:Discrete(1,3)</code> to
+indicate that the possible values are integers in the interval <code>[1,3]</code>.</p>
+<p><a name="ref:Count"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">DiscreteValue</span>
+
+
+<span class="k">class</span> <span class="nc">Count</span><span class="p">(</span><span class="n">CountVectorizer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ngram</span><span class="p">:</span> <span class="n">DiscreteValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ngram</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ngram</span> <span class="o">=</span> <span class="n">ngram</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The reason why we store <code>ngram</code> in the <code>__init__()</code> method is
+for documentation purposes, so that when we call <code>print()</code>
+we get to see the actual parameters that where selected.
+This works automatically for parameters that are named exactly as <code>sklearn</code>
+parameters, because their <code>__repr__</code> takes care, but for parameters which we
+introduce we need to store them in the instance so that <code>__repr__</code> works.</p>
+</div>
+<p>Now we will do the same with the <code>TfIdfVectorizer</code> class, but this time we also want to
+explore automatically whether enabling or disabling <code>use_idf</code> is better.
+We will use the <code>Boolean</code> annotation in this case.</p>
+<p><a name="ref:TfIdf"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">BooleanValue</span>
+
+
+<span class="k">class</span> <span class="nc">TfIdf</span><span class="p">(</span><span class="n">TfidfVectorizer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ngram</span><span class="p">:</span> <span class="n">DiscreteValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">use_idf</span><span class="p">:</span> <span class="n">BooleanValue</span><span class="p">()):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ngram</span><span class="p">),</span> <span class="n">use_idf</span><span class="o">=</span><span class="n">use_idf</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ngram</span> <span class="o">=</span> <span class="n">ngram</span>
+</code></pre></div>
+
+<p>Besides vectorization, another common step in NLP pipelines is dimensionality reduction.
+For dimensionality reduction, we want to either use singular value decomposition,
+or nothing at all. The implementation of <code>TruncatedSVD</code> is suitable here because it
+provides a fast and scalable approximation to SVDs when dealing with spare matrices.
+As before, we want to parameterize the end dimension, so we will use <code>:Discrete(50,200)</code>,
+i.e., if we reduce at all, reduce between <code>50</code> and <code>200</code> dimensions.
+We will use the <code>Discrete</code> annotation in this case.</p>
+<p><a name="ref:SVD"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+
+
+<span class="k">class</span> <span class="nc">SVD</span><span class="p">(</span><span class="n">TruncatedSVD</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">DiscreteValue</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">)):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+</code></pre></div>
+
+<p>To disable dimensionality reduction in some pipelines, it's not correct to simply pass a <code>None</code>
+object. That would raise an exception. Instead, we make use of the
+<a href="https://en.wikipedia.org/wiki/Null_object_pattern"><em>Null Object</em> design pattern</a>
+and provide a "no-op" implementation that simply passes through the values.</p>
+<p><a name="ref:Noop"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Noop</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">X</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">X</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Noop()&quot;</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Technically, we could use <code>"passtrough"</code> as an argument to the <code>Pipeline</code> class that we will
+use below and achieve the same result. However, this approach is more general and clean, since
+it doesn't rely on the underlying API providing us with an implementation of the <em>Null Object</em> pattern.</p>
+</div>
+<p>Now that we have all of the necessary classes with their corresponding parameters
+correctly annotated, it's time to put it all together into a pipeline. We will
+inherit from <code>sklearn</code>'s own implementation of <code>Pipeline</code>, because we want to fix
+the actual steps that are gonna be used.</p>
+<p>Just as before, out initializer declares the parameters. In this case, we
+want a vectorizer, a decomposer and a classifier. To tell <code>autogoal</code> to try
+different classes for the same parameter we use the <a href="/api/cfg#unions"><code>Union</code></a> annotation.
+Likewise, just as before, we have to call the base initializer, this time passing the
+corresponding configuration for an
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html"><code>sklearn</code> pipeline</a>.</p>
+<p><a name="ref:Pipeline"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span> <span class="k">as</span> <span class="n">_Pipeline</span>
+
+
+<span class="k">class</span> <span class="nc">Pipeline</span><span class="p">(</span><span class="n">_Pipeline</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">vectorizer</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Vectorizer&quot;</span><span class="p">,</span> <span class="n">Count</span><span class="p">,</span> <span class="n">TfIdf</span><span class="p">),</span>
+        <span class="n">decomposer</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Decomposer&quot;</span><span class="p">,</span> <span class="n">Noop</span><span class="p">,</span> <span class="n">SVD</span><span class="p">),</span>
+        <span class="n">classifier</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Classifier&quot;</span><span class="p">,</span> <span class="n">LR</span><span class="p">,</span> <span class="n">SVM</span><span class="p">,</span> <span class="n">DT</span><span class="p">,</span> <span class="n">NB</span><span class="p">),</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">vectorizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decomposer</span> <span class="o">=</span> <span class="n">decomposer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="p">[(</span><span class="s2">&quot;vec&quot;</span><span class="p">,</span> <span class="n">vectorizer</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;dec&quot;</span><span class="p">,</span> <span class="n">decomposer</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;cls&quot;</span><span class="p">,</span> <span class="n">classifier</span><span class="p">),]</span>
+        <span class="p">)</span>
+</code></pre></div>
+
+<p>Once everything is in place, we can tell <code>autogoal</code> to automatically infer a grammar
+for all the possible combinations of parameters and clases that we can use.
+The root of our grammar is the <code>Pipeline</code> class we just defined. The method <code>generate_cfg</code>
+does exactly that, taking a class and building a context free grammar to construct
+that class, based on the parameters' annotations and recursively building the corresponding
+rules for all classes down to basic parameter types.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">grammar</span> <span class="o">=</span> <span class="n">generate_cfg</span><span class="p">(</span><span class="n">Pipeline</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Notice how the grammar specifies all the possible ways to build a <code>Pipeline</code>,
+both considering the different implementations we have for vectorizers, decomposers and classifiers;
+as well as their corresponding parameters. Our grammar is fairly simple because we only have
+two levels of recursion, Pipeline and its parameters; but this same process can be applied to any
+hierarchy of any complexity, including circular references.</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>&lt;Pipeline&gt;         :<span class="o">=</span> Pipeline <span class="o">(</span><span class="nv">vectorizer</span><span class="o">=</span>&lt;Vectorizer&gt;, <span class="nv">decomposer</span><span class="o">=</span>&lt;Decomposer&gt;, <span class="nv">classifier</span><span class="o">=</span>&lt;Classifier&gt;<span class="o">)</span>
+&lt;Vectorizer&gt;       :<span class="o">=</span> &lt;Count&gt; <span class="p">|</span> &lt;TfIdf&gt;
+&lt;Count&gt;            :<span class="o">=</span> Count <span class="o">(</span><span class="nv">ngram</span><span class="o">=</span>&lt;Count_ngram&gt;<span class="o">)</span>
+&lt;Count_ngram&gt;      :<span class="o">=</span> discrete <span class="o">(</span><span class="nv">min</span><span class="o">=</span><span class="m">1</span>, <span class="nv">max</span><span class="o">=</span><span class="m">3</span><span class="o">)</span>
+&lt;TfIdf&gt;            :<span class="o">=</span> TfIdf <span class="o">(</span><span class="nv">ngram</span><span class="o">=</span>&lt;TfIdf_ngram&gt;, <span class="nv">use_idf</span><span class="o">=</span>&lt;TfIdf_use_idf&gt;<span class="o">)</span>
+&lt;TfIdf_ngram&gt;      :<span class="o">=</span> discrete <span class="o">(</span><span class="nv">min</span><span class="o">=</span><span class="m">1</span>, <span class="nv">max</span><span class="o">=</span><span class="m">3</span><span class="o">)</span>
+&lt;TfIdf_use_idf&gt;    :<span class="o">=</span> boolean <span class="o">()</span>
+&lt;Decomposer&gt;       :<span class="o">=</span> &lt;Noop&gt; <span class="p">|</span> &lt;SVD&gt;
+&lt;Noop&gt;             :<span class="o">=</span> Noop <span class="o">()</span>
+&lt;SVD&gt;              :<span class="o">=</span> SVD <span class="o">(</span><span class="nv">n</span><span class="o">=</span>&lt;SVD_n&gt;<span class="o">)</span>
+&lt;SVD_n&gt;            :<span class="o">=</span> discrete <span class="o">(</span><span class="nv">min</span><span class="o">=</span><span class="m">50</span>, <span class="nv">max</span><span class="o">=</span><span class="m">200</span><span class="o">)</span>
+&lt;Classifier&gt;       :<span class="o">=</span> &lt;LR&gt; <span class="p">|</span> &lt;SVM&gt; <span class="p">|</span> &lt;DT&gt; <span class="p">|</span> &lt;NB&gt;
+&lt;LR&gt;               :<span class="o">=</span> LR <span class="o">(</span><span class="nv">penalty</span><span class="o">=</span>&lt;LR_penalty&gt;, <span class="nv">C</span><span class="o">=</span>&lt;LR_C&gt;<span class="o">)</span>
+&lt;LR_penalty&gt;       :<span class="o">=</span> categorical <span class="o">(</span><span class="nv">options</span><span class="o">=[</span><span class="s1">&#39;l1&#39;</span>, <span class="s1">&#39;l2&#39;</span><span class="o">])</span>
+&lt;LR_C&gt;             :<span class="o">=</span> continuous <span class="o">(</span><span class="nv">min</span><span class="o">=</span><span class="m">0</span>.1, <span class="nv">max</span><span class="o">=</span><span class="m">10</span><span class="o">)</span>
+&lt;SVM&gt;              :<span class="o">=</span> SVM <span class="o">(</span><span class="nv">kernel</span><span class="o">=</span>&lt;SVM_kernel&gt;, <span class="nv">C</span><span class="o">=</span>&lt;SVM_C&gt;<span class="o">)</span>
+&lt;SVM_kernel&gt;       :<span class="o">=</span> categorical <span class="o">(</span><span class="nv">options</span><span class="o">=[</span><span class="s1">&#39;rbf&#39;</span>, <span class="s1">&#39;linear&#39;</span>, <span class="s1">&#39;poly&#39;</span><span class="o">])</span>
+&lt;SVM_C&gt;            :<span class="o">=</span> continuous <span class="o">(</span><span class="nv">min</span><span class="o">=</span><span class="m">0</span>.1, <span class="nv">max</span><span class="o">=</span><span class="m">10</span><span class="o">)</span>
+&lt;DT&gt;               :<span class="o">=</span> DT <span class="o">(</span><span class="nv">criterion</span><span class="o">=</span>&lt;DT_criterion&gt;<span class="o">)</span>
+&lt;DT_criterion&gt;     :<span class="o">=</span> categorical <span class="o">(</span><span class="nv">options</span><span class="o">=[</span><span class="s1">&#39;gini&#39;</span>, <span class="s1">&#39;entropy&#39;</span><span class="o">])</span>
+&lt;NB&gt;               :<span class="o">=</span> NB <span class="o">(</span><span class="nv">var_smoothing</span><span class="o">=</span>&lt;NB_var_smoothing&gt;<span class="o">)</span>
+&lt;NB_var_smoothing&gt; :<span class="o">=</span> continuous <span class="o">(</span><span class="nv">min</span><span class="o">=</span>1e-10, <span class="nv">max</span><span class="o">=</span><span class="m">0</span>.1<span class="o">)</span>
+</code></pre></div>
+
+<p>Now we can start to see the power of the class-based API. Just with a few annotations
+in the same classes that we anyway have to write, we automatically obtain a computational representation
+(a grammar) that knows how to build infinitely many of these instances.
+Futhermore, this works with any level of complexity, whether our classes receive
+simple arguments (such as integers, floats, strings) or instances of other classes, and so on.</p>
+<p>Let's take a look at how different pipelines can be generated with this grammar by sampling
+10 random pipelines.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span>
+</code></pre></div>
+
+<p>You should see something like this, but your exact pipelines will be different due to random sampling.</p>
+<div class="codehilite"><pre><span></span><code>Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>SVM<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">4</span>.09762837283166, <span class="nv">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="o">)</span>, <span class="nv">decomposer</span><span class="o">=</span>Noop<span class="o">()</span>,
+         <span class="nv">vectorizer</span><span class="o">=</span>Count<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">1</span><span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>DT<span class="o">(</span><span class="nv">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="o">)</span>, <span class="nv">decomposer</span><span class="o">=</span>Noop<span class="o">()</span>,
+         <span class="nv">vectorizer</span><span class="o">=</span>Count<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">2</span><span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>LR<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">5</span>.309978916527087, <span class="nv">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="o">)</span>, <span class="nv">decomposer</span><span class="o">=</span>Noop<span class="o">()</span>,
+         <span class="nv">vectorizer</span><span class="o">=</span>Count<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">3</span><span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>LR<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">9</span>.776994352626533, <span class="nv">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="o">)</span>, <span class="nv">decomposer</span><span class="o">=</span>Noop<span class="o">()</span>,
+         <span class="nv">vectorizer</span><span class="o">=</span>TfIdf<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">2</span>, <span class="nv">use_idf</span><span class="o">=</span>True<span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>SVM<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">5</span>.973033047496386, <span class="nv">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="o">)</span>,
+         <span class="nv">decomposer</span><span class="o">=</span>SVD<span class="o">(</span><span class="nv">n</span><span class="o">=</span><span class="m">197</span><span class="o">)</span>, <span class="nv">vectorizer</span><span class="o">=</span>Count<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">3</span><span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>NB<span class="o">(</span><span class="nv">var_smoothing</span><span class="o">=</span><span class="m">0</span>.07941925220053651<span class="o">)</span>,
+         <span class="nv">decomposer</span><span class="o">=</span>SVD<span class="o">(</span><span class="nv">n</span><span class="o">=</span><span class="m">183</span><span class="o">)</span>, <span class="nv">vectorizer</span><span class="o">=</span>TfIdf<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">3</span>, <span class="nv">use_idf</span><span class="o">=</span>False<span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>DT<span class="o">(</span><span class="nv">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="o">)</span>, <span class="nv">decomposer</span><span class="o">=</span>SVD<span class="o">(</span><span class="nv">n</span><span class="o">=</span><span class="m">144</span><span class="o">)</span>,
+         <span class="nv">vectorizer</span><span class="o">=</span>TfIdf<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">1</span>, <span class="nv">use_idf</span><span class="o">=</span>True<span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>SVM<span class="o">(</span><span class="nv">C</span><span class="o">=</span><span class="m">6</span>.052775609636756, <span class="nv">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="o">)</span>,
+         <span class="nv">decomposer</span><span class="o">=</span>SVD<span class="o">(</span><span class="nv">n</span><span class="o">=</span><span class="m">160</span><span class="o">)</span>, <span class="nv">vectorizer</span><span class="o">=</span>TfIdf<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">1</span>, <span class="nv">use_idf</span><span class="o">=</span>True<span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>DT<span class="o">(</span><span class="nv">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="o">)</span>, <span class="nv">decomposer</span><span class="o">=</span>Noop<span class="o">()</span>,
+         <span class="nv">vectorizer</span><span class="o">=</span>Count<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">1</span><span class="o">))</span>
+Pipeline<span class="o">(</span><span class="nv">classifier</span><span class="o">=</span>DT<span class="o">(</span><span class="nv">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="o">)</span>, <span class="nv">decomposer</span><span class="o">=</span>Noop<span class="o">()</span>,
+         <span class="nv">vectorizer</span><span class="o">=</span>TfIdf<span class="o">(</span><span class="nv">ngram</span><span class="o">=</span><span class="m">3</span>, <span class="nv">use_idf</span><span class="o">=</span>True<span class="o">))</span>
+</code></pre></div>
+
+<h2 id="finding-the-best-pipeline">Finding the best pipeline<a class="headerlink" href="#finding-the-best-pipeline" title="Permanent link">&para;</a></h2>
+<p>To continue with the example, we will now search for the best pipeline.
+We will evaluate our pipelines on the <code>movie_reviews</code> corpus. For that purpose
+we need a fitness function, which is a simple callable that takes a pipeline and outputs
+a score. Fortunately, the <code>movie_reviews.make_fn</code> function does this for us, taking
+care of train/test splitting, fitting a pipeline in the training set and computing
+the accuracy on the test set.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">fitness_fn</span> <span class="o">=</span> <span class="n">movie_reviews</span><span class="o">.</span><span class="n">make_fn</span><span class="p">(</span><span class="n">examples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+
+<p>The <code>RandomSearch</code> strategy simply calls <code>grammar.sample()</code> a bunch of times
+and stores the best performing pipeline. It has no intelligence whatsoever,
+but it serves as a good baseline implementation.</p>
+<p>We will run it for a total of <code>1000</code> fitness evaluations, or equivalently, a total
+of <code>1000</code> different random pipelines.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">random_search</span> <span class="o">=</span> <span class="n">RandomSearch</span><span class="p">(</span><span class="n">grammar</span><span class="p">,</span> <span class="n">fitness_fn</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">best</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">random_search</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For reproducibility purposes we can pass a fixed random seed in <code>random_state</code>.</p>
+</div>
+<h2 id="final-remarks">Final remarks<a class="headerlink" href="#final-remarks" title="Permanent link">&para;</a></h2>
+<p>We only used <code>scikit-learn</code> here for illustrative purposes, but you can apply this strategy to any problem
+whose solution consists of exploring a large space of complex class instances interrelated with each other.</p>
+<p>Also, in this example we have manually written wrappers for <code>scikit-learn</code> classes to provide the necessary
+annotations. However, specifically for <code>scikit-learn</code>, we already provide a bunch of wrappers with suitable
+annotations in <a href="/api/sklearn/"><code>autogoal.contrib.sklearn</code></a>.</p>
+<p>We also only use <code>RandomSearch</code> in this example because the focus is on defining the pipelines.
+However, the <a href="/api/search/"><code>autogoal.search</code></a> namespace contains other search strategies that perform
+much better than plain random sampling.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../tests.guide.include_algorithm/" title="Using custom algorithms" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Using custom algorithms
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../tests.guide.graph/" title="Graph-based API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Graph-based API
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

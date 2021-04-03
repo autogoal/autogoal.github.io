@@ -1,0 +1,1309 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://autogoal.github.io/api/autogoal.kb._data/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../autogoal-logo-embedded.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Autogoal.kb. data - AutoGOAL</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-172957751-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#examples" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://autogoal.github.io" title="AutoGOAL" aria-label="AutoGOAL" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../autogoal-logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              AutoGOAL
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Autogoal.kb. data
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/autogoal/autogoal/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../guide/" class="md-tabs__link">
+          User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../autogoal.__init__/" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://autogoal.github.io" title="AutoGOAL" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../autogoal-logo.svg" width="48" height="48">
+      
+    </a>
+    AutoGOAL
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/autogoal/autogoal/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/" title="CLI" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../dependencies/" title="Dependencies" class="md-nav__link">
+      Dependencies
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/" title="First steps" class="md-nav__link">
+      First steps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.predefined/" title="Predefined pipelines" class="md-nav__link">
+      Predefined pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.include_algorithm/" title="Using custom algorithms" class="md-nav__link">
+      Using custom algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.cfg/" title="Class-based API" class="md-nav__link">
+      Class-based API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.graph/" title="Graph-based API" class="md-nav__link">
+      Graph-based API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.functional/" title="Functional API" class="md-nav__link">
+      Functional API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
+      Solving UCI datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_haha_2019/" title="Solving HAHA 2019" class="md-nav__link">
+      Solving HAHA 2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
+      Solving MEDDOCAN 2019
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://autogoal.github.io/demo" title="Demo" class="md-nav__link">
+      Demo
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://autogoal.github.io/dashboard" title="Dashboard" class="md-nav__link">
+      Dashboard
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-1" type="checkbox" id="nav-10-1">
+    
+    <label class="md-nav__link" for="nav-10-1">
+      Top level
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-1">
+        Top level
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.__init__/" title="autogoal" class="md-nav__link">
+      autogoal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.__main__/" title="cli" class="md-nav__link">
+      cli
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-2" type="checkbox" id="nav-10-2">
+    
+    <label class="md-nav__link" for="nav-10-2">
+      Grammars
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-2">
+        Grammars
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.grammar.__init__/" title="autogoal.grammar" class="md-nav__link">
+      autogoal.grammar
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3" type="checkbox" id="nav-10-3">
+    
+    <label class="md-nav__link" for="nav-10-3">
+      Contrib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-3">
+        Contrib
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.contrib.__init__/" title="autogoal.contrib" class="md-nav__link">
+      autogoal.contrib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3-2" type="checkbox" id="nav-10-3-2">
+    
+    <label class="md-nav__link" for="nav-10-3-2">
+      scikit-learn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-10-3-2">
+        scikit-learn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.contrib.sklearn.__init__/" title="autogoal.contrib.sklearn" class="md-nav__link">
+      autogoal.contrib.sklearn
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/autogoal/autogoal/edit/main/docs/api/autogoal.kb._data.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.exceptions</span> <span class="kn">import</span> <span class="n">InterfaceIncompatibleError</span>
+</code></pre></div>
+
+<p>import types</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">inspect</span>
+</code></pre></div>
+
+<p>import pprint</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Mapping</span>
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">Symbol</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Empty</span><span class="p">,</span> <span class="n">Subset</span>
+</code></pre></div>
+
+<p>from scipy.sparse.base import spmatrix
+from numpy import ndarray</p>
+<p>def algorithm(input_type, output_type):
+    def run_method(self, input: input_type) -&gt; output_type:
+        pass</p>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">body</span><span class="p">(</span><span class="n">ns</span><span class="p">):</span>
+    <span class="n">ns</span><span class="p">[</span><span class="ss">&quot;run&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_method</span>
+
+<span class="k">return</span> <span class="n">types</span><span class="p">.</span><span class="n">new_class</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="ss">&quot;Algorithm[%s, %s]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">input_type</span><span class="p">,</span> <span class="n">output_type</span><span class="p">),</span>
+    <span class="n">bases</span><span class="o">=</span><span class="p">(</span><span class="n">Interface</span><span class="p">,),</span>
+    <span class="n">exec_body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p><a name="ref:Interface"></a>
+<a name="ref:Distinct"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Interface</span><span class="p">:</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">is_compatible</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">other_cls</span><span class="p">):</span>
+        <span class="n">own_methods</span> <span class="o">=</span> <span class="n">_get_annotations</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;generate_cfg&quot;</span><span class="p">,</span> <span class="s2">&quot;is_compatible&quot;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">other_cls</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">other_cls</span><span class="p">,</span> <span class="n">Interface</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">type_methods</span> <span class="o">=</span> <span class="n">_get_annotations</span><span class="p">(</span><span class="n">other_cls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_compatible_annotations</span><span class="p">(</span><span class="n">own_methods</span><span class="p">,</span> <span class="n">type_methods</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">generate_cfg</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">grammar</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+        <span class="n">symbol</span> <span class="o">=</span> <span class="n">head</span> <span class="ow">or</span> <span class="n">Symbol</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">compatible</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">other_cls</span> <span class="ow">in</span> <span class="n">grammar</span><span class="o">.</span><span class="n">namespace</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">is_compatible</span><span class="p">(</span><span class="n">other_cls</span><span class="p">):</span>
+                <span class="n">compatible</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other_cls</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">compatible</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InterfaceIncompatibleError</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Union</span><span class="p">(</span><span class="n">symbol</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">compatible</span><span class="p">)</span><span class="o">.</span><span class="n">generate_cfg</span><span class="p">(</span><span class="n">grammar</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Distinct</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interface</span><span class="p">:</span> <span class="n">Interface</span><span class="p">,</span> <span class="n">exceptions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interface</span> <span class="o">=</span> <span class="n">interface</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exceptions</span> <span class="o">=</span> <span class="n">exceptions</span>
+
+    <span class="k">def</span> <span class="nf">generate_cfg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grammar</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+        <span class="n">symbol</span> <span class="o">=</span> <span class="n">head</span> <span class="ow">or</span> <span class="n">Symbol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">compatible</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">other_cls</span> <span class="ow">in</span> <span class="n">grammar</span><span class="o">.</span><span class="n">namespace</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">other_cls</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exceptions</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other_cls</span><span class="p">,</span> <span class="s2">&quot;__name__&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">other_cls</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exceptions</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">is_compatible</span><span class="p">(</span><span class="n">other_cls</span><span class="p">):</span>
+                <span class="n">compatible</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other_cls</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">compatible</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot find compatible implementations for &lt;class </span><span class="si">%s</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Subset</span><span class="p">(</span><span class="n">symbol</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">compatible</span><span class="p">)</span><span class="o">.</span><span class="n">generate_cfg</span><span class="p">(</span><span class="n">grammar</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+</code></pre></div>
+
+<p>def conforms(type1, type2):
+    if inspect.isclass(type1) and inspect.isclass(type2):
+        return issubclass(type1, type2)</p>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="n">hasattr</span><span class="p">(</span><span class="n">type1</span><span class="p">,</span> <span class="ss">&quot;__conforms__&quot;</span><span class="p">)</span> <span class="k">and</span> <span class="n">type1</span><span class="p">.</span><span class="n">__conforms__</span><span class="p">(</span><span class="n">type2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">True</span>
+
+<span class="k">if</span> <span class="n">hasattr</span><span class="p">(</span><span class="n">type2</span><span class="p">,</span> <span class="ss">&quot;__rconforms__&quot;</span><span class="p">)</span> <span class="k">and</span> <span class="n">type2</span><span class="p">.</span><span class="n">__rconforms__</span><span class="p">(</span><span class="n">type1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">True</span>
+
+<span class="k">return</span> <span class="k">False</span>
+</code></pre></div>
+
+<p><a name="ref:_compatible_annotations"></a>
+<a name="ref:_get_annotations"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">_compatible_annotations</span><span class="p">(</span>
+    <span class="n">methods_if</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">inspect</span><span class="o">.</span><span class="n">Signature</span><span class="p">],</span>
+    <span class="n">methods_im</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">inspect</span><span class="o">.</span><span class="n">Signature</span><span class="p">],</span>
+<span class="p">):</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">mif</span> <span class="ow">in</span> <span class="n">methods_if</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">methods_im</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">mim</span> <span class="o">=</span> <span class="n">methods_im</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param_if</span> <span class="ow">in</span> <span class="n">mif</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">mim</span><span class="o">.</span><span class="n">parameters</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+            <span class="n">param_im</span> <span class="o">=</span> <span class="n">mim</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">ann_if</span> <span class="o">=</span> <span class="n">param_if</span><span class="o">.</span><span class="n">annotation</span>
+
+            <span class="k">if</span> <span class="n">ann_if</span> <span class="o">==</span> <span class="n">inspect</span><span class="o">.</span><span class="n">Parameter</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">ann_im</span> <span class="o">=</span> <span class="n">param_im</span><span class="o">.</span><span class="n">annotation</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">conforms</span><span class="p">(</span><span class="n">ann_if</span><span class="p">,</span> <span class="n">ann_im</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">return_if</span> <span class="o">=</span> <span class="n">mif</span><span class="o">.</span><span class="n">return_annotation</span>
+
+        <span class="k">if</span> <span class="n">return_if</span> <span class="o">==</span> <span class="n">inspect</span><span class="o">.</span><span class="n">Parameter</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">return_im</span> <span class="o">=</span> <span class="n">mim</span><span class="o">.</span><span class="n">return_annotation</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">conforms</span><span class="p">(</span><span class="n">return_im</span><span class="p">,</span> <span class="n">return_if</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">_get_annotations</span><span class="p">(</span><span class="n">clss</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="p">[]):</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Computes the annotations of all public methods in type <code>clss</code>.</p>
+<h5 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h5>
+<p>```python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>class A:
+...     def f(self, input: int) -&gt; float:
+...         pass
+_get_annotations(A)
+{'f': <Signature (self, input:int) -> float&gt;}</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>```</p>
+</div>
+<div class="codehilite"><pre><span></span><code>    <span class="n">methods</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmembers</span><span class="p">(</span>
+        <span class="n">clss</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="n">inspect</span><span class="o">.</span><span class="n">ismethod</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="ow">or</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isfunction</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">signatures</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">methods</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+        <span class="n">signatures</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">signatures</span>
+</code></pre></div>
+
+<h1 id="def-make_list_wrapperalgorithm">def make_list_wrapper(algorithm):<a class="headerlink" href="#def-make_list_wrapperalgorithm" title="Permanent link">&para;</a></h1>
+<h1 id="from-autogoalkb_algorithm-import-_get_annotations">from autogoal.kb._algorithm import _get_annotations<a class="headerlink" href="#from-autogoalkb_algorithm-import-_get_annotations" title="Permanent link">&para;</a></h1>
+<h1 id="input_type-output_type-_get_annotationsalgorithm">input_type, output_type = _get_annotations(algorithm)<a class="headerlink" href="#input_type-output_type-_get_annotationsalgorithm" title="Permanent link">&para;</a></h1>
+<h1 id="name-flistalgorithmname">name = f"List[{algorithm.<strong>name</strong>}]"<a class="headerlink" href="#name-flistalgorithmname" title="Permanent link">&para;</a></h1>
+<h1 id="def-wrap_listtypes">def wrap_list(types):<a class="headerlink" href="#def-wrap_listtypes" title="Permanent link">&para;</a></h1>
+<h1 id="if-isinstancetypes-tuple">if isinstance(types, Tuple):<a class="headerlink" href="#if-isinstancetypes-tuple" title="Permanent link">&para;</a></h1>
+<h1 id="return-tuplelistt-for-t-in-typesinner">return Tuple(*(List(t) for t in types.inner))<a class="headerlink" href="#return-tuplelistt-for-t-in-typesinner" title="Permanent link">&para;</a></h1>
+<h1 id="return-listtypes">return List(types)<a class="headerlink" href="#return-listtypes" title="Permanent link">&para;</a></h1>
+<h1 id="def-init_methodself-inner-algorithm">def init_method(self, inner: algorithm):<a class="headerlink" href="#def-init_methodself-inner-algorithm" title="Permanent link">&para;</a></h1>
+<h1 id="selfinner-inner">self.inner = inner<a class="headerlink" href="#selfinner-inner" title="Permanent link">&para;</a></h1>
+<h1 id="def-run_methodself-input-wrap_listinput_type-wrap_listoutput_type">def run_method(self, input: wrap_list(input_type)) -&gt; wrap_list(output_type):<a class="headerlink" href="#def-run_methodself-input-wrap_listinput_type-wrap_listoutput_type" title="Permanent link">&para;</a></h1>
+<h1 id="return-selfinnerrunx-for-x-in-xs">return [self.inner.run(x) for x in xs]<a class="headerlink" href="#return-selfinnerrunx-for-x-in-xs" title="Permanent link">&para;</a></h1>
+<h1 id="def-repr_methodself">def repr_method(self):<a class="headerlink" href="#def-repr_methodself" title="Permanent link">&para;</a></h1>
+<h1 id="return-fnameinnerreprselfinner">return f"{name}(inner={repr(self.inner)})"<a class="headerlink" href="#return-fnameinnerreprselfinner" title="Permanent link">&para;</a></h1>
+<h1 id="def-getattr_methodself-attr">def getattr_method(self, attr):<a class="headerlink" href="#def-getattr_methodself-attr" title="Permanent link">&para;</a></h1>
+<h1 id="return-getattrselfinner-attr">return getattr(self.inner, attr)<a class="headerlink" href="#return-getattrselfinner-attr" title="Permanent link">&para;</a></h1>
+<h1 id="def-bodyns">def body(ns):<a class="headerlink" href="#def-bodyns" title="Permanent link">&para;</a></h1>
+<h1 id="nsinit-init_method">ns["<strong>init</strong>"] = init_method<a class="headerlink" href="#nsinit-init_method" title="Permanent link">&para;</a></h1>
+<h1 id="nsrun-run_method">ns["run"] = run_method<a class="headerlink" href="#nsrun-run_method" title="Permanent link">&para;</a></h1>
+<h1 id="nsrepr-repr_method">ns["<strong>repr</strong>"] = repr_method<a class="headerlink" href="#nsrepr-repr_method" title="Permanent link">&para;</a></h1>
+<h1 id="nsgetattr-getattr_method">ns["<strong>getattr</strong>"] = getattr_method<a class="headerlink" href="#nsgetattr-getattr_method" title="Permanent link">&para;</a></h1>
+<h1 id="return-typesnew_classnamename-bases-exec_bodybody">return types.new_class(name=name, bases=(), exec_body=body)<a class="headerlink" href="#return-typesnew_classnamename-bases-exec_bodybody" title="Permanent link">&para;</a></h1>
+<h1 id="def-build_composite_listinput_type-output_type-depth1">def build_composite_list(input_type, output_type, depth=1):<a class="headerlink" href="#def-build_composite_listinput_type-output_type-depth1" title="Permanent link">&para;</a></h1>
+<h1 id="def-wrapt-d">def wrap(t, d):<a class="headerlink" href="#def-wrapt-d" title="Permanent link">&para;</a></h1>
+<h1 id="if-d-0">if d == 0:<a class="headerlink" href="#if-d-0" title="Permanent link">&para;</a></h1>
+<h1 id="return-t">return t<a class="headerlink" href="#return-t" title="Permanent link">&para;</a></h1>
+<h1 id="return-listwrapt-d-1">return List(wrap(t, d - 1))<a class="headerlink" href="#return-listwrapt-d-1" title="Permanent link">&para;</a></h1>
+<h1 id="input_wrapper-wrapinput_type-depth">input_wrapper = wrap(input_type, depth)<a class="headerlink" href="#input_wrapper-wrapinput_type-depth" title="Permanent link">&para;</a></h1>
+<h1 id="output_wrapper-wrapoutput_type-depth">output_wrapper = wrap(output_type, depth)<a class="headerlink" href="#output_wrapper-wrapoutput_type-depth" title="Permanent link">&para;</a></h1>
+<h1 id="name-listalgorithm-input_wrapper-output_wrapper"># name = "ListAlgorithm"  # % (input_wrapper, output_wrapper)<a class="headerlink" href="#name-listalgorithm-input_wrapper-output_wrapper" title="Permanent link">&para;</a></h1>
+<h1 id="name-listalgorithm-s-s-input_wrapper-output_wrapper">name = "ListAlgorithm" #[%s, %s]" % (input_wrapper, output_wrapper)<a class="headerlink" href="#name-listalgorithm-s-s-input_wrapper-output_wrapper" title="Permanent link">&para;</a></h1>
+<h1 id="def-init_methodself-inner-algorithminput_type-output_type">def init_method(self, inner: algorithm(input_type, output_type)):<a class="headerlink" href="#def-init_methodself-inner-algorithminput_type-output_type" title="Permanent link">&para;</a></h1>
+<h1 id="selfinner-inner_1">self.inner = inner<a class="headerlink" href="#selfinner-inner_1" title="Permanent link">&para;</a></h1>
+<h1 id="def-run_methodself-input-input_wrapper-output_wrapper">def run_method(self, input: input_wrapper) -&gt; output_wrapper:<a class="headerlink" href="#def-run_methodself-input-input_wrapper-output_wrapper" title="Permanent link">&para;</a></h1>
+<h1 id="def-wrap_runxs-d">def wrap_run(xs, d):<a class="headerlink" href="#def-wrap_runxs-d" title="Permanent link">&para;</a></h1>
+<h1 id="if-d-0_1">if d == 0:<a class="headerlink" href="#if-d-0_1" title="Permanent link">&para;</a></h1>
+<h1 id="return-selfinnerrunxs">return self.inner.run(xs)<a class="headerlink" href="#return-selfinnerrunxs" title="Permanent link">&para;</a></h1>
+<h1 id="return-wrap_runx-d-1-for-x-in-xs">return [wrap_run(x, d - 1) for x in xs]<a class="headerlink" href="#return-wrap_runx-d-1-for-x-in-xs" title="Permanent link">&para;</a></h1>
+<h1 id="return-wrap_runinput-depth">return wrap_run(input, depth)<a class="headerlink" href="#return-wrap_runinput-depth" title="Permanent link">&para;</a></h1>
+<h1 id="def-repr_methodself_1">def repr_method(self):<a class="headerlink" href="#def-repr_methodself_1" title="Permanent link">&para;</a></h1>
+<h1 id="return-fnameinnerreprselfinner_1">return f"{name}(inner={repr(self.inner)})"<a class="headerlink" href="#return-fnameinnerreprselfinner_1" title="Permanent link">&para;</a></h1>
+<h1 id="def-getattr_methodself-attr_1">def getattr_method(self, attr):<a class="headerlink" href="#def-getattr_methodself-attr_1" title="Permanent link">&para;</a></h1>
+<h1 id="return-getattrselfinner-attr_1">return getattr(self.inner, attr)<a class="headerlink" href="#return-getattrselfinner-attr_1" title="Permanent link">&para;</a></h1>
+<h1 id="def-reduce_methodself">def reduce_method(self):<a class="headerlink" href="#def-reduce_methodself" title="Permanent link">&para;</a></h1>
+<h1 id="return">return (<a class="headerlink" href="#return" title="Permanent link">&para;</a></h1>
+<h1 id="build_composite_list_instance">build_composite_list_instance,<a class="headerlink" href="#build_composite_list_instance" title="Permanent link">&para;</a></h1>
+<h1 id="input_type-output_type-selfinner">(input_type, output_type, self.inner)<a class="headerlink" href="#input_type-output_type-selfinner" title="Permanent link">&para;</a></h1>
+<h1 id="_1">)<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="def-bodyns_1">def body(ns):<a class="headerlink" href="#def-bodyns_1" title="Permanent link">&para;</a></h1>
+<h1 id="nsinit-init_method_1">ns["<strong>init</strong>"] = init_method<a class="headerlink" href="#nsinit-init_method_1" title="Permanent link">&para;</a></h1>
+<h1 id="nsrun-run_method_1">ns["run"] = run_method<a class="headerlink" href="#nsrun-run_method_1" title="Permanent link">&para;</a></h1>
+<h1 id="nsrepr-repr_method_1">ns["<strong>repr</strong>"] = repr_method<a class="headerlink" href="#nsrepr-repr_method_1" title="Permanent link">&para;</a></h1>
+<h1 id="nsgetattr-getattr_method_1">ns["<strong>getattr</strong>"] = getattr_method<a class="headerlink" href="#nsgetattr-getattr_method_1" title="Permanent link">&para;</a></h1>
+<h1 id="nsreduce-reduce_method">ns["<strong>reduce</strong>"] = reduce_method<a class="headerlink" href="#nsreduce-reduce_method" title="Permanent link">&para;</a></h1>
+<h1 id="return-typesnew_classnamename-bases-exec_bodybody_1">return types.new_class(name=name, bases=(), exec_body=body)<a class="headerlink" href="#return-typesnew_classnamename-bases-exec_bodybody_1" title="Permanent link">&para;</a></h1>
+<h1 id="def-build_composite_list_instanceinput_type-output_type-inner_algorithm">def build_composite_list_instance(input_type, output_type, inner_algorithm):<a class="headerlink" href="#def-build_composite_list_instanceinput_type-output_type-inner_algorithm" title="Permanent link">&para;</a></h1>
+<h1 id="_2">"""<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<h1 id="build-a-listalgorithm-type-and-instantiate-it-directly-on-a-given-algorithm">Build a ListAlgorithm[...] type and instantiate it directly on a given algorithm.<a class="headerlink" href="#build-a-listalgorithm-type-and-instantiate-it-directly-on-a-given-algorithm" title="Permanent link">&para;</a></h1>
+<h1 id="_3">"""<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<h1 id="return-build_composite_listinput_type-output_typeinner_algorithm">return build_composite_list(input_type, output_type)(inner_algorithm)<a class="headerlink" href="#return-build_composite_listinput_type-output_typeinner_algorithm" title="Permanent link">&para;</a></h1>
+<h1 id="def-build_composite_tupleindex-input_type-tuple-output_type-tuple">def build_composite_tuple(index, input_type: "Tuple", output_type: "Tuple"):<a class="headerlink" href="#def-build_composite_tupleindex-input_type-tuple-output_type-tuple" title="Permanent link">&para;</a></h1>
+<h1 id="_4">"""<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<h1 id="dynamically-generate-a-class-tuplealgorithm-that-wraps">Dynamically generate a class <code>TupleAlgorithm</code> that wraps<a class="headerlink" href="#dynamically-generate-a-class-tuplealgorithm-that-wraps" title="Permanent link">&para;</a></h1>
+<h1 id="another-algorithm-to-receive-a-tuple-but-pass-only-one-of-the">another algorithm to receive a Tuple but pass only one of the<a class="headerlink" href="#another-algorithm-to-receive-a-tuple-but-pass-only-one-of-the" title="Permanent link">&para;</a></h1>
+<h1 id="parameters-to-the-internal-algorithm">parameters to the internal algorithm.<a class="headerlink" href="#parameters-to-the-internal-algorithm" title="Permanent link">&para;</a></h1>
+<h1 id="_5">"""<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<h1 id="internal_input-input_typeinnerindex">internal_input = input_type.inner[index]<a class="headerlink" href="#internal_input-input_typeinnerindex" title="Permanent link">&para;</a></h1>
+<h1 id="internal_output-output_typeinnerindex">internal_output = output_type.inner[index]<a class="headerlink" href="#internal_output-output_typeinnerindex" title="Permanent link">&para;</a></h1>
+<h1 id="name-tuplealgorithm-s-s-input_type-output_type">name = "TupleAlgorithm" #[%s, %s]" % (input_type, output_type)<a class="headerlink" href="#name-tuplealgorithm-s-s-input_type-output_type" title="Permanent link">&para;</a></h1>
+<h1 id="def-init_methodself-inner-algorithminternal_input-internal_output">def init_method(self, inner: algorithm(internal_input, internal_output)):<a class="headerlink" href="#def-init_methodself-inner-algorithminternal_input-internal_output" title="Permanent link">&para;</a></h1>
+<h1 id="selfinner-inner_2">self.inner = inner<a class="headerlink" href="#selfinner-inner_2" title="Permanent link">&para;</a></h1>
+<h1 id="def-run_methodself-input-input_type-output_type">def run_method(self, input: input_type) -&gt; output_type:<a class="headerlink" href="#def-run_methodself-input-input_type-output_type" title="Permanent link">&para;</a></h1>
+<h1 id="elements-listinput">elements = list(input)<a class="headerlink" href="#elements-listinput" title="Permanent link">&para;</a></h1>
+<h1 id="elementsindex-selfinnerrunelementsindex">elements[index] = self.inner.run(elements[index])<a class="headerlink" href="#elementsindex-selfinnerrunelementsindex" title="Permanent link">&para;</a></h1>
+<h1 id="return-tupleelements">return tuple(elements)<a class="headerlink" href="#return-tupleelements" title="Permanent link">&para;</a></h1>
+<h1 id="def-repr_methodself_2">def repr_method(self):<a class="headerlink" href="#def-repr_methodself_2" title="Permanent link">&para;</a></h1>
+<h1 id="return-fnameinnerreprselfinner_2">return f"{name}(inner={repr(self.inner)})"<a class="headerlink" href="#return-fnameinnerreprselfinner_2" title="Permanent link">&para;</a></h1>
+<h1 id="def-getattr_methodself-attr_2">def getattr_method(self, attr):<a class="headerlink" href="#def-getattr_methodself-attr_2" title="Permanent link">&para;</a></h1>
+<h1 id="return-getattrselfinner-attr_2">return getattr(self.inner, attr)<a class="headerlink" href="#return-getattrselfinner-attr_2" title="Permanent link">&para;</a></h1>
+<h1 id="def-reduce_methodself_1">def reduce_method(self):<a class="headerlink" href="#def-reduce_methodself_1" title="Permanent link">&para;</a></h1>
+<h1 id="return_1">return (<a class="headerlink" href="#return_1" title="Permanent link">&para;</a></h1>
+<h1 id="build_composite_tuple_instance">build_composite_tuple_instance,<a class="headerlink" href="#build_composite_tuple_instance" title="Permanent link">&para;</a></h1>
+<h1 id="index-input_type-output_type-selfinner">(index, input_type, output_type, self.inner)<a class="headerlink" href="#index-input_type-output_type-selfinner" title="Permanent link">&para;</a></h1>
+<h1 id="_6">)<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<h1 id="def-bodyns_2">def body(ns):<a class="headerlink" href="#def-bodyns_2" title="Permanent link">&para;</a></h1>
+<h1 id="nsinit-init_method_2">ns["<strong>init</strong>"] = init_method<a class="headerlink" href="#nsinit-init_method_2" title="Permanent link">&para;</a></h1>
+<h1 id="nsrun-run_method_2">ns["run"] = run_method<a class="headerlink" href="#nsrun-run_method_2" title="Permanent link">&para;</a></h1>
+<h1 id="nsrepr-repr_method_2">ns["<strong>repr</strong>"] = repr_method<a class="headerlink" href="#nsrepr-repr_method_2" title="Permanent link">&para;</a></h1>
+<h1 id="nsgetattr-getattr_method_2">ns["<strong>getattr</strong>"] = getattr_method<a class="headerlink" href="#nsgetattr-getattr_method_2" title="Permanent link">&para;</a></h1>
+<h1 id="nsreduce-reduce_method_1">ns["<strong>reduce</strong>"] = reduce_method<a class="headerlink" href="#nsreduce-reduce_method_1" title="Permanent link">&para;</a></h1>
+<h1 id="return-typesnew_classnamename-bases-exec_bodybody_2">return types.new_class(name=name, bases=(), exec_body=body)<a class="headerlink" href="#return-typesnew_classnamename-bases-exec_bodybody_2" title="Permanent link">&para;</a></h1>
+<h1 id="def-build_composite_tuple_instanceindex-input_type-output_type-inner_algorithm">def build_composite_tuple_instance(index, input_type, output_type, inner_algorithm):<a class="headerlink" href="#def-build_composite_tuple_instanceindex-input_type-output_type-inner_algorithm" title="Permanent link">&para;</a></h1>
+<h1 id="_7">"""<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<h1 id="build-a-tuplealgorithm-type-and-instantiate-it-directly-on-a-given-algorithm">Build a TupleAlgorithm[...] type and instantiate it directly on a given algorithm.<a class="headerlink" href="#build-a-tuplealgorithm-type-and-instantiate-it-directly-on-a-given-algorithm" title="Permanent link">&para;</a></h1>
+<h1 id="_8">"""<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<h1 id="return-build_composite_tupleindex-input_type-output_typeinner_algorithm">return build_composite_tuple(index, input_type, output_type)(inner_algorithm)<a class="headerlink" href="#return-build_composite_tupleindex-input_type-output_typeinner_algorithm" title="Permanent link">&para;</a></h1>
+<h1 id="class-datatype">class DataType:<a class="headerlink" href="#class-datatype" title="Permanent link">&para;</a></h1>
+<h1 id="def-initself-tags">def <strong>init</strong>(self, **tags):<a class="headerlink" href="#def-initself-tags" title="Permanent link">&para;</a></h1>
+<h1 id="selftags-tags">self.tags = tags<a class="headerlink" href="#selftags-tags" title="Permanent link">&para;</a></h1>
+<h1 id="def-get_tagself-tag">def get_tag(self, tag):<a class="headerlink" href="#def-get_tagself-tag" title="Permanent link">&para;</a></h1>
+<h1 id="return-selftagsgettag-none">return self.tags.get(tag, None)<a class="headerlink" href="#return-selftagsgettag-none" title="Permanent link">&para;</a></h1>
+<h1 id="def-reprself">def <strong>repr</strong>(self):<a class="headerlink" href="#def-reprself" title="Permanent link">&para;</a></h1>
+<h1 id="tags-join"># tags = ", ".join(<a class="headerlink" href="#tags-join" title="Permanent link">&para;</a></h1>
+<h1 id="fkeyvalue">#     f"{key}={value}"<a class="headerlink" href="#fkeyvalue" title="Permanent link">&para;</a></h1>
+<h1 id="for-key-value-in-sortedselftagsitems-keylambda-t-t0">#     for key, value in sorted(self.tags.items(), key=lambda t: t[0])<a class="headerlink" href="#for-key-value-in-sortedselftagsitems-keylambda-t-t0" title="Permanent link">&para;</a></h1>
+<h1 id="_9"># )<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
+<h1 id="return-fselfclassname-tags">return f"{self.<strong>class</strong>.<strong>name</strong>}()" #({tags})"<a class="headerlink" href="#return-fselfclassname-tags" title="Permanent link">&para;</a></h1>
+<h1 id="def-eqself-other">def <strong>eq</strong>(self, other):<a class="headerlink" href="#def-eqself-other" title="Permanent link">&para;</a></h1>
+<h1 id="return-reprself-reprother">return repr(self) == repr(other)<a class="headerlink" href="#return-reprself-reprother" title="Permanent link">&para;</a></h1>
+<h1 id="def-hashself">def <strong>hash</strong>(self):<a class="headerlink" href="#def-hashself" title="Permanent link">&para;</a></h1>
+<h1 id="return-hashreprself">return hash(repr(self))<a class="headerlink" href="#return-hashreprself" title="Permanent link">&para;</a></h1>
+<h1 id="property">@property<a class="headerlink" href="#property" title="Permanent link">&para;</a></h1>
+<h1 id="def-nameself">def <strong>name</strong>(self):<a class="headerlink" href="#def-nameself" title="Permanent link">&para;</a></h1>
+<h1 id="return-selfclassname">return self.<strong>class</strong>.<strong>name</strong><a class="headerlink" href="#return-selfclassname" title="Permanent link">&para;</a></h1>
+<h1 id="def-conformsself-other">def <strong>conforms</strong>(self, other):<a class="headerlink" href="#def-conformsself-other" title="Permanent link">&para;</a></h1>
+<h1 id="return-issubclassselfclass-otherclass">return issubclass(self.<strong>class</strong>, other.<strong>class</strong>)<a class="headerlink" href="#return-issubclassselfclass-otherclass" title="Permanent link">&para;</a></h1>
+<h1 id="def-infer_typeobj">def infer_type(obj):<a class="headerlink" href="#def-infer_typeobj" title="Permanent link">&para;</a></h1>
+<h1 id="_10">"""<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
+<h1 id="attempts-to-automatically-infer-the-most-precise-semantic-type-for-obj">Attempts to automatically infer the most precise semantic type for <code>obj</code>.<a class="headerlink" href="#attempts-to-automatically-infer-the-most-precise-semantic-type-for-obj" title="Permanent link">&para;</a></h1>
+<h1 id="parameters">##### Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h1>
+<h1 id="obj-object-to-detect-its-semantic-type">* <code>obj</code>: Object to detect its semantic type.<a class="headerlink" href="#obj-object-to-detect-its-semantic-type" title="Permanent link">&para;</a></h1>
+<h1 id="raises">##### Raises<a class="headerlink" href="#raises" title="Permanent link">&para;</a></h1>
+<h1 id="typeerror-if-no-valid-semantic-type-was-found-that-matched-obj">* <code>TypeError</code>: if no valid semantic type was found that matched <code>obj</code>.<a class="headerlink" href="#typeerror-if-no-valid-semantic-type-was-found-that-matched-obj" title="Permanent link">&para;</a></h1>
+<h1 id="examples_1">##### Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h1>
+<h1 id="natural-language">* Natural language<a class="headerlink" href="#natural-language" title="Permanent link">&para;</a></h1>
+<h1 id="python">```python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<h1 id="infer_typehello">&gt;&gt;&gt; infer_type("hello")<a class="headerlink" href="#infer_typehello" title="Permanent link">&para;</a></h1>
+<h1 id="word">Word()<a class="headerlink" href="#word" title="Permanent link">&para;</a></h1>
+<h1 id="infer_typehello-world">&gt;&gt;&gt; infer_type("hello world")<a class="headerlink" href="#infer_typehello-world" title="Permanent link">&para;</a></h1>
+<h1 id="sentence">Sentence()<a class="headerlink" href="#sentence" title="Permanent link">&para;</a></h1>
+<h1 id="infer_typehello-word-it-is-raining">&gt;&gt;&gt; infer_type("Hello Word. It is raining.")<a class="headerlink" href="#infer_typehello-word-it-is-raining" title="Permanent link">&para;</a></h1>
+<h1 id="document">Document()<a class="headerlink" href="#document" title="Permanent link">&para;</a></h1>
+<h1 id="_11">```<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
+<h1 id="vectors">* Vectors<a class="headerlink" href="#vectors" title="Permanent link">&para;</a></h1>
+<h1 id="_12">```<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
+<h1 id="import-numpy-as-np">&gt;&gt;&gt; import numpy as np<a class="headerlink" href="#import-numpy-as-np" title="Permanent link">&para;</a></h1>
+<h1 id="infer_typenpasarraya-b-c-d">&gt;&gt;&gt; infer_type(np.asarray(["A", "B", "C", "D"]))<a class="headerlink" href="#infer_typenpasarraya-b-c-d" title="Permanent link">&para;</a></h1>
+<h1 id="categoricalvector">CategoricalVector()<a class="headerlink" href="#categoricalvector" title="Permanent link">&para;</a></h1>
+<h1 id="infer_typenpasarray00-11-21-02">&gt;&gt;&gt; infer_type(np.asarray([0.0, 1.1, 2.1, 0.2]))<a class="headerlink" href="#infer_typenpasarray00-11-21-02" title="Permanent link">&para;</a></h1>
+<h1 id="continuousvector">ContinuousVector()<a class="headerlink" href="#continuousvector" title="Permanent link">&para;</a></h1>
+<h1 id="infer_typenpasarray0-1-1-0">&gt;&gt;&gt; infer_type(np.asarray([0, 1, 1, 0]))<a class="headerlink" href="#infer_typenpasarray0-1-1-0" title="Permanent link">&para;</a></h1>
+<h1 id="discretevector">DiscreteVector()<a class="headerlink" href="#discretevector" title="Permanent link">&para;</a></h1>
+<h1 id="_13">```<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h1>
+<h1 id="matrices">* Matrices<a class="headerlink" href="#matrices" title="Permanent link">&para;</a></h1>
+<h1 id="_14">```<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h1>
+<h1 id="import-numpy-as-np_1">&gt;&gt;&gt; import numpy as np<a class="headerlink" href="#import-numpy-as-np_1" title="Permanent link">&para;</a></h1>
+<h1 id="infer_typenprandomrandn1010">&gt;&gt;&gt; infer_type(np.random.randn(10,10))<a class="headerlink" href="#infer_typenprandomrandn1010" title="Permanent link">&para;</a></h1>
+<h1 id="matrixcontinuousdense">MatrixContinuousDense()<a class="headerlink" href="#matrixcontinuousdense" title="Permanent link">&para;</a></h1>
+<h1 id="import-scipysparse-as-sp">&gt;&gt;&gt; import scipy.sparse as sp<a class="headerlink" href="#import-scipysparse-as-sp" title="Permanent link">&para;</a></h1>
+<h1 id="infer_typespcoo_matrix1010">&gt;&gt;&gt; infer_type(sp.coo_matrix((10,10)))<a class="headerlink" href="#infer_typespcoo_matrix1010" title="Permanent link">&para;</a></h1>
+<h1 id="matrixcontinuoussparse">MatrixContinuousSparse()<a class="headerlink" href="#matrixcontinuoussparse" title="Permanent link">&para;</a></h1>
+<h1 id="_15">```<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h1>
+<h1 id="_16">"""<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h1>
+<h1 id="if-isinstanceobj-str">if isinstance(obj, str):<a class="headerlink" href="#if-isinstanceobj-str" title="Permanent link">&para;</a></h1>
+<h1 id="if-not-in-obj">if " " not in obj:<a class="headerlink" href="#if-not-in-obj" title="Permanent link">&para;</a></h1>
+<h1 id="return-word">return Word()<a class="headerlink" href="#return-word" title="Permanent link">&para;</a></h1>
+<h1 id="if-not-in-obj_1">if "." not in obj:<a class="headerlink" href="#if-not-in-obj_1" title="Permanent link">&para;</a></h1>
+<h1 id="return-sentence">return Sentence()<a class="headerlink" href="#return-sentence" title="Permanent link">&para;</a></h1>
+<h1 id="return-document">return Document()<a class="headerlink" href="#return-document" title="Permanent link">&para;</a></h1>
+<h1 id="if-isinstanceobj-list">if isinstance(obj, list):<a class="headerlink" href="#if-isinstanceobj-list" title="Permanent link">&para;</a></h1>
+<h1 id="internal_types-setinfer_typex-for-x-in-obj">internal_types = set([infer_type(x) for x in obj])<a class="headerlink" href="#internal_types-setinfer_typex-for-x-in-obj" title="Permanent link">&para;</a></h1>
+<h1 id="for-test_type-in-document-sentence-word">for test_type in [Document(), Sentence(), Word()]:<a class="headerlink" href="#for-test_type-in-document-sentence-word" title="Permanent link">&para;</a></h1>
+<h1 id="if-test_type-in-internal_types">if test_type in internal_types:<a class="headerlink" href="#if-test_type-in-internal_types" title="Permanent link">&para;</a></h1>
+<h1 id="return-listtest_type">return List(test_type)<a class="headerlink" href="#return-listtest_type" title="Permanent link">&para;</a></h1>
+<h1 id="if-hasattrobj-shape">if hasattr(obj, "shape"):<a class="headerlink" href="#if-hasattrobj-shape" title="Permanent link">&para;</a></h1>
+<h1 id="if-lenobjshape-1">if len(obj.shape) == 1:<a class="headerlink" href="#if-lenobjshape-1" title="Permanent link">&para;</a></h1>
+<h1 id="if-isinstanceobj-ndarray">if isinstance(obj, ndarray):<a class="headerlink" href="#if-isinstanceobj-ndarray" title="Permanent link">&para;</a></h1>
+<h1 id="if-objdtypekind-u">if obj.dtype.kind == "U":<a class="headerlink" href="#if-objdtypekind-u" title="Permanent link">&para;</a></h1>
+<h1 id="return-categoricalvector">return CategoricalVector()<a class="headerlink" href="#return-categoricalvector" title="Permanent link">&para;</a></h1>
+<h1 id="if-objdtypekind-i">if obj.dtype.kind == "i":<a class="headerlink" href="#if-objdtypekind-i" title="Permanent link">&para;</a></h1>
+<h1 id="return-discretevector">return DiscreteVector()<a class="headerlink" href="#return-discretevector" title="Permanent link">&para;</a></h1>
+<h1 id="if-objdtypekind-f">if obj.dtype.kind == "f":<a class="headerlink" href="#if-objdtypekind-f" title="Permanent link">&para;</a></h1>
+<h1 id="return-continuousvector">return ContinuousVector()<a class="headerlink" href="#return-continuousvector" title="Permanent link">&para;</a></h1>
+<h1 id="if-lenobjshape-2">if len(obj.shape) == 2:<a class="headerlink" href="#if-lenobjshape-2" title="Permanent link">&para;</a></h1>
+<h1 id="if-isinstanceobj-spmatrix">if isinstance(obj, spmatrix):<a class="headerlink" href="#if-isinstanceobj-spmatrix" title="Permanent link">&para;</a></h1>
+<h1 id="return-matrixcontinuoussparse">return MatrixContinuousSparse()<a class="headerlink" href="#return-matrixcontinuoussparse" title="Permanent link">&para;</a></h1>
+<h1 id="if-isinstanceobj-ndarray_1">if isinstance(obj, ndarray):<a class="headerlink" href="#if-isinstanceobj-ndarray_1" title="Permanent link">&para;</a></h1>
+<h1 id="if-objdtypekind-o">if obj.dtype.kind == "O":<a class="headerlink" href="#if-objdtypekind-o" title="Permanent link">&para;</a></h1>
+<h1 id="return-matrixcategorical">return MatrixCategorical()<a class="headerlink" href="#return-matrixcategorical" title="Permanent link">&para;</a></h1>
+<h1 id="else">else:<a class="headerlink" href="#else" title="Permanent link">&para;</a></h1>
+<h1 id="return-matrixcontinuousdense">return MatrixContinuousDense()<a class="headerlink" href="#return-matrixcontinuousdense" title="Permanent link">&para;</a></h1>
+<h1 id="raise-typeerrorcannot-infer-type-for-r-obj">raise TypeError("Cannot infer type for %r" % obj)<a class="headerlink" href="#raise-typeerrorcannot-infer-type-for-r-obj" title="Permanent link">&para;</a></h1>
+<h1 id="class-textdatatype">class Text(DataType):<a class="headerlink" href="#class-textdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass">pass<a class="headerlink" href="#pass" title="Permanent link">&para;</a></h1>
+<h1 id="class-wordtext">class Word(Text):<a class="headerlink" href="#class-wordtext" title="Permanent link">&para;</a></h1>
+<h1 id="pass_1">pass<a class="headerlink" href="#pass_1" title="Permanent link">&para;</a></h1>
+<h1 id="class-stemdatatype">class Stem(DataType):<a class="headerlink" href="#class-stemdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_2">pass<a class="headerlink" href="#pass_2" title="Permanent link">&para;</a></h1>
+<h1 id="class-sentencetext">class Sentence(Text):<a class="headerlink" href="#class-sentencetext" title="Permanent link">&para;</a></h1>
+<h1 id="pass_3">pass<a class="headerlink" href="#pass_3" title="Permanent link">&para;</a></h1>
+<h1 id="class-documenttext">class Document(Text):<a class="headerlink" href="#class-documenttext" title="Permanent link">&para;</a></h1>
+<h1 id="pass_4">pass<a class="headerlink" href="#pass_4" title="Permanent link">&para;</a></h1>
+<h1 id="class-categorydatatype">class Category(DataType):<a class="headerlink" href="#class-categorydatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_5">pass<a class="headerlink" href="#pass_5" title="Permanent link">&para;</a></h1>
+<h1 id="class-vectordatatype">class Vector(DataType):<a class="headerlink" href="#class-vectordatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_6">pass<a class="headerlink" href="#pass_6" title="Permanent link">&para;</a></h1>
+<h1 id="class-matrixdatatype">class Matrix(DataType):<a class="headerlink" href="#class-matrixdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_7">pass<a class="headerlink" href="#pass_7" title="Permanent link">&para;</a></h1>
+<h1 id="class-densematrixmatrix">class DenseMatrix(Matrix):<a class="headerlink" href="#class-densematrixmatrix" title="Permanent link">&para;</a></h1>
+<h1 id="pass_8">pass<a class="headerlink" href="#pass_8" title="Permanent link">&para;</a></h1>
+<h1 id="class-sparsematrixmatrix">class SparseMatrix(Matrix):<a class="headerlink" href="#class-sparsematrixmatrix" title="Permanent link">&para;</a></h1>
+<h1 id="pass_9">pass<a class="headerlink" href="#pass_9" title="Permanent link">&para;</a></h1>
+<h1 id="class-continuousvectorvector">class ContinuousVector(Vector):<a class="headerlink" href="#class-continuousvectorvector" title="Permanent link">&para;</a></h1>
+<h1 id="pass_10">pass<a class="headerlink" href="#pass_10" title="Permanent link">&para;</a></h1>
+<h1 id="class-discretevectorvector">class DiscreteVector(Vector):<a class="headerlink" href="#class-discretevectorvector" title="Permanent link">&para;</a></h1>
+<h1 id="pass_11">pass<a class="headerlink" href="#pass_11" title="Permanent link">&para;</a></h1>
+<h1 id="class-categoricalvectorvector">class CategoricalVector(Vector):<a class="headerlink" href="#class-categoricalvectorvector" title="Permanent link">&para;</a></h1>
+<h1 id="pass_12">pass<a class="headerlink" href="#pass_12" title="Permanent link">&para;</a></h1>
+<h1 id="class-matrixcontinuousmatrix">class MatrixContinuous(Matrix):<a class="headerlink" href="#class-matrixcontinuousmatrix" title="Permanent link">&para;</a></h1>
+<h1 id="pass_13">pass<a class="headerlink" href="#pass_13" title="Permanent link">&para;</a></h1>
+<h1 id="class-matrixcategoricalmatrix">class MatrixCategorical(Matrix):<a class="headerlink" href="#class-matrixcategoricalmatrix" title="Permanent link">&para;</a></h1>
+<h1 id="pass_14">pass<a class="headerlink" href="#pass_14" title="Permanent link">&para;</a></h1>
+<h1 id="class-matrixcontinuousdensematrixcontinuous-densematrix">class MatrixContinuousDense(MatrixContinuous, DenseMatrix):<a class="headerlink" href="#class-matrixcontinuousdensematrixcontinuous-densematrix" title="Permanent link">&para;</a></h1>
+<h1 id="pass_15">pass<a class="headerlink" href="#pass_15" title="Permanent link">&para;</a></h1>
+<h1 id="class-matrixcontinuoussparsematrixcontinuous-sparsematrix">class MatrixContinuousSparse(MatrixContinuous, SparseMatrix):<a class="headerlink" href="#class-matrixcontinuoussparsematrixcontinuous-sparsematrix" title="Permanent link">&para;</a></h1>
+<h1 id="pass_16">pass<a class="headerlink" href="#pass_16" title="Permanent link">&para;</a></h1>
+<h1 id="class-entitydatatype">class Entity(DataType):<a class="headerlink" href="#class-entitydatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_17">pass<a class="headerlink" href="#pass_17" title="Permanent link">&para;</a></h1>
+<h1 id="class-summarydocument">class Summary(Document):<a class="headerlink" href="#class-summarydocument" title="Permanent link">&para;</a></h1>
+<h1 id="pass_18">pass<a class="headerlink" href="#pass_18" title="Permanent link">&para;</a></h1>
+<h1 id="class-sentimentdatatype">class Sentiment(DataType):<a class="headerlink" href="#class-sentimentdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_19">pass<a class="headerlink" href="#pass_19" title="Permanent link">&para;</a></h1>
+<h1 id="class-synsetdatatype">class Synset(DataType):<a class="headerlink" href="#class-synsetdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_20">pass<a class="headerlink" href="#pass_20" title="Permanent link">&para;</a></h1>
+<h1 id="class-postagdatatype">class Postag(DataType):<a class="headerlink" href="#class-postagdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_21">pass<a class="headerlink" href="#pass_21" title="Permanent link">&para;</a></h1>
+<h1 id="class-chunktagdatatype">class Chunktag(DataType):<a class="headerlink" href="#class-chunktagdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_22">pass<a class="headerlink" href="#pass_22" title="Permanent link">&para;</a></h1>
+<h1 id="class-tensor3datatype">class Tensor3(DataType):<a class="headerlink" href="#class-tensor3datatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_23">pass<a class="headerlink" href="#pass_23" title="Permanent link">&para;</a></h1>
+<h1 id="class-tensor4datatype">class Tensor4(DataType):<a class="headerlink" href="#class-tensor4datatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_24">pass<a class="headerlink" href="#pass_24" title="Permanent link">&para;</a></h1>
+<h1 id="class-flagsdatatype">class Flags(DataType):<a class="headerlink" href="#class-flagsdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="pass_25">pass<a class="headerlink" href="#pass_25" title="Permanent link">&para;</a></h1>
+<h1 id="class-listdatatype">class List(DataType):<a class="headerlink" href="#class-listdatatype" title="Permanent link">&para;</a></h1>
+<h1 id="def-initself-inner">def <strong>init</strong>(self, inner):<a class="headerlink" href="#def-initself-inner" title="Permanent link">&para;</a></h1>
+<h1 id="selfinner-inner_3">self.inner = inner<a class="headerlink" href="#selfinner-inner_3" title="Permanent link">&para;</a></h1>
+<h1 id="superinitinnertags"># super().<strong>init</strong>(**inner.tags)<a class="headerlink" href="#superinitinnertags" title="Permanent link">&para;</a></h1>
+<h1 id="def-depthself">def depth(self):<a class="headerlink" href="#def-depthself" title="Permanent link">&para;</a></h1>
+<h1 id="if-not-isinstanceselfinner-list">if not isinstance(self.inner, List):<a class="headerlink" href="#if-not-isinstanceselfinner-list" title="Permanent link">&para;</a></h1>
+<h1 id="return-1">return 1<a class="headerlink" href="#return-1" title="Permanent link">&para;</a></h1>
+<h1 id="return-1-selfinnerdepth">return 1 + self.inner.depth()<a class="headerlink" href="#return-1-selfinnerdepth" title="Permanent link">&para;</a></h1>
+<h1 id="def-conformsself-other_1">def <strong>conforms</strong>(self, other):<a class="headerlink" href="#def-conformsself-other_1" title="Permanent link">&para;</a></h1>
+<h1 id="return-isinstanceother-list-and-conformsselfinner-otherinner">return isinstance(other, List) and conforms(self.inner, other.inner)<a class="headerlink" href="#return-isinstanceother-list-and-conformsselfinner-otherinner" title="Permanent link">&para;</a></h1>
+<h1 id="def-reprself_1">def <strong>repr</strong>(self):<a class="headerlink" href="#def-reprself_1" title="Permanent link">&para;</a></h1>
+<h1 id="return-listr-selfinner">return "List(%r)" % self.inner<a class="headerlink" href="#return-listr-selfinner" title="Permanent link">&para;</a></h1>
+<h1 id="class-tupledatatype">class Tuple(DataType):<a class="headerlink" href="#class-tupledatatype" title="Permanent link">&para;</a></h1>
+<h1 id="def-initself-inner_1">def <strong>init</strong>(self, *inner):<a class="headerlink" href="#def-initself-inner_1" title="Permanent link">&para;</a></h1>
+<h1 id="selfinner-inner_4">self.inner = inner<a class="headerlink" href="#selfinner-inner_4" title="Permanent link">&para;</a></h1>
+<h1 id="superinitinner0tags"># super().<strong>init</strong>(**inner[0].tags)<a class="headerlink" href="#superinitinner0tags" title="Permanent link">&para;</a></h1>
+<h1 id="def-reprself_2">def <strong>repr</strong>(self):<a class="headerlink" href="#def-reprself_2" title="Permanent link">&para;</a></h1>
+<h1 id="items-joinreprs-for-s-in-selfinner">items = ", ".join(repr(s) for s in self.inner)<a class="headerlink" href="#items-joinreprs-for-s-in-selfinner" title="Permanent link">&para;</a></h1>
+<h1 id="return-tuples-items">return "Tuple(%s)" % items<a class="headerlink" href="#return-tuples-items" title="Permanent link">&para;</a></h1>
+<h1 id="def-conformsself-other_2">def <strong>conforms</strong>(self, other):<a class="headerlink" href="#def-conformsself-other_2" title="Permanent link">&para;</a></h1>
+<h1 id="if-not-isinstanceother-tuple">if not isinstance(other, Tuple):<a class="headerlink" href="#if-not-isinstanceother-tuple" title="Permanent link">&para;</a></h1>
+<h1 id="return-false">return False<a class="headerlink" href="#return-false" title="Permanent link">&para;</a></h1>
+<h1 id="if-lenselfinner-lenotherinner">if len(self.inner) != len(other.inner):<a class="headerlink" href="#if-lenselfinner-lenotherinner" title="Permanent link">&para;</a></h1>
+<h1 id="return-false_1">return False<a class="headerlink" href="#return-false_1" title="Permanent link">&para;</a></h1>
+<h1 id="for-x-y-in-zipselfinner-otherinner">for x, y in zip(self.inner, other.inner):<a class="headerlink" href="#for-x-y-in-zipselfinner-otherinner" title="Permanent link">&para;</a></h1>
+<h1 id="if-not-conformsx-y">if not conforms(x, y):<a class="headerlink" href="#if-not-conformsx-y" title="Permanent link">&para;</a></h1>
+<h1 id="return-false_2">return False<a class="headerlink" href="#return-false_2" title="Permanent link">&para;</a></h1>
+<h1 id="return-true">return True<a class="headerlink" href="#return-true" title="Permanent link">&para;</a></h1>
+<h1 id="data_types-frozenset">DATA_TYPES = frozenset(<a class="headerlink" href="#data_types-frozenset" title="Permanent link">&para;</a></h1>
+<h1 id="_17">[<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h1>
+<h1 id="text">Text,<a class="headerlink" href="#text" title="Permanent link">&para;</a></h1>
+<h1 id="word_1">Word,<a class="headerlink" href="#word_1" title="Permanent link">&para;</a></h1>
+<h1 id="stem">Stem,<a class="headerlink" href="#stem" title="Permanent link">&para;</a></h1>
+<h1 id="sentence_1">Sentence,<a class="headerlink" href="#sentence_1" title="Permanent link">&para;</a></h1>
+<h1 id="document_1">Document,<a class="headerlink" href="#document_1" title="Permanent link">&para;</a></h1>
+<h1 id="category">Category,<a class="headerlink" href="#category" title="Permanent link">&para;</a></h1>
+<h1 id="vector">Vector,<a class="headerlink" href="#vector" title="Permanent link">&para;</a></h1>
+<h1 id="matrix">Matrix,<a class="headerlink" href="#matrix" title="Permanent link">&para;</a></h1>
+<h1 id="densematrix">DenseMatrix,<a class="headerlink" href="#densematrix" title="Permanent link">&para;</a></h1>
+<h1 id="sparsematrix">SparseMatrix,<a class="headerlink" href="#sparsematrix" title="Permanent link">&para;</a></h1>
+<h1 id="continuousvector_1">ContinuousVector,<a class="headerlink" href="#continuousvector_1" title="Permanent link">&para;</a></h1>
+<h1 id="discretevector_1">DiscreteVector,<a class="headerlink" href="#discretevector_1" title="Permanent link">&para;</a></h1>
+<h1 id="categoricalvector_1">CategoricalVector,<a class="headerlink" href="#categoricalvector_1" title="Permanent link">&para;</a></h1>
+<h1 id="matrixcontinuous">MatrixContinuous,<a class="headerlink" href="#matrixcontinuous" title="Permanent link">&para;</a></h1>
+<h1 id="matrixcategorical">MatrixCategorical,<a class="headerlink" href="#matrixcategorical" title="Permanent link">&para;</a></h1>
+<h1 id="matrixcontinuousdense_1">MatrixContinuousDense,<a class="headerlink" href="#matrixcontinuousdense_1" title="Permanent link">&para;</a></h1>
+<h1 id="matrixcontinuoussparse_1">MatrixContinuousSparse,<a class="headerlink" href="#matrixcontinuoussparse_1" title="Permanent link">&para;</a></h1>
+<h1 id="entity">Entity,<a class="headerlink" href="#entity" title="Permanent link">&para;</a></h1>
+<h1 id="summary">Summary,<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<h1 id="sentiment">Sentiment,<a class="headerlink" href="#sentiment" title="Permanent link">&para;</a></h1>
+<h1 id="synset">Synset,<a class="headerlink" href="#synset" title="Permanent link">&para;</a></h1>
+<h1 id="postag">Postag,<a class="headerlink" href="#postag" title="Permanent link">&para;</a></h1>
+<h1 id="chunktag">Chunktag,<a class="headerlink" href="#chunktag" title="Permanent link">&para;</a></h1>
+<h1 id="tensor3">Tensor3,<a class="headerlink" href="#tensor3" title="Permanent link">&para;</a></h1>
+<h1 id="list">List,<a class="headerlink" href="#list" title="Permanent link">&para;</a></h1>
+<h1 id="tuple">Tuple,<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h1>
+<h1 id="flags">Flags,<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h1>
+<h1 id="_18">]<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h1>
+<h1 id="_19">)<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h1>
+<h1 id="def-draw_data_hierarchyoutput_file">def draw_data_hierarchy(output_file):<a class="headerlink" href="#def-draw_data_hierarchyoutput_file" title="Permanent link">&para;</a></h1>
+<h1 id="_20">"""<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h1>
+<h1 id="creates-an-svg-representation-of-the-datatype-hierarchy">Creates an SVG representation of the <code>DataType</code> hierarchy,<a class="headerlink" href="#creates-an-svg-representation-of-the-datatype-hierarchy" title="Permanent link">&para;</a></h1>
+<h1 id="for-documentation-purposes">for documentation purposes.<a class="headerlink" href="#for-documentation-purposes" title="Permanent link">&para;</a></h1>
+<h1 id="_21">"""<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h1>
+<h1 id="import-pydot">import pydot<a class="headerlink" href="#import-pydot" title="Permanent link">&para;</a></h1>
+<h1 id="classes-listdata_types-datatype">classes = list(DATA_TYPES) + [DataType]<a class="headerlink" href="#classes-listdata_types-datatype" title="Permanent link">&para;</a></h1>
+<h1 id="graph-pydotdotdirectiontb">graph = pydot.Dot(direction="TB")<a class="headerlink" href="#graph-pydotdotdirectiontb" title="Permanent link">&para;</a></h1>
+<h1 id="for-clss-in-classes">for clss in classes:<a class="headerlink" href="#for-clss-in-classes" title="Permanent link">&para;</a></h1>
+<h1 id="graphadd_nodepydotnodeclssname">graph.add_node(pydot.Node(clss.<strong>name</strong>))<a class="headerlink" href="#graphadd_nodepydotnodeclssname" title="Permanent link">&para;</a></h1>
+<h1 id="for-clss-in-classes_1">for clss in classes:<a class="headerlink" href="#for-clss-in-classes_1" title="Permanent link">&para;</a></h1>
+<h1 id="for-base-in-clssbases">for base in clss.<strong>bases</strong>:<a class="headerlink" href="#for-base-in-clssbases" title="Permanent link">&para;</a></h1>
+<h1 id="if-base-not-in-classes">if base not in classes:<a class="headerlink" href="#if-base-not-in-classes" title="Permanent link">&para;</a></h1>
+<h1 id="continue">continue<a class="headerlink" href="#continue" title="Permanent link">&para;</a></h1>
+<h1 id="graphadd_edgepydotedgebasename-clssname">graph.add_edge(pydot.Edge(base.<strong>name</strong>, clss.<strong>name</strong>))<a class="headerlink" href="#graphadd_edgepydotedgebasename-clssname" title="Permanent link">&para;</a></h1>
+<h1 id="graphwriteoutput_file-svg-formatsvg">graph.write(output_file + ".svg", format="svg")<a class="headerlink" href="#graphwriteoutput_file-svg-formatsvg" title="Permanent link">&para;</a></h1>
+<h1 id="graphwriteoutput_file-png-formatpng">graph.write(output_file + ".png", format="png")<a class="headerlink" href="#graphwriteoutput_file-png-formatpng" title="Permanent link">&para;</a></h1>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
