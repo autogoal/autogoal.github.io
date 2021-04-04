@@ -1,0 +1,1296 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://autogoal.github.io/api/autogoal.contrib.nltk._builder/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../autogoal-logo-embedded.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Autogoal.contrib.nltk. builder - AutoGOAL</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-172957751-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://autogoal.github.io" title="AutoGOAL" aria-label="AutoGOAL" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../autogoal-logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              AutoGOAL
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Autogoal.contrib.nltk. builder
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/autogoal/autogoal/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../guide/" class="md-tabs__link">
+          User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../autogoal.__init__/" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://autogoal.github.io" title="AutoGOAL" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../autogoal-logo.svg" width="48" height="48">
+      
+    </a>
+    AutoGOAL
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/autogoal/autogoal/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/" title="CLI" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../dependencies/" title="Dependencies" class="md-nav__link">
+      Dependencies
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/" title="First steps" class="md-nav__link">
+      First steps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.predefined/" title="Predefined pipelines" class="md-nav__link">
+      Predefined pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.include_algorithm/" title="Using custom algorithms" class="md-nav__link">
+      Using custom algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.cfg/" title="Class-based API" class="md-nav__link">
+      Class-based API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.graph/" title="Graph-based API" class="md-nav__link">
+      Graph-based API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.functional/" title="Functional API" class="md-nav__link">
+      Functional API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
+      Solving UCI datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_haha_2019/" title="Solving HAHA 2019" class="md-nav__link">
+      Solving HAHA 2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
+      Solving MEDDOCAN 2019
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://autogoal.github.io/demo" title="Demo" class="md-nav__link">
+      Demo
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://autogoal.github.io/dashboard" title="Dashboard" class="md-nav__link">
+      Dashboard
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-1" type="checkbox" id="nav-10-1">
+    
+    <label class="md-nav__link" for="nav-10-1">
+      Top level
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-1">
+        Top level
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.__init__/" title="autogoal" class="md-nav__link">
+      autogoal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.__main__/" title="cli" class="md-nav__link">
+      cli
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-2" type="checkbox" id="nav-10-2">
+    
+    <label class="md-nav__link" for="nav-10-2">
+      Grammars
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-2">
+        Grammars
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.grammar.__init__/" title="autogoal.grammar" class="md-nav__link">
+      autogoal.grammar
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3" type="checkbox" id="nav-10-3">
+    
+    <label class="md-nav__link" for="nav-10-3">
+      Contrib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-3">
+        Contrib
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.contrib.__init__/" title="autogoal.contrib" class="md-nav__link">
+      autogoal.contrib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3-2" type="checkbox" id="nav-10-3-2">
+    
+    <label class="md-nav__link" for="nav-10-3-2">
+      scikit-learn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-10-3-2">
+        scikit-learn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.contrib.sklearn.__init__/" title="autogoal.contrib.sklearn" class="md-nav__link">
+      autogoal.contrib.sklearn
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/autogoal/autogoal/edit/main/docs/api/autogoal.contrib.nltk._builder.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Autogoal.contrib.nltk. builder</h1>
+                
+                <p><a name="ref:NltkTokenizer"></a>
+<a name="ref:NltkStemmer"></a>
+<a name="ref:NltkLemmatizer"></a>
+<a name="ref:NltkClusterer"></a>
+<a name="ref:NltkTagger"></a>
+<a name="ref:NltkTrainedTagger"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="n">AlgorithmBase</span>
+<span class="kn">import</span> <span class="nn">gensim</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">black</span>
+
+<span class="kn">import</span> <span class="nn">textwrap</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">enlighten</span>
+
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DiscreteValue</span><span class="p">,</span>
+    <span class="n">ContinuousValue</span><span class="p">,</span>
+    <span class="n">CategoricalValue</span><span class="p">,</span>
+    <span class="n">BooleanValue</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">autogoal.contrib.sklearn._builder</span> <span class="kn">import</span> <span class="n">SklearnWrapper</span>
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">_is_algorithm</span><span class="p">,</span>
+    <span class="n">get_input_output</span><span class="p">,</span>
+    <span class="n">is_algorithm</span><span class="p">,</span>
+    <span class="n">_is_tagger</span><span class="p">,</span>
+    <span class="n">is_pretrained_tagger</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">languages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;arabic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;danish&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dutch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;english&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;finnish&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;french&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;german&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hungarian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;italian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;norwegian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;portuguese&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;romanian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;russian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spanish&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;swedish&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">languages_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">languages</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">NltkTokenizer</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">NltkStemmer</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">stem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">NltkLemmatizer</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">lemmatize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">NltkClusterer</span><span class="p">(</span><span class="n">SklearnWrapper</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">input</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">input</span>
+        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">NltkTagger</span><span class="p">(</span><span class="n">SklearnWrapper</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">tagged_sentences</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">tags</span><span class="p">))</span> <span class="k">for</span> <span class="n">words</span><span class="p">,</span> <span class="n">tags</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tagger</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">tagged_sentences</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">tag</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">]</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instance</span><span class="o">.</span><span class="n">tag_sents</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">NltkTrainedTagger</span><span class="p">(</span><span class="n">SklearnWrapper</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+</code></pre></div>
+
+<p>X expected to be a tokenized sentence</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</code></pre></div>
+
+<p>X expected to be a tokenized sentence</p>
+<p><a name="ref:build_nltk_wrappers"></a></p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+
+<span class="n">base_classes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;sent_tokenizer&quot;</span><span class="p">:</span> <span class="s2">&quot;NltkTokenizer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;word_tokenizer&quot;</span><span class="p">:</span> <span class="s2">&quot;NltkTokenizer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lemmatizer&quot;</span><span class="p">:</span> <span class="s2">&quot;NltkLemmatizer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stemmer&quot;</span><span class="p">:</span> <span class="s2">&quot;NltkStemmer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;word_embbeder&quot;</span><span class="p">:</span> <span class="s2">&quot;SklearnWrapper&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;doc_embbeder&quot;</span><span class="p">:</span> <span class="s2">&quot;SklearnWrapper&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tagger&quot;</span><span class="p">:</span> <span class="s2">&quot;NltkTagger&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trained_tagger&quot;</span><span class="p">:</span> <span class="s2">&quot;NltkTrainedTagger&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="n">GENERATION_RULES</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">SnowballStemmer</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">assume</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">assume_input</span><span class="o">=</span><span class="n">Word</span><span class="p">,</span> <span class="n">assume_output</span><span class="o">=</span><span class="n">Stem</span><span class="p">),</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">build_nltk_wrappers</span><span class="p">():</span>
+    <span class="n">imports</span> <span class="o">=</span> <span class="n">_walk</span><span class="p">(</span><span class="n">nltk</span><span class="p">)</span>
+    <span class="n">imports</span> <span class="o">+=</span> <span class="n">_walk</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">cluster</span><span class="p">)</span>
+    <span class="n">imports</span> <span class="o">+=</span> <span class="n">_walk</span><span class="p">(</span><span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="p">)</span>
+</code></pre></div>
+
+<p>imports += _walk(nltk.chunk.named_entity)</p>
+<div class="codehilite"><pre><span></span><code>    <span class="n">imports</span> <span class="o">+=</span> <span class="n">_walk</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span>
+
+    <span class="n">manager</span> <span class="o">=</span> <span class="n">enlighten</span><span class="o">.</span><span class="n">get_manager</span><span class="p">()</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">counter</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">imports</span><span class="p">),</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;classes&quot;</span><span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;_generated.py&quot;</span>
+
+    <span class="n">imports</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">imports</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+</code></pre></div>
+
+<p>AUTOGENERATED ON {datetime.datetime.now()}</p>
+<div class="codehilite"><pre><span></span><code>            <span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">Continuous</span><span class="p">,</span> <span class="n">Discrete</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">,</span> <span class="n">Boolean</span>
+            <span class="kn">from</span> <span class="nn">autogoal.contrib.nltk._builder</span> <span class="kn">import</span> <span class="n">NltkStemmer</span><span class="p">,</span> <span class="n">NltkTokenizer</span><span class="p">,</span> <span class="n">NltkLemmatizer</span><span class="p">,</span> <span class="n">NltkTagger</span><span class="p">,</span> <span class="n">NltkTrainedTagger</span>
+            <span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="o">*</span>
+            <span class="kn">from</span> <span class="nn">autogoal.utils</span> <span class="kn">import</span> <span class="n">nice_repr</span>
+            <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">inf</span><span class="p">,</span> <span class="n">nan</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>)
+)</p>
+<p>for cls in imports:
+counter.update()
+_write_class(cls, fp)</p>
+<p>black.reformat_one(
+path, True, black.WriteBack.YES, black.FileMode(), black.Report()
+)</p>
+<p>counter.close()
+manager.stop()</p>
+<p>def _write_class(cls, fp):
+try:
+args = _get_args(cls)
+except Exception as e:
+warnings.warn("Error to generate wrapper for %s : %s" % (cls.<strong>name</strong>, e))
+return</p>
+<p>rules = GENERATION_RULES.get(cls.<strong>name</strong>)
+assumed = False
+if rules:
+if rules.get("assume"):
+assumed = True
+inputs = rules.get("assume_input")
+outputs = rules.get("assume_output")</p>
+<p>if not assumed:
+inputs, outputs = get_input_output(cls)</p>
+<p>if not inputs:
+warnings.warn("Cannot find correct types for %r" % cls)
+return</p>
+<p>s = " " * 4
+args_str = f",\n{s * 4}".join(f"{key}: {value}" for key, value in args.items())
+init_str = f",\n{s * 5}".join(f"{key}={key}" for key in args)
+self_str = f"\n{s * 5}".join(f"self.{key}={key}" for key in args)
+values_str = f",".join(f"{key}={key}" for key in args)
+input_str, output_str = repr(inputs), repr(outputs)
+base_class = base_classes.get(is_algorithm(cls), None)  # set correct base class</p>
+<p>if not base_class:
+warnings.warn("Error to generate wrapper for %s" % cls.<strong>name</strong>)
+return</p>
+<p>print(cls)</p>
+<p>if <em>is_tagger(cls) and not is_pretrained_tagger(cls)[0]:
+fp.write(
+textwrap.dedent(
+f"""
+from {cls.__module__} import {cls.__name__} as </em>{cls.<strong>name</strong>}</p>
+<p>@nice_repr
+class {cls.<strong>name</strong>}({base_class}):
+def <strong>init</strong>(
+self,
+{args_str}
+):
+{self_str}
+self.tagger = _{cls.<strong>name</strong>}
+self.values = dict({values_str})</p>
+<p>{base_class}.<strong>init</strong>(self)</p>
+<p>def run(self, X: {input_str}, y:Supervised[{output_str}]) -&gt; {output_str}:
+return {base_class}.run(self, X, y)</p>
+</div>
+<div class="codehilite"><pre><span></span><code>            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            from </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__module__</span><span class="si">}</span><span class="s2"> import </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> as _</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"></span>
+
+<span class="s2">            @nice_repr</span>
+<span class="s2">            class </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(_</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">base_class</span><span class="si">}</span><span class="s2">):</span>
+<span class="s2">                def __init__(</span>
+<span class="s2">                    self,</span>
+<span class="s2">                    </span><span class="si">{</span><span class="n">args_str</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                ):</span>
+<span class="s2">                    </span><span class="si">{</span><span class="n">self_str</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                    </span><span class="si">{</span><span class="n">base_class</span><span class="si">}</span><span class="s2">.__init__(self)</span>
+<span class="s2">                    _</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.__init__(</span>
+<span class="s2">                        self,</span>
+<span class="s2">                        </span><span class="si">{</span><span class="n">init_str</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                    )</span>
+
+<span class="s2">                def run(self, input: </span><span class="si">{</span><span class="n">input_str</span><span class="si">}</span><span class="s2">) -&gt; </span><span class="si">{</span><span class="n">output_str</span><span class="si">}</span><span class="s2">:</span>
+<span class="s2">                    return </span><span class="si">{</span><span class="n">base_class</span><span class="si">}</span><span class="s2">.run(self, input)</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>)
+)</p>
+<p>fp.flush()</p>
+<p>def <em>write_tagger(cls, fp, args_str, init_str, input_str, output_str):
+fp.write(
+textwrap.dedent(
+f"""
+from {cls.__module__} import {cls.__name__} as </em>{cls.<strong>name</strong>}</p>
+<p>@nice_repr
+class {cls.<strong>name</strong>}(<em>{cls.__name__}, {base_class}):
+def __init__(
+self,
+{args_str}
+):
+self.tagger = </em>{cls.<strong>name</strong>}
+{base_class}.<strong>init</strong>(self)
+_{cls.<strong>name</strong>}.<strong>init</strong>(
+self
+{init_str}
+)</p>
+<p>def run(self, input: {input_str}) -&gt; {output_str}:
+return {base_class}.run(self, input)</p>
+</div>
+<p><a name="ref:_walk"></a></p>
+<div class="codehilite"><pre><span></span><code>        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">fp</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_walk</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;nltk&quot;</span><span class="p">):</span>
+    <span class="n">imports</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">_walk_p</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;nltk&quot;</span><span class="p">):</span>
+        <span class="n">all_elements</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">all_elements</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">elem</span> <span class="o">==</span> <span class="s2">&quot;exceptions&quot;</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">elem</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+</code></pre></div>
+
+<p>ignore nltk interfaces</p>
+<div class="codehilite"><pre><span></span><code>                    <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">):</span>
+                        <span class="k">continue</span>
+
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_algorithm</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+                        <span class="k">continue</span>
+
+                    <span class="n">imports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</code></pre></div>
+
+<p>_walk_p(obj, name) If not module do not walk in it</p>
+<p><a name="ref:_find_parameter_values"></a>
+<a name="ref:_find_language_values"></a>
+<a name="ref:_get_args"></a></p>
+<div class="codehilite"><pre><span></span><code>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">inner_module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="n">_walk_p</span><span class="p">(</span><span class="n">inner_module</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+    <span class="n">_walk_p</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="n">imports</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="vm">__module__</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">imports</span>
+
+
+<span class="k">def</span> <span class="nf">_find_parameter_values</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+    <span class="n">documentation</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">parameter</span><span class="p">):</span>
+            <span class="n">documentation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+            <span class="n">tabs</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+            <span class="k">break</span>
+
+    <span class="k">while</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="p">(</span><span class="n">tabs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+            <span class="n">documentation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="n">options</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&#39;(\w+)&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">documentation</span><span class="p">)))</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">invalid</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">skip</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;deprecated&quot;</span><span class="p">,</span> <span class="s2">&quot;auto_deprecated&quot;</span><span class="p">,</span> <span class="s2">&quot;precomputed&quot;</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">skip</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+                <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">parameter</span><span class="p">:</span> <span class="n">opt</span><span class="p">})</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+                <span class="n">valid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">invalid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">valid</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_find_language_values</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">languages_re</span>
+    <span class="n">documentation</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__doc__</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">languages_re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">documentation</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">_get_args</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="n">full_specs</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getfullargspec</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">full_specs</span><span class="o">.</span><span class="n">args</span>
+    <span class="n">specs</span> <span class="o">=</span> <span class="n">full_specs</span><span class="o">.</span><span class="n">defaults</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">specs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+
+    <span class="n">non_kwargs</span> <span class="o">=</span> <span class="p">[</span><span class="n">arg</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">[:</span> <span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">specs</span><span class="p">)</span> <span class="p">:]</span> <span class="k">if</span> <span class="n">arg</span> <span class="o">!=</span> <span class="s2">&quot;self&quot;</span><span class="p">]</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">specs</span><span class="p">)</span> <span class="p">:]</span>
+
+    <span class="n">args_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">specs</span><span class="p">)}</span>
+
+    <span class="n">drop_args</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;url&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;n_jobs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;max_iter&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;class_weight&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;warm_start&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;copy_X&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;copy_x&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;copy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;eps&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ignore_stopwords&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;verbose&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;load&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">drop_args</span><span class="p">:</span>
+        <span class="n">args_map</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">arg</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">_get_arg_values</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span>
+
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">non_kwargs</span><span class="p">:</span>
+</code></pre></div>
+
+<p>special handling of language</p>
+<p><a name="ref:_get_arg_values"></a>
+<a name="ref:_get_integer_values"></a>
+<a name="ref:_get_float_values"></a></p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">if</span> <span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;language&quot;</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">_find_language_values</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">values</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="n">CategoricalValue</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;train&quot;</span> <span class="ow">and</span> <span class="n">_is_tagger</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No values found for positional argument </span><span class="si">%s</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">arg</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">_get_arg_values</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BooleanValue</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">DiscreteValue</span><span class="p">(</span><span class="o">*</span><span class="n">_get_integer_values</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ContinuousValue</span><span class="p">(</span><span class="o">*</span><span class="n">_get_float_values</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">_find_parameter_values</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">CategoricalValue</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span> <span class="k">if</span> <span class="n">values</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">_get_integer_values</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">min_val</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
+        <span class="n">max_val</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">min_val</span> <span class="o">=</span> <span class="n">value</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">max_val</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">value</span>
+
+    <span class="k">return</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span>
+
+
+<span class="k">def</span> <span class="nf">_get_float_values</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">min_val</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">max_val</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mf">0.1</span><span class="p">:</span>
+        <span class="n">min_val</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">100</span>
+        <span class="n">max_val</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">min_val</span> <span class="o">=</span> <span class="mf">1e-6</span>
+        <span class="n">max_val</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">min_val</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">max_val</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">value</span>
+
+    <span class="k">return</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">build_nltk_wrappers</span><span class="p">()</span>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

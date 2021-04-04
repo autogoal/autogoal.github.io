@@ -1,0 +1,1265 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://autogoal.github.io/api/autogoal.contrib.keras._crf/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../autogoal-logo-embedded.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Autogoal.contrib.keras. crf - AutoGOAL</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-172957751-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#orginal-implementation-from-keras_contriblayerscrf" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://autogoal.github.io" title="AutoGOAL" aria-label="AutoGOAL" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../autogoal-logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              AutoGOAL
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Autogoal.contrib.keras. crf
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/autogoal/autogoal/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../guide/" class="md-tabs__link">
+          User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../autogoal.__init__/" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://autogoal.github.io" title="AutoGOAL" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../autogoal-logo.svg" width="48" height="48">
+      
+    </a>
+    AutoGOAL
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/autogoal/autogoal/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/" title="CLI" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../dependencies/" title="Dependencies" class="md-nav__link">
+      Dependencies
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/" title="First steps" class="md-nav__link">
+      First steps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.predefined/" title="Predefined pipelines" class="md-nav__link">
+      Predefined pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.include_algorithm/" title="Using custom algorithms" class="md-nav__link">
+      Using custom algorithms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.cfg/" title="Class-based API" class="md-nav__link">
+      Class-based API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.graph/" title="Graph-based API" class="md-nav__link">
+      Graph-based API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tests.guide.functional/" title="Functional API" class="md-nav__link">
+      Functional API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
+      Solving UCI datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_haha_2019/" title="Solving HAHA 2019" class="md-nav__link">
+      Solving HAHA 2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
+      Solving MEDDOCAN 2019
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://autogoal.github.io/demo" title="Demo" class="md-nav__link">
+      Demo
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://autogoal.github.io/dashboard" title="Dashboard" class="md-nav__link">
+      Dashboard
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-1" type="checkbox" id="nav-10-1">
+    
+    <label class="md-nav__link" for="nav-10-1">
+      Top level
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-1">
+        Top level
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.__init__/" title="autogoal" class="md-nav__link">
+      autogoal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.__main__/" title="cli" class="md-nav__link">
+      cli
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-2" type="checkbox" id="nav-10-2">
+    
+    <label class="md-nav__link" for="nav-10-2">
+      Grammars
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-2">
+        Grammars
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.grammar.__init__/" title="autogoal.grammar" class="md-nav__link">
+      autogoal.grammar
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3" type="checkbox" id="nav-10-3">
+    
+    <label class="md-nav__link" for="nav-10-3">
+      Contrib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-3">
+        Contrib
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.contrib.__init__/" title="autogoal.contrib" class="md-nav__link">
+      autogoal.contrib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3-2" type="checkbox" id="nav-10-3-2">
+    
+    <label class="md-nav__link" for="nav-10-3-2">
+      scikit-learn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-10-3-2">
+        scikit-learn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autogoal.contrib.sklearn.__init__/" title="autogoal.contrib.sklearn" class="md-nav__link">
+      autogoal.contrib.sklearn
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/autogoal/autogoal/edit/main/docs/api/autogoal.contrib.keras._crf.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <p>Copyright 2019 The TensorFlow Authors. All Rights Reserved.</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+<div class="codehilite"><pre><span></span><code><span class="c">http://www.apache.org/licenses/LICENSE-2.0</span>
+</code></pre></div>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+<h1 id="orginal-implementation-from-keras_contriblayerscrf">Orginal implementation from keras_contrib/layers/crf<a class="headerlink" href="#orginal-implementation-from-keras_contriblayerscrf" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>"""Implementing Conditional Random Field layer."""</p>
+<h1 id="warning">!!! warning<a class="headerlink" href="#warning" title="Permanent link">&para;</a></h1>
+<h1 id="this-code-is-taken-verbatim-from-httpsgithubcomtensorflowaddonspull377">This code is taken verbatim from <a href="https://github.com/tensorflow/addons/pull/377">https://github.com/tensorflow/addons/pull/377</a><a class="headerlink" href="#this-code-is-taken-verbatim-from-httpsgithubcomtensorflowaddonspull377" title="Permanent link">&para;</a></h1>
+<h1 id="since-the-crf-layer-has-not-yet-landed-in-tensorflow">since the CRF layer has not yet landed in tensorflow<a class="headerlink" href="#since-the-crf-layer-has-not-yet-landed-in-tensorflow" title="Permanent link">&para;</a></h1>
+<h1 id="todo-make-sure-to-replace-this-when-tensorflow-merges-this-commit">TODO: Make sure to replace this when tensorflow merges this commit<a class="headerlink" href="#todo-make-sure-to-replace-this-when-tensorflow-merges-this-commit" title="Permanent link">&para;</a></h1>
+<h1 id="files">Files:<a class="headerlink" href="#files" title="Permanent link">&para;</a></h1>
+<h1 id="httpsgithubcomtensorflowaddonsblobe0b5e0f056d24b95546970acd4aedc3a5530d466tensorflow_addonslayerscrfpy"><a href="https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/layers/crf.py">https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/layers/crf.py</a><a class="headerlink" href="#httpsgithubcomtensorflowaddonsblobe0b5e0f056d24b95546970acd4aedc3a5530d466tensorflow_addonslayerscrfpy" title="Permanent link">&para;</a></h1>
+<h1 id="httpsgithubcomtensorflowaddonsblobe0b5e0f056d24b95546970acd4aedc3a5530d466tensorflow_addonslossescrfpy"><a href="https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/losses/crf.py">https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/losses/crf.py</a><a class="headerlink" href="#httpsgithubcomtensorflowaddonsblobe0b5e0f056d24b95546970acd4aedc3a5530d466tensorflow_addonslossescrfpy" title="Permanent link">&para;</a></h1>
+<p>from <strong>future</strong> import absolute_import, division, print_function</p>
+<p>import tensorflow as tf
+from typeguard import typechecked</p>
+<p>from tensorflow_addons.text.crf import crf_decode, crf_log_likelihood
+from tensorflow_addons.utils import types</p>
+<p>class CRF(tf.keras.layers.Layer):</p>
+</div>
+<div class="codehilite"><pre><span></span><code>    <span class="n">Examples</span><span class="p">:</span>
+
+    <span class="err">```</span><span class="n">python</span>
+        <span class="kn">from</span> <span class="nn">tensorflow_addons.layers</span> <span class="kn">import</span> <span class="n">CRF</span>
+        <span class="kn">from</span> <span class="nn">tensorflow_addons.losses</span> <span class="kn">import</span> <span class="n">crf_loss</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">3001</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">mask_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">crf</span> <span class="o">=</span> <span class="n">CRF</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">crf</span><span class="p">)</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="n">crf_loss</span><span class="p">)</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="err">```</span>
+
+    <span class="n">Arguments</span><span class="p">:</span>
+        <span class="n">units</span><span class="p">:</span> <span class="n">Positive</span> <span class="n">integer</span><span class="p">,</span> <span class="n">dimensionality</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="n">space</span><span class="p">,</span>
+            <span class="n">should</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">tag</span> <span class="n">num</span><span class="o">.</span>
+        <span class="n">chain_initializer</span><span class="p">:</span> <span class="n">Initializer</span> <span class="k">for</span> <span class="n">the</span> <span class="err">`</span><span class="n">chain_kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="p">,</span>
+            <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">CRF</span> <span class="n">chain</span> <span class="n">energy</span><span class="o">.</span>
+            <span class="p">(</span><span class="n">see</span> <span class="p">[</span><span class="n">initializers</span><span class="p">](</span><span class="o">../</span><span class="n">initializers</span><span class="o">.</span><span class="n">md</span><span class="p">))</span><span class="o">.</span>
+        <span class="n">chain_regularizer</span><span class="p">:</span> <span class="n">Regularizer</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
+            <span class="n">the</span> <span class="err">`</span><span class="n">chain_kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="o">.</span>
+        <span class="n">chain_constraint</span><span class="p">:</span> <span class="n">Constraint</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
+            <span class="n">the</span> <span class="err">`</span><span class="n">chain_kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="o">.</span>
+        <span class="n">use_boundary</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">(</span><span class="n">default</span> <span class="kc">True</span><span class="p">),</span> <span class="n">indicating</span> <span class="k">if</span> <span class="n">trainable</span>
+            <span class="n">start</span><span class="o">-</span><span class="n">end</span> <span class="n">chain</span> <span class="n">energies</span> <span class="n">should</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">model</span><span class="o">.</span>
+        <span class="n">boundary_initializer</span><span class="p">:</span> <span class="n">Initializer</span> <span class="k">for</span> <span class="n">the</span> <span class="err">`</span><span class="n">left_boundary</span><span class="err">`</span><span class="p">,</span>
+            <span class="s1">&#39;right_boundary&#39;</span> <span class="n">weights</span> <span class="n">vectors</span><span class="p">,</span>
+            <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">start</span><span class="o">/</span><span class="n">left</span> <span class="ow">and</span> <span class="n">end</span><span class="o">/</span><span class="n">right</span> <span class="n">boundary</span> <span class="n">energy</span><span class="o">.</span>
+        <span class="n">boundary_regularizer</span><span class="p">:</span> <span class="n">Regularizer</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
+            <span class="n">the</span> <span class="s1">&#39;left_boundary&#39;</span><span class="p">,</span> <span class="s1">&#39;right_boundary&#39;</span> <span class="n">weight</span> <span class="n">vectors</span><span class="o">.</span>
+        <span class="n">boundary_constraint</span><span class="p">:</span> <span class="n">Constraint</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
+            <span class="n">the</span> <span class="err">`</span><span class="n">left_boundary</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="n">right_boundary</span><span class="err">`</span> <span class="n">weights</span> <span class="n">vectors</span><span class="o">.</span>
+        <span class="n">use_kernel</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">(</span><span class="n">default</span> <span class="kc">True</span><span class="p">),</span> <span class="n">indicating</span> <span class="k">if</span> <span class="n">apply</span>
+            <span class="n">a</span> <span class="n">fully</span> <span class="n">connected</span> <span class="n">layer</span> <span class="n">before</span> <span class="n">CRF</span> <span class="n">op</span><span class="o">.</span>
+        <span class="n">kernel_initializer</span><span class="p">:</span> <span class="n">Initializer</span> <span class="k">for</span> <span class="n">the</span> <span class="err">`</span><span class="n">kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="p">,</span>
+            <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">linear</span> <span class="n">transformation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">inputs</span><span class="o">.</span>
+        <span class="n">kernel_regularizer</span><span class="p">:</span> <span class="n">Regularizer</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
+            <span class="n">the</span> <span class="err">`</span><span class="n">kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="o">.</span>
+        <span class="n">kernel_constraint</span><span class="p">:</span> <span class="n">Constraint</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
+            <span class="n">the</span> <span class="err">`</span><span class="n">kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="o">.</span>
+        <span class="n">use_bias</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">(</span><span class="n">default</span> <span class="kc">True</span><span class="p">),</span> <span class="n">whether</span> <span class="n">the</span> <span class="n">layer</span> <span class="n">uses</span> <span class="n">a</span> <span class="n">bias</span> <span class="n">vector</span><span class="o">.</span>
+        <span class="n">bias_initializer</span><span class="p">:</span> <span class="n">Initializer</span> <span class="k">for</span> <span class="n">the</span> <span class="n">bias</span> <span class="n">vector</span><span class="o">.</span>
+        <span class="n">bias_regularizer</span><span class="p">:</span> <span class="n">Regularizer</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span> <span class="n">the</span> <span class="n">bias</span> <span class="n">vector</span><span class="o">.</span>
+        <span class="n">bias_constraint</span><span class="p">:</span> <span class="n">Constraint</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span> <span class="n">the</span> <span class="n">bias</span> <span class="n">vector</span><span class="o">.</span>
+        <span class="n">activation</span><span class="p">:</span> <span class="n">default</span> <span class="n">value</span> <span class="ow">is</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">Activation</span> <span class="n">function</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>
+
+    <span class="n">Input</span> <span class="n">shape</span><span class="p">:</span>
+        <span class="mi">3</span><span class="n">D</span> <span class="n">tensor</span> <span class="k">with</span> <span class="n">shape</span><span class="p">:</span> <span class="err">`</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">,</span> <span class="n">feature_size</span><span class="p">)</span><span class="err">`</span><span class="o">.</span>
+
+    <span class="n">Output</span> <span class="n">shape</span><span class="p">:</span>
+        <span class="mi">2</span><span class="n">D</span> <span class="n">tensor</span> <span class="p">(</span><span class="n">dtype</span><span class="p">:</span> <span class="n">int32</span><span class="p">)</span> <span class="k">with</span> <span class="n">shape</span><span class="p">:</span> <span class="err">`</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">)</span><span class="err">`</span><span class="o">.</span>
+
+    <span class="n">Masking</span><span class="p">:</span>
+        <span class="n">This</span> <span class="n">layer</span> <span class="n">supports</span> <span class="n">masking</span>
+        <span class="p">(</span><span class="mi">2</span><span class="n">D</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="err">`</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">)</span><span class="err">`</span><span class="p">)</span>
+        <span class="k">for</span> <span class="nb">input</span> <span class="n">data</span> <span class="k">with</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">number</span> <span class="n">of</span> <span class="n">timesteps</span><span class="o">.</span>
+        <span class="n">This</span> <span class="n">layer</span> <span class="n">output</span> <span class="n">same</span> <span class="n">make</span> <span class="n">tensor</span><span class="p">,</span>
+        <span class="n">NOTICE</span> <span class="n">this</span> <span class="n">may</span> <span class="n">cause</span> <span class="n">issue</span> <span class="n">when</span> <span class="n">you</span>
+        <span class="n">use</span> <span class="n">some</span> <span class="n">keras</span> <span class="n">loss</span> <span class="ow">and</span> <span class="n">metrics</span> <span class="n">function</span> <span class="n">which</span> <span class="n">usually</span> <span class="n">expect</span> <span class="mi">1</span><span class="n">D</span> <span class="n">mask</span><span class="o">.</span>
+
+    <span class="n">Loss</span> <span class="n">function</span><span class="p">:</span>
+        <span class="n">Due</span> <span class="n">to</span> <span class="n">the</span> <span class="n">TF</span> <span class="mf">2.0</span> <span class="n">version</span> <span class="n">support</span> <span class="n">eager</span> <span class="n">execution</span> <span class="n">be</span> <span class="n">default</span><span class="p">,</span>
+        <span class="n">there</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">way</span> <span class="n">can</span> <span class="n">implement</span> <span class="n">CRF</span> <span class="n">loss</span> <span class="k">as</span> <span class="n">independent</span> <span class="n">loss</span> <span class="n">function</span><span class="o">.</span>
+        <span class="n">Thus</span><span class="p">,</span> <span class="n">user</span> <span class="n">should</span> <span class="n">use</span> <span class="n">loss</span> <span class="n">method</span> <span class="n">of</span> <span class="n">this</span> <span class="n">layer</span><span class="o">.</span>
+        <span class="n">See</span> <span class="n">Examples</span> <span class="p">(</span><span class="n">above</span><span class="p">)</span> <span class="k">for</span> <span class="n">detailed</span> <span class="n">usage</span><span class="o">.</span>
+
+    <span class="n">References</span><span class="p">:</span>
+        <span class="o">-</span> <span class="p">[</span><span class="n">Conditional</span> <span class="n">Random</span> <span class="n">Field</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">Conditional_random_field</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>@typechecked
+def <strong>init</strong>(
+self,
+units: int,
+chain_initializer: types.Initializer = "orthogonal",
+chain_regularizer: types.Regularizer = None,
+chain_constraint: types.Constraint = None,
+use_boundary: bool = True,
+boundary_initializer: types.Initializer = "zeros",
+boundary_regularizer: types.Regularizer = None,
+boundary_constraint: types.Constraint = None,
+use_kernel: bool = True,
+kernel_initializer: types.Initializer = "glorot_uniform",
+kernel_regularizer: types.Regularizer = None,
+kernel_constraint: types.Constraint = None,
+use_bias: bool = True,
+bias_initializer: types.Initializer = "zeros",
+bias_regularizer: types.Regularizer = None,
+bias_constraint: types.Constraint = None,
+activation: types.Activation = "linear",
+<strong>kwargs
+):
+super(CRF, self).<strong>init</strong>(</strong>kwargs)</p>
+<h1 id="setup-mask-supporting-flag-used-by-base-class-the-layer">setup mask supporting flag, used by base class (the Layer)<a class="headerlink" href="#setup-mask-supporting-flag-used-by-base-class-the-layer" title="Permanent link">&para;</a></h1>
+<h1 id="because-base-classs-init-method-will-set-it-to-false-unconditionally">because base class's init method will set it to False unconditionally<a class="headerlink" href="#because-base-classs-init-method-will-set-it-to-false-unconditionally" title="Permanent link">&para;</a></h1>
+<h1 id="so-this-assigned-must-be-executed-after-call-base-classs-init-method">So this assigned must be executed after call base class's init method<a class="headerlink" href="#so-this-assigned-must-be-executed-after-call-base-classs-init-method" title="Permanent link">&para;</a></h1>
+<p>self.supports_masking = True</p>
+<p>self.units = units  # numbers of tags</p>
+<p>self.use_boundary = use_boundary
+self.use_bias = use_bias
+self.use_kernel = use_kernel</p>
+<p>self.activation = tf.keras.activations.get(activation)</p>
+<p>self.kernel_initializer = tf.keras.initializers.get(kernel_initializer)
+self.chain_initializer = tf.keras.initializers.get(chain_initializer)
+self.boundary_initializer = tf.keras.initializers.get(boundary_initializer)
+self.bias_initializer = tf.keras.initializers.get(bias_initializer)</p>
+<p>self.kernel_regularizer = tf.keras.regularizers.get(kernel_regularizer)
+self.chain_regularizer = tf.keras.regularizers.get(chain_regularizer)
+self.boundary_regularizer = tf.keras.regularizers.get(boundary_regularizer)
+self.bias_regularizer = tf.keras.regularizers.get(bias_regularizer)</p>
+<p>self.kernel_constraint = tf.keras.constraints.get(kernel_constraint)
+self.chain_constraint = tf.keras.constraints.get(chain_constraint)
+self.boundary_constraint = tf.keras.constraints.get(boundary_constraint)
+self.bias_constraint = tf.keras.constraints.get(bias_constraint)</p>
+<h1 id="values-will-be-assigned-in-method">values will be assigned in method<a class="headerlink" href="#values-will-be-assigned-in-method" title="Permanent link">&para;</a></h1>
+<p>self.input_spec = None</p>
+<h1 id="value-remembered-for-lossmetrics-function">value remembered for loss/metrics function<a class="headerlink" href="#value-remembered-for-lossmetrics-function" title="Permanent link">&para;</a></h1>
+<p>self.potentials = None
+self.sequence_length = None
+self.mask = None</p>
+<h1 id="global-variable">global variable<a class="headerlink" href="#global-variable" title="Permanent link">&para;</a></h1>
+<p>self.chain_kernel = None
+self._dense_layer = None
+self.left_boundary = None
+self.right_boundary = None</p>
+<p>def build(self, input_shape):
+input_shape = tuple(tf.TensorShape(input_shape).as_list())</p>
+<h1 id="see-api-docs-of-inputspec-for-more-detail">see API docs of InputSpec for more detail<a class="headerlink" href="#see-api-docs-of-inputspec-for-more-detail" title="Permanent link">&para;</a></h1>
+<p>self.input_spec = [tf.keras.layers.InputSpec(shape=input_shape)]</p>
+<h1 id="weights-that-work-as-transfer-probability-of-each-tags">weights that work as transfer probability of each tags<a class="headerlink" href="#weights-that-work-as-transfer-probability-of-each-tags" title="Permanent link">&para;</a></h1>
+<p>self.chain_kernel = self.add_weight(
+shape=(self.units, self.units),
+name="chain_kernel",
+initializer=self.chain_initializer,
+regularizer=self.chain_regularizer,
+constraint=self.chain_constraint,
+)</p>
+<h1 id="weight-of-to-tag-probability-and-tag-to-probability">weight of <START> to tag probability and tag to <END> probability<a class="headerlink" href="#weight-of-to-tag-probability-and-tag-to-probability" title="Permanent link">&para;</a></h1>
+<p>if self.use_boundary:
+self.left_boundary = self.add_weight(
+shape=(self.units,),
+name="left_boundary",
+initializer=self.boundary_initializer,
+regularizer=self.boundary_regularizer,
+constraint=self.boundary_constraint,
+)
+self.right_boundary = self.add_weight(
+shape=(self.units,),
+name="right_boundary",
+initializer=self.boundary_initializer,
+regularizer=self.boundary_regularizer,
+constraint=self.boundary_constraint,
+)</p>
+<p>if self.use_kernel:
+self._dense_layer = tf.keras.layers.Dense(
+units=self.units,
+activation=self.activation,
+use_bias=self.use_bias,
+bias_initializer=self.bias_initializer,
+kernel_regularizer=self.kernel_regularizer,
+bias_regularizer=self.bias_regularizer,
+kernel_constraint=self.kernel_constraint,
+bias_constraint=self.bias_constraint,
+dtype=self.dtype,
+)
+else:
+self._dense_layer = lambda x: tf.cast(x, dtype=self.dtype)</p>
+<p>super(CRF, self).build(input_shape)</p>
+<p>def call(self, inputs, mask=None, **kwargs):</p>
+<h1 id="mask-tensorshapebatch_size-sequence_length-dtypebool-or-none">mask: Tensor(shape=(batch_size, sequence_length), dtype=bool) or None<a class="headerlink" href="#mask-tensorshapebatch_size-sequence_length-dtypebool-or-none" title="Permanent link">&para;</a></h1>
+<p>if mask is not None:
+if tf.keras.backend.ndim(mask) != 2:
+raise ValueError("Input mask to CRF must have dim 2 if not None")</p>
+<h1 id="left-padding-of-mask-is-not-supported-due-the-underline-crf-function">left padding of mask is not supported, due the underline CRF function<a class="headerlink" href="#left-padding-of-mask-is-not-supported-due-the-underline-crf-function" title="Permanent link">&para;</a></h1>
+<h1 id="detect-it-and-report-it-to-user">detect it and report it to user<a class="headerlink" href="#detect-it-and-report-it-to-user" title="Permanent link">&para;</a></h1>
+<p>first_mask = None
+if mask is not None:
+left_boundary_mask = self._compute_mask_left_boundary(mask)
+first_mask = left_boundary_mask[:, 0]</p>
+<h1 id="remember-this-value-for-later-use">remember this value for later use<a class="headerlink" href="#remember-this-value-for-later-use" title="Permanent link">&para;</a></h1>
+<p>self.mask = mask</p>
+<p>if first_mask is not None:
+no_left_padding = tf.math.reduce_all(first_mask)
+msg = "Currently, CRF layer do not support left padding"
+with tf.control_dependencies(
+[
+tf.debugging.assert_equal(
+no_left_padding, tf.constant(True), message=msg
+)
+]
+):
+self.potentials = self._dense_layer(inputs)
+else:
+self.potentials = self._dense_layer(inputs)</p>
+<h1 id="appending-boundary-probability-info">appending boundary probability info<a class="headerlink" href="#appending-boundary-probability-info" title="Permanent link">&para;</a></h1>
+<p>if self.use_boundary:
+self.potentials = self.add_boundary_energy(
+self.potentials, mask, self.left_boundary, self.right_boundary
+)</p>
+<p>self.sequence_length = self._get_sequence_length(inputs, mask)</p>
+<p>decoded_sequence, _ = self.get_viterbi_decoding(
+self.potentials, self.sequence_length
+)</p>
+<p>return decoded_sequence</p>
+<p>def <em>get_sequence_length(self, input</em>, mask):</p>
+</div>
+<div class="codehilite"><pre><span></span><code>        <span class="n">tensorflow_addons</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">crf</span><span class="p">)</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">bi</span><span class="o">-</span><span class="n">direction</span> <span class="n">masking</span> <span class="p">(</span><span class="n">left</span>
+        <span class="n">padding</span> <span class="o">/</span> <span class="n">right</span> <span class="n">padding</span><span class="p">),</span> <span class="n">it</span> <span class="n">support</span> <span class="n">right</span> <span class="n">padding</span> <span class="n">by</span> <span class="n">tell</span> <span class="n">it</span> <span class="n">the</span>
+        <span class="n">sequence</span> <span class="n">length</span><span class="o">.</span>
+
+        <span class="n">this</span> <span class="n">function</span> <span class="ow">is</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">sequence</span> <span class="n">length</span> <span class="kn">from</span> <span class="nn">input</span> <span class="ow">and</span>
+        <span class="n">mask</span><span class="o">.</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if mask is not None:
+sequence_length = self.mask_to_sequence_length(mask)
+else:</p>
+<h1 id="make-a-mask-tensor-from-input-then-used-to-generate-sequence_length">make a mask tensor from input, then used to generate sequence_length<a class="headerlink" href="#make-a-mask-tensor-from-input-then-used-to-generate-sequence_length" title="Permanent link">&para;</a></h1>
+<p>input_energy_shape = tf.shape(input_)
+raw_input_shape = tf.slice(input_energy_shape, [0], [2])
+alt_mask = tf.ones(raw_input_shape)</p>
+<p>sequence_length = self.mask_to_sequence_length(alt_mask)</p>
+<p>return sequence_length</p>
+<p>def mask_to_sequence_length(self, mask):</p>
+</div>
+<div class="codehilite"><pre><span></span><code>        <span class="n">sequence_length</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int8</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sequence_length</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_compute_mask_right_boundary</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>"""input mask: 0011100, output left_boundary: 0000100."""</p>
+<h1 id="shift-mask-to-left-by-1-0011100-0111000">shift mask to left by 1: 0011100 =&gt; 0111000<a class="headerlink" href="#shift-mask-to-left-by-1-0011100-0111000" title="Permanent link">&para;</a></h1>
+<p>offset = 1
+left_shifted_mask = tf.concat(
+[mask[:, offset:], tf.zeros_like(mask[:, :offset])], axis=1
+)</p>
+<h1 id="note-below-code-is-different-from-keras_contrib">NOTE: below code is different from keras_contrib<a class="headerlink" href="#note-below-code-is-different-from-keras_contrib" title="Permanent link">&para;</a></h1>
+<h1 id="original-code-in-keras_contrib">Original code in keras_contrib:<a class="headerlink" href="#original-code-in-keras_contrib" title="Permanent link">&para;</a></h1>
+<h1 id="end_mask-kcast">end_mask = K.cast(<a class="headerlink" href="#end_mask-kcast" title="Permanent link">&para;</a></h1>
+<h1 id="kgreaterselfshift_leftmask-mask">K.greater(self.shift_left(mask), mask),<a class="headerlink" href="#kgreaterselfshift_leftmask-mask" title="Permanent link">&para;</a></h1>
+<h1 id="kfloatx">K.floatx()<a class="headerlink" href="#kfloatx" title="Permanent link">&para;</a></h1>
+<h1 id="_1">)<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="has-a-bug-confirmed">has a bug, confirmed<a class="headerlink" href="#has-a-bug-confirmed" title="Permanent link">&para;</a></h1>
+<h1 id="by-the-original-keras_contrib-maintainer">by the original keras_contrib maintainer<a class="headerlink" href="#by-the-original-keras_contrib-maintainer" title="Permanent link">&para;</a></h1>
+<h1 id="luiz-felix-github-lzfelix">Luiz Felix (github: lzfelix),<a class="headerlink" href="#luiz-felix-github-lzfelix" title="Permanent link">&para;</a></h1>
+<h1 id="0011100-0111000-0000100">0011100 &gt; 0111000 =&gt; 0000100<a class="headerlink" href="#0011100-0111000-0000100" title="Permanent link">&para;</a></h1>
+<p>right_boundary = tf.greater(mask, left_shifted_mask)</p>
+<p>return right_boundary</p>
+<p>@staticmethod
+def _compute_mask_left_boundary(mask):</p>
+</div>
+<p>shift mask to right by 1: 0011100 =&gt; 0001110</p>
+<div class="codehilite"><pre><span></span><code>        <span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">right_shifted_mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">mask</span><span class="p">[:,</span> <span class="p">:</span><span class="n">offset</span><span class="p">]),</span> <span class="n">mask</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="n">offset</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+</code></pre></div>
+
+<p>0011100 &gt; 0001110 =&gt; 0010000</p>
+<div class="codehilite"><pre><span></span><code>        <span class="n">left_boundary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">right_shifted_mask</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="p">)</span>
+</code></pre></div>
+
+<p>left_boundary = tf.greater(mask, right_shifted_mask)</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">return</span> <span class="n">left_boundary</span>
+
+    <span class="k">def</span> <span class="nf">add_boundary_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">potentials</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">expand_scalar_to_3d</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</code></pre></div>
+
+<p>expand tensor from shape (x, ) to (1, 1, x)</p>
+<div class="codehilite"><pre><span></span><code>            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="n">start</span> <span class="o">=</span> <span class="n">expand_scalar_to_3d</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">expand_scalar_to_3d</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">potentials</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">potentials</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">start</span><span class="p">,</span> <span class="n">potentials</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+            <span class="p">)</span>
+            <span class="n">potentials</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">potentials</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">potentials</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">end</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">start</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">start_mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_compute_mask_left_boundary</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">start</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+            <span class="n">end_mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_compute_mask_right_boundary</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">end</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">potentials</span> <span class="o">=</span> <span class="n">potentials</span> <span class="o">+</span> <span class="n">start_mask</span> <span class="o">*</span> <span class="n">start</span>
+            <span class="n">potentials</span> <span class="o">=</span> <span class="n">potentials</span> <span class="o">+</span> <span class="n">end_mask</span> <span class="o">*</span> <span class="n">end</span>
+        <span class="k">return</span> <span class="n">potentials</span>
+
+    <span class="k">def</span> <span class="nf">get_viterbi_decoding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">potentials</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">):</span>
+</code></pre></div>
+
+<p>decode_tags: A [batch_size, max_seq_len] matrix, with dtype <code>tf.int32</code></p>
+<div class="codehilite"><pre><span></span><code>        <span class="n">decode_tags</span><span class="p">,</span> <span class="n">best_score</span> <span class="o">=</span> <span class="n">crf_decode</span><span class="p">(</span>
+            <span class="n">potentials</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain_kernel</span><span class="p">,</span> <span class="n">sequence_length</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">decode_tags</span><span class="p">,</span> <span class="n">best_score</span>
+
+    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</code></pre></div>
+
+<p>used for loading model from disk</p>
+<div class="codehilite"><pre><span></span><code>        <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
+            <span class="s2">&quot;use_boundary&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_boundary</span><span class="p">,</span>
+            <span class="s2">&quot;use_bias&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_bias</span><span class="p">,</span>
+            <span class="s2">&quot;use_kernel&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_kernel</span><span class="p">,</span>
+            <span class="s2">&quot;kernel_initializer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kernel_initializer</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;chain_initializer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">chain_initializer</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;boundary_initializer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">boundary_initializer</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;bias_initializer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_initializer</span><span class="p">),</span>
+            <span class="s2">&quot;activation&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">activations</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">),</span>
+            <span class="s2">&quot;kernel_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kernel_regularizer</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;chain_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">chain_regularizer</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;boundary_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">boundary_regularizer</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;bias_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_regularizer</span><span class="p">),</span>
+            <span class="s2">&quot;kernel_constraint&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_constraint</span><span class="p">),</span>
+            <span class="s2">&quot;chain_constraint&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain_constraint</span><span class="p">),</span>
+            <span class="s2">&quot;boundary_constraint&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">boundary_constraint</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;bias_constraint&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_constraint</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="n">base_config</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CRF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">base_config</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">compute_output_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+        <span class="n">output_shape</span> <span class="o">=</span> <span class="n">input_shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">output_shape</span>
+
+    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>"""keep mask shape [batch_size, max_seq_len]"""
+return mask</p>
+<p>def get_negative_log_likelihood(self, y_true):
+y_true = tf.cast(y_true, tf.int32)
+self.sequence_length = tf.cast(self.sequence_length, tf.int32)</p>
+<p>log_likelihood, _ = crf_log_likelihood(
+self.potentials, y_true, self.sequence_length, self.chain_kernel
+)</p>
+<p>return -log_likelihood</p>
+<p>def get_loss(self, y_true, y_pred):</p>
+<h1 id="we-dont-use-y_pred-but-caller-pass-it-anyway-ignore-it">we don't use y_pred, but caller pass it anyway, ignore it<a class="headerlink" href="#we-dont-use-y_pred-but-caller-pass-it-anyway-ignore-it" title="Permanent link">&para;</a></h1>
+<p>return self.get_negative_log_likelihood(y_true)</p>
+<p>def get_accuracy(self, y_true, y_pred):
+judge = tf.cast(tf.equal(y_pred, y_true), tf.keras.backend.floatx())
+if self.mask is None:
+return tf.reduce_mean(judge)
+else:
+mask = tf.cast(self.mask, tf.keras.backend.floatx())
+return tf.reduce_sum(judge * mask) / tf.reduce_sum(mask)</p>
+<p>def <strong>call</strong>(self, inputs, <em>args, </em><em>kwargs):
+outputs = super(CRF, self).<strong>call</strong>(inputs, </em>args, **kwargs)</p>
+<h1 id="a-hack-that-add-_keras_history-to-eagertensor-make-it-more-like-normal-tensor">A hack that add _keras_history to EagerTensor, make it more like normal Tensor<a class="headerlink" href="#a-hack-that-add-_keras_history-to-eagertensor-make-it-more-like-normal-tensor" title="Permanent link">&para;</a></h1>
+<p>for tensor in tf.nest.flatten(outputs):
+if not hasattr(tensor, "_keras_history"):
+tensor._keras_history = (self, 0, 0)</p>
+<p>return outputs</p>
+<p>@property
+def _compute_dtype(self):</p>
+<h1 id="fixed-output-dtype-from-underline-crf-functions">fixed output dtype from underline CRF functions<a class="headerlink" href="#fixed-output-dtype-from-underline-crf-functions" title="Permanent link">&para;</a></h1>
+<p>return tf.int32</p>
+<p>class ConditionalRandomFieldLoss(object):
+def <strong>init</strong>(self, name: str = "crf_loss"):
+self.name = name</p>
+<p>def get_config(self):
+return {"name": self.name}</p>
+<p>def <strong>call</strong>(self, y_true, y_pred, sample_weight=None):
+crf_layer = y_pred._keras_history[0]</p>
+<h1 id="check-if-last-layer-is-crf">check if last layer is CRF<a class="headerlink" href="#check-if-last-layer-is-crf" title="Permanent link">&para;</a></h1>
+<p>if not isinstance(crf_layer, CRF):
+raise ValueError(
+"Last layer must be CRF for use {}.".format(self.<strong>class</strong>.<strong>name</strong>)
+)</p>
+<p>loss_vector = crf_layer.get_loss(y_true, y_pred)</p>
+<p>return tf.keras.backend.mean(loss_vector)</p>
+<p>crf_loss = ConditionalRandomFieldLoss()</p>
+</div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
