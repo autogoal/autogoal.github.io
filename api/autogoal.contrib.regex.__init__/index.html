@@ -512,6 +512,25 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      General-purpose AutoML
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        General-purpose AutoML
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
       Solving UCI datasets
@@ -540,6 +559,59 @@
     <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
       Solving MEDDOCAN 2019
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Using Neural Networks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Using Neural Networks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_cars/" title="Solving CARS with Keras" class="md-nav__link">
+      Solving CARS with Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_meddocan/" title="Solving MEDDOCAN with Keras" class="md-nav__link">
+      Solving MEDDOCAN with Keras
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -837,7 +909,7 @@
 <span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="n">AlgorithmBase</span>
 
 
-<span class="k">class</span> <span class="nc">_Regex</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">_Regex</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full</span><span class="p">:</span> <span class="n">BooleanValue</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">full</span> <span class="o">=</span> <span class="n">full</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">[:</span> <span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Regex&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -853,7 +925,7 @@
 
 
 <span class="nd">@nice_repr</span>
-<span class="k">class</span> <span class="nc">UrlRegex</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">,</span> <span class="n">_Regex</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">UrlRegex</span><span class="p">(</span><span class="n">_Regex</span><span class="p">):</span>
 </code></pre></div>
 
 <div class="admonition note">
@@ -884,7 +956,7 @@ regex.run("There is a URL at https://autogoal.gitlab.io/autogoal/contributing/#l
 
 
 <span class="nd">@nice_repr</span>
-<span class="k">class</span> <span class="nc">IPRegex</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">,</span> <span class="n">_Regex</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">IPRegex</span><span class="p">(</span><span class="n">_Regex</span><span class="p">):</span>
 </code></pre></div>
 
 <div class="admonition note">
@@ -915,7 +987,7 @@ regex.run("There is an IP at 192.168.18.1, who would know?")
 
 
 <span class="nd">@nice_repr</span>
-<span class="k">class</span> <span class="nc">MACRegex</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">,</span> <span class="n">_Regex</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MACRegex</span><span class="p">(</span><span class="n">_Regex</span><span class="p">):</span>
 </code></pre></div>
 
 <div class="admonition note">
@@ -946,7 +1018,7 @@ regex.run("There is an IP at 3D:F2:C9:A6:B3:4F, who would know?")
 
 
 <span class="nd">@nice_repr</span>
-<span class="k">class</span> <span class="nc">EmailRegex</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">,</span> <span class="n">_Regex</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">EmailRegex</span><span class="p">(</span><span class="n">_Regex</span><span class="p">):</span>
 </code></pre></div>
 
 <div class="admonition note">
@@ -977,7 +1049,7 @@ regex.run("There is an email at someone@example.com, who would know?")
 
 
 <span class="nd">@nice_repr</span>
-<span class="k">class</span> <span class="nc">PhoneRegex</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">,</span> <span class="n">_Regex</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">PhoneRegex</span><span class="p">(</span><span class="n">_Regex</span><span class="p">):</span>
 </code></pre></div>
 
 <div class="admonition note">

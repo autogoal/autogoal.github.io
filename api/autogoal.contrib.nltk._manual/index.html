@@ -508,6 +508,25 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      General-purpose AutoML
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        General-purpose AutoML
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
       Solving UCI datasets
@@ -536,6 +555,59 @@
     <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
       Solving MEDDOCAN 2019
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Using Neural Networks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Using Neural Networks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_cars/" title="Solving CARS with Keras" class="md-nav__link">
+      Solving CARS with Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_meddocan/" title="Solving MEDDOCAN with Keras" class="md-nav__link">
+      Solving MEDDOCAN with Keras
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -859,7 +931,7 @@ Tag use to be an unique integer</p>
 
 
 <span class="nd">@nice_repr</span>
-<span class="k">class</span> <span class="nc">StopwordRemover</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">StopwordRemover</span><span class="p">(</span><span class="n">SklearnTransformer</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">language</span><span class="p">:</span> <span class="n">CategoricalValue</span><span class="p">(</span>
@@ -883,13 +955,13 @@ Tag use to be an unique integer</p>
         <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">language</span><span class="p">)</span>
-        <span class="n">SklearnWrapper</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">SklearnTransformer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">input</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">words</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">input</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">words</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Word</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Word</span><span class="p">]:</span>
 </code></pre></div>
@@ -901,19 +973,9 @@ Tag use to be an unique integer</p>
 <p><a name="ref:TextLowerer"></a></p>
 <div class="codehilite"><pre><span></span><code>        <span class="k">return</span> <span class="n">SklearnTransformer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">StopwordRemover</span><span class="o">.</span><span class="vm">__name__</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="si">}</span><span class="s2">)&quot;</span>
-
 
 <span class="nd">@nice_repr</span>
-<span class="k">class</span> <span class="nc">TextLowerer</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">pass</span>
-
+<span class="k">class</span> <span class="nc">TextLowerer</span><span class="p">(</span><span class="n">SklearnTransformer</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -958,13 +1020,13 @@ Tag use to be an unique integer</p>
 class ConvertSynset2Word:
     """Recive a Synset of nltk and return de Lemma of this
     """</p>
-<div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="k">self</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span><span class="o">:</span>
     <span class="n">pass</span>
 
-<span class="n">def</span> <span class="n">run</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="k">input</span><span class="p">:</span> <span class="n">Synset</span><span class="p">(</span><span class="k">domain</span><span class="o">=</span><span class="ss">&quot;general&quot;</span><span class="p">,</span> <span class="k">language</span><span class="o">=</span><span class="ss">&quot;english&quot;</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Word</span><span class="p">():</span>
-    <span class="ss">&quot;&quot;&quot;Recive a Synset of nltk and return de Lemma of this</span>
-<span class="ss">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">Lemma</span><span class="p">(</span><span class="k">input</span><span class="p">)</span>
+<span class="n">def</span> <span class="n">run</span><span class="p">(</span><span class="kr">self</span><span class="p">,</span> <span class="n">input</span><span class="o">:</span> <span class="n">Synset</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="s">&quot;general&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s">&quot;english&quot;</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Word</span><span class="p">()</span><span class="o">:</span>
+    <span class="s">&quot;&quot;&quot;Recive a Synset of nltk and return de Lemma of this</span>
+<span class="s">    &quot;&quot;&quot;</span>
+    <span class="kr">return</span> <span class="n">Lemma</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
 </code></pre></div>
 
 <p><a name="ref:SentimentWord"></a></p>
@@ -989,12 +1051,13 @@ class ConvertSynset2Word:
 <p>"""Find a word in SentiWordnet and return a List of sentiment of the word.</p>
 </div>
 <p><a name="ref:NEChunkParserTagger"></a>
-<a name="ref:GlobalChunker"></a></p>
+<a name="ref:GlobalChunker"></a>
+<a name="ref:FeatureSeqExtractor"></a></p>
 <div class="codehilite"><pre><span></span><code>        <span class="n">swn_synset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">swn</span><span class="o">.</span><span class="n">senti_synset</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 
         <span class="n">sentiment</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">sentiments</span><span class="p">[</span><span class="s2">&quot;positive&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">swn_synset</span><span class="o">.</span><span class="n">pos_score</span><span class="p">()</span>
-        <span class="n">sentiments</span><span class="p">[</span><span class="s2">&quot;negative&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">swn_synset</span><span class="o">.</span><span class="n">neg_score</span><span class="p">()</span>
+        <span class="n">sentiment</span><span class="p">[</span><span class="s2">&quot;positive&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">swn_synset</span><span class="o">.</span><span class="n">pos_score</span><span class="p">()</span>
+        <span class="n">sentiment</span><span class="p">[</span><span class="s2">&quot;negative&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">swn_synset</span><span class="o">.</span><span class="n">neg_score</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">sentiment</span>
 
@@ -1026,9 +1089,7 @@ class ConvertSynset2Word:
 
         <span class="n">SklearnWrapper</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">input</span>
-
+    <span class="k">def</span> <span class="nf">_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="n">postagged_sentences</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
             <span class="n">sentence</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1064,9 +1125,7 @@ class ConvertSynset2Word:
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inner_chunker</span><span class="o">.</span><span class="n">run</span><span class="p">((</span><span class="n">postagged_sentences</span><span class="p">,</span> <span class="n">tagged_sentences</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">input</span>
-
+    <span class="k">def</span> <span class="nf">_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">postagged_document</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
             <span class="n">sentence</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1084,8 +1143,78 @@ class ConvertSynset2Word:
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inner_chunker</span><span class="o">.</span><span class="n">run</span><span class="p">((</span><span class="n">postagged_document</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Seq</span><span class="p">[</span><span class="n">Word</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Chunktag</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Seq</span><span class="p">[</span><span class="n">Word</span><span class="p">]],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Supervised</span><span class="p">[</span><span class="n">Seq</span><span class="p">[</span><span class="n">Seq</span><span class="p">[</span><span class="n">Chunktag</span><span class="p">]]]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Chunktag</span><span class="p">]:</span>
         <span class="k">return</span> <span class="n">SklearnWrapper</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">)</span>
+
+
+<span class="nd">@nice_repr</span>
+<span class="k">class</span> <span class="nc">FeatureSeqExtractor</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A simple feature extractor for tokenized sentences based on NLTK.</p>
+<p>It receives a tokenized sentence (i.e., a list of str) and outputs a
+list of syntactic features. For each word in the sentence, it builds a
+dictionary of features of that word, plus features of surrounding words
+in a pre-defined window (of size 1 to 5).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>extract_word</code>: whether to extract words as features.</li>
+<li><code>window_size</code>: size of the window around the current word to also look for features.</li>
+</ul>
+<p>```python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>extractor = FeatureSeqExtractor(window_size=2)
+extractor.run(["Hello", "World"])
+[{'word': 'Hello', 'word+1': 'World'}, {'word': 'World', 'word-1': 'Hello'}]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>```</p>
+</div>
+<div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">extract_word</span><span class="p">:</span> <span class="n">BooleanValue</span><span class="p">()</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">window_size</span><span class="p">:</span> <span class="n">DiscreteValue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extract_word</span> <span class="o">=</span> <span class="n">extract_word</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span> <span class="o">=</span> <span class="n">window_size</span>
+
+    <span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_word</span><span class="p">:</span>
+            <span class="n">features</span><span class="p">[</span><span class="s2">&quot;word&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
+
+        <span class="k">return</span> <span class="n">features</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">:</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Word</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Seq</span><span class="p">[</span><span class="n">FeatureSet</span><span class="p">]:</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
+            <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+
+        <span class="n">expanded_features</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+            <span class="n">expanded</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="n">ff</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span> <span class="k">else</span> <span class="p">{}</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;+</span><span class="si">{</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ff</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">expanded</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+            <span class="n">expanded_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expanded</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">expanded_features</span>
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
@@ -1096,6 +1225,7 @@ class ConvertSynset2Word:
     <span class="s2">&quot;SentimentWord&quot;</span><span class="p">,</span>
     <span class="s2">&quot;NEChunkParserTagger&quot;</span><span class="p">,</span>
     <span class="s2">&quot;GlobalChunker&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FeatureSeqExtractor&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 </code></pre></div>
                 

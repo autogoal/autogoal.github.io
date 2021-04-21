@@ -512,6 +512,25 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      General-purpose AutoML
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        General-purpose AutoML
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
       Solving UCI datasets
@@ -540,6 +559,59 @@
     <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
       Solving MEDDOCAN 2019
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Using Neural Networks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Using Neural Networks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_cars/" title="Solving CARS with Keras" class="md-nav__link">
+      Solving CARS with Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_meddocan/" title="Solving MEDDOCAN with Keras" class="md-nav__link">
+      Solving MEDDOCAN with Keras
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -799,14 +871,14 @@ from numpy import ndarray</p>
 <p>def algorithm(input_type, output_type):
     def run_method(self, input: input_type) -&gt; output_type:
         pass</p>
-<div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">body</span><span class="p">(</span><span class="n">ns</span><span class="p">):</span>
-    <span class="n">ns</span><span class="p">[</span><span class="ss">&quot;run&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_method</span>
+<div class="codehilite"><pre><span></span><code><span class="nv">def</span> <span class="nv">body</span><span class="ss">(</span><span class="nv">ns</span><span class="ss">)</span>:
+    <span class="nv">ns</span>[<span class="s2">&quot;</span><span class="s">run</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">run_method</span>
 
-<span class="k">return</span> <span class="n">types</span><span class="p">.</span><span class="n">new_class</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="ss">&quot;Algorithm[%s, %s]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">input_type</span><span class="p">,</span> <span class="n">output_type</span><span class="p">),</span>
-    <span class="n">bases</span><span class="o">=</span><span class="p">(</span><span class="n">Interface</span><span class="p">,),</span>
-    <span class="n">exec_body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="k">return</span> <span class="nv">types</span>.<span class="nv">new_class</span><span class="ss">(</span>
+    <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Algorithm[%s, %s]</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="ss">(</span><span class="nv">input_type</span>, <span class="nv">output_type</span><span class="ss">)</span>,
+    <span class="nv">bases</span><span class="o">=</span><span class="ss">(</span><span class="nv">Interface</span>,<span class="ss">)</span>,
+    <span class="nv">exec_body</span><span class="o">=</span><span class="nv">body</span>,
+<span class="ss">)</span>
 </code></pre></div>
 
 <p><a name="ref:Interface"></a>
@@ -870,13 +942,13 @@ from numpy import ndarray</p>
 <p>def conforms(type1, type2):
     if inspect.isclass(type1) and inspect.isclass(type2):
         return issubclass(type1, type2)</p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="n">hasattr</span><span class="p">(</span><span class="n">type1</span><span class="p">,</span> <span class="ss">&quot;__conforms__&quot;</span><span class="p">)</span> <span class="k">and</span> <span class="n">type1</span><span class="p">.</span><span class="n">__conforms__</span><span class="p">(</span><span class="n">type2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="k">True</span>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="nv">hasattr</span><span class="ss">(</span><span class="nv">type1</span>, <span class="s2">&quot;</span><span class="s">__conforms__</span><span class="s2">&quot;</span><span class="ss">)</span> <span class="nv">and</span> <span class="nv">type1</span>.<span class="nv">__conforms__</span><span class="ss">(</span><span class="nv">type2</span><span class="ss">)</span>:
+    <span class="k">return</span> <span class="nv">True</span>
 
-<span class="k">if</span> <span class="n">hasattr</span><span class="p">(</span><span class="n">type2</span><span class="p">,</span> <span class="ss">&quot;__rconforms__&quot;</span><span class="p">)</span> <span class="k">and</span> <span class="n">type2</span><span class="p">.</span><span class="n">__rconforms__</span><span class="p">(</span><span class="n">type1</span><span class="p">):</span>
-    <span class="k">return</span> <span class="k">True</span>
+<span class="k">if</span> <span class="nv">hasattr</span><span class="ss">(</span><span class="nv">type2</span>, <span class="s2">&quot;</span><span class="s">__rconforms__</span><span class="s2">&quot;</span><span class="ss">)</span> <span class="nv">and</span> <span class="nv">type2</span>.<span class="nv">__rconforms__</span><span class="ss">(</span><span class="nv">type1</span><span class="ss">)</span>:
+    <span class="k">return</span> <span class="nv">True</span>
 
-<span class="k">return</span> <span class="k">False</span>
+<span class="k">return</span> <span class="nv">False</span>
 </code></pre></div>
 
 <p><a name="ref:_compatible_annotations"></a>

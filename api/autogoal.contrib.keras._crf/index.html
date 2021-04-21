@@ -512,6 +512,25 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      General-purpose AutoML
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        General-purpose AutoML
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
       Solving UCI datasets
@@ -540,6 +559,59 @@
     <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
       Solving MEDDOCAN 2019
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Using Neural Networks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Using Neural Networks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_cars/" title="Solving CARS with Keras" class="md-nav__link">
+      Solving CARS with Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_meddocan/" title="Solving MEDDOCAN with Keras" class="md-nav__link">
+      Solving MEDDOCAN with Keras
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -786,7 +858,7 @@
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at</p>
-<div class="codehilite"><pre><span></span><code><span class="c">http://www.apache.org/licenses/LICENSE-2.0</span>
+<div class="codehilite"><pre><span></span><code>http://www.apache.org/licenses/LICENSE-2.0
 </code></pre></div>
 
 <p>Unless required by applicable law or agreed to in writing, software
@@ -797,430 +869,480 @@ limitations under the License.</p>
 <h1 id="orginal-implementation-from-keras_contriblayerscrf">Orginal implementation from keras_contrib/layers/crf<a class="headerlink" href="#orginal-implementation-from-keras_contriblayerscrf" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>"""Implementing Conditional Random Field layer."""</p>
-<h1 id="warning">!!! warning<a class="headerlink" href="#warning" title="Permanent link">&para;</a></h1>
-<h1 id="this-code-is-taken-verbatim-from-httpsgithubcomtensorflowaddonspull377">This code is taken verbatim from <a href="https://github.com/tensorflow/addons/pull/377">https://github.com/tensorflow/addons/pull/377</a><a class="headerlink" href="#this-code-is-taken-verbatim-from-httpsgithubcomtensorflowaddonspull377" title="Permanent link">&para;</a></h1>
-<h1 id="since-the-crf-layer-has-not-yet-landed-in-tensorflow">since the CRF layer has not yet landed in tensorflow<a class="headerlink" href="#since-the-crf-layer-has-not-yet-landed-in-tensorflow" title="Permanent link">&para;</a></h1>
-<h1 id="todo-make-sure-to-replace-this-when-tensorflow-merges-this-commit">TODO: Make sure to replace this when tensorflow merges this commit<a class="headerlink" href="#todo-make-sure-to-replace-this-when-tensorflow-merges-this-commit" title="Permanent link">&para;</a></h1>
-<h1 id="files">Files:<a class="headerlink" href="#files" title="Permanent link">&para;</a></h1>
-<h1 id="httpsgithubcomtensorflowaddonsblobe0b5e0f056d24b95546970acd4aedc3a5530d466tensorflow_addonslayerscrfpy"><a href="https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/layers/crf.py">https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/layers/crf.py</a><a class="headerlink" href="#httpsgithubcomtensorflowaddonsblobe0b5e0f056d24b95546970acd4aedc3a5530d466tensorflow_addonslayerscrfpy" title="Permanent link">&para;</a></h1>
-<h1 id="httpsgithubcomtensorflowaddonsblobe0b5e0f056d24b95546970acd4aedc3a5530d466tensorflow_addonslossescrfpy"><a href="https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/losses/crf.py">https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/losses/crf.py</a><a class="headerlink" href="#httpsgithubcomtensorflowaddonsblobe0b5e0f056d24b95546970acd4aedc3a5530d466tensorflow_addonslossescrfpy" title="Permanent link">&para;</a></h1>
-<p>from <strong>future</strong> import absolute_import, division, print_function</p>
-<p>import tensorflow as tf
-from typeguard import typechecked</p>
-<p>from tensorflow_addons.text.crf import crf_decode, crf_log_likelihood
-from tensorflow_addons.utils import types</p>
-<p>class CRF(tf.keras.layers.Layer):</p>
+<p>"""Implementing Conditional Random Field layer.</p>
 </div>
-<div class="codehilite"><pre><span></span><code>    <span class="n">Examples</span><span class="p">:</span>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This code is taken verbatim from <a href="https://github.com/tensorflow/addons/pull/377">https://github.com/tensorflow/addons/pull/377</a>
+since the CRF layer has not yet landed in tensorflow
+TODO: Make sure to replace this when tensorflow merges this commit</p>
+<p>Files:
+<a href="https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/layers/crf.py">https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/layers/crf.py</a>
+<a href="https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/losses/crf.py">https://github.com/tensorflow/addons/blob/e0b5e0f056d24b95546970acd4aedc3a5530d466/tensorflow_addons/losses/crf.py</a></p>
+</div>
+<p><a name="ref:CRF"></a></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
 
-    <span class="err">```</span><span class="n">python</span>
-        <span class="kn">from</span> <span class="nn">tensorflow_addons.layers</span> <span class="kn">import</span> <span class="n">CRF</span>
-        <span class="kn">from</span> <span class="nn">tensorflow_addons.losses</span> <span class="kn">import</span> <span class="n">crf_loss</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">typeguard</span> <span class="kn">import</span> <span class="n">typechecked</span>
 
-        <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">3001</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">mask_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tensorflow_addons.text.crf</span> <span class="kn">import</span> <span class="n">crf_decode</span><span class="p">,</span> <span class="n">crf_log_likelihood</span>
+<span class="kn">from</span> <span class="nn">tensorflow_addons.utils</span> <span class="kn">import</span> <span class="n">types</span>
 
-        <span class="n">crf</span> <span class="o">=</span> <span class="n">CRF</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">crf</span><span class="p">)</span>
 
-        <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="n">crf_loss</span><span class="p">)</span>
-
-        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="err">```</span>
-
-    <span class="n">Arguments</span><span class="p">:</span>
-        <span class="n">units</span><span class="p">:</span> <span class="n">Positive</span> <span class="n">integer</span><span class="p">,</span> <span class="n">dimensionality</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="n">space</span><span class="p">,</span>
-            <span class="n">should</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">tag</span> <span class="n">num</span><span class="o">.</span>
-        <span class="n">chain_initializer</span><span class="p">:</span> <span class="n">Initializer</span> <span class="k">for</span> <span class="n">the</span> <span class="err">`</span><span class="n">chain_kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="p">,</span>
-            <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">CRF</span> <span class="n">chain</span> <span class="n">energy</span><span class="o">.</span>
-            <span class="p">(</span><span class="n">see</span> <span class="p">[</span><span class="n">initializers</span><span class="p">](</span><span class="o">../</span><span class="n">initializers</span><span class="o">.</span><span class="n">md</span><span class="p">))</span><span class="o">.</span>
-        <span class="n">chain_regularizer</span><span class="p">:</span> <span class="n">Regularizer</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
-            <span class="n">the</span> <span class="err">`</span><span class="n">chain_kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="o">.</span>
-        <span class="n">chain_constraint</span><span class="p">:</span> <span class="n">Constraint</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
-            <span class="n">the</span> <span class="err">`</span><span class="n">chain_kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="o">.</span>
-        <span class="n">use_boundary</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">(</span><span class="n">default</span> <span class="kc">True</span><span class="p">),</span> <span class="n">indicating</span> <span class="k">if</span> <span class="n">trainable</span>
-            <span class="n">start</span><span class="o">-</span><span class="n">end</span> <span class="n">chain</span> <span class="n">energies</span> <span class="n">should</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">model</span><span class="o">.</span>
-        <span class="n">boundary_initializer</span><span class="p">:</span> <span class="n">Initializer</span> <span class="k">for</span> <span class="n">the</span> <span class="err">`</span><span class="n">left_boundary</span><span class="err">`</span><span class="p">,</span>
-            <span class="s1">&#39;right_boundary&#39;</span> <span class="n">weights</span> <span class="n">vectors</span><span class="p">,</span>
-            <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">start</span><span class="o">/</span><span class="n">left</span> <span class="ow">and</span> <span class="n">end</span><span class="o">/</span><span class="n">right</span> <span class="n">boundary</span> <span class="n">energy</span><span class="o">.</span>
-        <span class="n">boundary_regularizer</span><span class="p">:</span> <span class="n">Regularizer</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
-            <span class="n">the</span> <span class="s1">&#39;left_boundary&#39;</span><span class="p">,</span> <span class="s1">&#39;right_boundary&#39;</span> <span class="n">weight</span> <span class="n">vectors</span><span class="o">.</span>
-        <span class="n">boundary_constraint</span><span class="p">:</span> <span class="n">Constraint</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
-            <span class="n">the</span> <span class="err">`</span><span class="n">left_boundary</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="n">right_boundary</span><span class="err">`</span> <span class="n">weights</span> <span class="n">vectors</span><span class="o">.</span>
-        <span class="n">use_kernel</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">(</span><span class="n">default</span> <span class="kc">True</span><span class="p">),</span> <span class="n">indicating</span> <span class="k">if</span> <span class="n">apply</span>
-            <span class="n">a</span> <span class="n">fully</span> <span class="n">connected</span> <span class="n">layer</span> <span class="n">before</span> <span class="n">CRF</span> <span class="n">op</span><span class="o">.</span>
-        <span class="n">kernel_initializer</span><span class="p">:</span> <span class="n">Initializer</span> <span class="k">for</span> <span class="n">the</span> <span class="err">`</span><span class="n">kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="p">,</span>
-            <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">linear</span> <span class="n">transformation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">inputs</span><span class="o">.</span>
-        <span class="n">kernel_regularizer</span><span class="p">:</span> <span class="n">Regularizer</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
-            <span class="n">the</span> <span class="err">`</span><span class="n">kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="o">.</span>
-        <span class="n">kernel_constraint</span><span class="p">:</span> <span class="n">Constraint</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span>
-            <span class="n">the</span> <span class="err">`</span><span class="n">kernel</span><span class="err">`</span> <span class="n">weights</span> <span class="n">matrix</span><span class="o">.</span>
-        <span class="n">use_bias</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">(</span><span class="n">default</span> <span class="kc">True</span><span class="p">),</span> <span class="n">whether</span> <span class="n">the</span> <span class="n">layer</span> <span class="n">uses</span> <span class="n">a</span> <span class="n">bias</span> <span class="n">vector</span><span class="o">.</span>
-        <span class="n">bias_initializer</span><span class="p">:</span> <span class="n">Initializer</span> <span class="k">for</span> <span class="n">the</span> <span class="n">bias</span> <span class="n">vector</span><span class="o">.</span>
-        <span class="n">bias_regularizer</span><span class="p">:</span> <span class="n">Regularizer</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span> <span class="n">the</span> <span class="n">bias</span> <span class="n">vector</span><span class="o">.</span>
-        <span class="n">bias_constraint</span><span class="p">:</span> <span class="n">Constraint</span> <span class="n">function</span> <span class="n">applied</span> <span class="n">to</span> <span class="n">the</span> <span class="n">bias</span> <span class="n">vector</span><span class="o">.</span>
-        <span class="n">activation</span><span class="p">:</span> <span class="n">default</span> <span class="n">value</span> <span class="ow">is</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">Activation</span> <span class="n">function</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>
-
-    <span class="n">Input</span> <span class="n">shape</span><span class="p">:</span>
-        <span class="mi">3</span><span class="n">D</span> <span class="n">tensor</span> <span class="k">with</span> <span class="n">shape</span><span class="p">:</span> <span class="err">`</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">,</span> <span class="n">feature_size</span><span class="p">)</span><span class="err">`</span><span class="o">.</span>
-
-    <span class="n">Output</span> <span class="n">shape</span><span class="p">:</span>
-        <span class="mi">2</span><span class="n">D</span> <span class="n">tensor</span> <span class="p">(</span><span class="n">dtype</span><span class="p">:</span> <span class="n">int32</span><span class="p">)</span> <span class="k">with</span> <span class="n">shape</span><span class="p">:</span> <span class="err">`</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">)</span><span class="err">`</span><span class="o">.</span>
-
-    <span class="n">Masking</span><span class="p">:</span>
-        <span class="n">This</span> <span class="n">layer</span> <span class="n">supports</span> <span class="n">masking</span>
-        <span class="p">(</span><span class="mi">2</span><span class="n">D</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="err">`</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">)</span><span class="err">`</span><span class="p">)</span>
-        <span class="k">for</span> <span class="nb">input</span> <span class="n">data</span> <span class="k">with</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">number</span> <span class="n">of</span> <span class="n">timesteps</span><span class="o">.</span>
-        <span class="n">This</span> <span class="n">layer</span> <span class="n">output</span> <span class="n">same</span> <span class="n">make</span> <span class="n">tensor</span><span class="p">,</span>
-        <span class="n">NOTICE</span> <span class="n">this</span> <span class="n">may</span> <span class="n">cause</span> <span class="n">issue</span> <span class="n">when</span> <span class="n">you</span>
-        <span class="n">use</span> <span class="n">some</span> <span class="n">keras</span> <span class="n">loss</span> <span class="ow">and</span> <span class="n">metrics</span> <span class="n">function</span> <span class="n">which</span> <span class="n">usually</span> <span class="n">expect</span> <span class="mi">1</span><span class="n">D</span> <span class="n">mask</span><span class="o">.</span>
-
-    <span class="n">Loss</span> <span class="n">function</span><span class="p">:</span>
-        <span class="n">Due</span> <span class="n">to</span> <span class="n">the</span> <span class="n">TF</span> <span class="mf">2.0</span> <span class="n">version</span> <span class="n">support</span> <span class="n">eager</span> <span class="n">execution</span> <span class="n">be</span> <span class="n">default</span><span class="p">,</span>
-        <span class="n">there</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">way</span> <span class="n">can</span> <span class="n">implement</span> <span class="n">CRF</span> <span class="n">loss</span> <span class="k">as</span> <span class="n">independent</span> <span class="n">loss</span> <span class="n">function</span><span class="o">.</span>
-        <span class="n">Thus</span><span class="p">,</span> <span class="n">user</span> <span class="n">should</span> <span class="n">use</span> <span class="n">loss</span> <span class="n">method</span> <span class="n">of</span> <span class="n">this</span> <span class="n">layer</span><span class="o">.</span>
-        <span class="n">See</span> <span class="n">Examples</span> <span class="p">(</span><span class="n">above</span><span class="p">)</span> <span class="k">for</span> <span class="n">detailed</span> <span class="n">usage</span><span class="o">.</span>
-
-    <span class="n">References</span><span class="p">:</span>
-        <span class="o">-</span> <span class="p">[</span><span class="n">Conditional</span> <span class="n">Random</span> <span class="n">Field</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">Conditional_random_field</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CRF</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
 </code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>@typechecked
-def <strong>init</strong>(
-self,
-units: int,
-chain_initializer: types.Initializer = "orthogonal",
-chain_regularizer: types.Regularizer = None,
-chain_constraint: types.Constraint = None,
-use_boundary: bool = True,
-boundary_initializer: types.Initializer = "zeros",
-boundary_regularizer: types.Regularizer = None,
-boundary_constraint: types.Constraint = None,
-use_kernel: bool = True,
-kernel_initializer: types.Initializer = "glorot_uniform",
-kernel_regularizer: types.Regularizer = None,
-kernel_constraint: types.Constraint = None,
-use_bias: bool = True,
-bias_initializer: types.Initializer = "zeros",
-bias_regularizer: types.Regularizer = None,
-bias_constraint: types.Constraint = None,
-activation: types.Activation = "linear",
-<strong>kwargs
-):
-super(CRF, self).<strong>init</strong>(</strong>kwargs)</p>
-<h1 id="setup-mask-supporting-flag-used-by-base-class-the-layer">setup mask supporting flag, used by base class (the Layer)<a class="headerlink" href="#setup-mask-supporting-flag-used-by-base-class-the-layer" title="Permanent link">&para;</a></h1>
-<h1 id="because-base-classs-init-method-will-set-it-to-false-unconditionally">because base class's init method will set it to False unconditionally<a class="headerlink" href="#because-base-classs-init-method-will-set-it-to-false-unconditionally" title="Permanent link">&para;</a></h1>
-<h1 id="so-this-assigned-must-be-executed-after-call-base-classs-init-method">So this assigned must be executed after call base class's init method<a class="headerlink" href="#so-this-assigned-must-be-executed-after-call-base-classs-init-method" title="Permanent link">&para;</a></h1>
-<p>self.supports_masking = True</p>
-<p>self.units = units  # numbers of tags</p>
-<p>self.use_boundary = use_boundary
-self.use_bias = use_bias
-self.use_kernel = use_kernel</p>
-<p>self.activation = tf.keras.activations.get(activation)</p>
-<p>self.kernel_initializer = tf.keras.initializers.get(kernel_initializer)
-self.chain_initializer = tf.keras.initializers.get(chain_initializer)
-self.boundary_initializer = tf.keras.initializers.get(boundary_initializer)
-self.bias_initializer = tf.keras.initializers.get(bias_initializer)</p>
-<p>self.kernel_regularizer = tf.keras.regularizers.get(kernel_regularizer)
-self.chain_regularizer = tf.keras.regularizers.get(chain_regularizer)
-self.boundary_regularizer = tf.keras.regularizers.get(boundary_regularizer)
-self.bias_regularizer = tf.keras.regularizers.get(bias_regularizer)</p>
-<p>self.kernel_constraint = tf.keras.constraints.get(kernel_constraint)
-self.chain_constraint = tf.keras.constraints.get(chain_constraint)
-self.boundary_constraint = tf.keras.constraints.get(boundary_constraint)
-self.bias_constraint = tf.keras.constraints.get(bias_constraint)</p>
-<h1 id="values-will-be-assigned-in-method">values will be assigned in method<a class="headerlink" href="#values-will-be-assigned-in-method" title="Permanent link">&para;</a></h1>
-<p>self.input_spec = None</p>
-<h1 id="value-remembered-for-lossmetrics-function">value remembered for loss/metrics function<a class="headerlink" href="#value-remembered-for-lossmetrics-function" title="Permanent link">&para;</a></h1>
-<p>self.potentials = None
-self.sequence_length = None
-self.mask = None</p>
-<h1 id="global-variable">global variable<a class="headerlink" href="#global-variable" title="Permanent link">&para;</a></h1>
-<p>self.chain_kernel = None
-self._dense_layer = None
-self.left_boundary = None
-self.right_boundary = None</p>
-<p>def build(self, input_shape):
-input_shape = tuple(tf.TensorShape(input_shape).as_list())</p>
-<h1 id="see-api-docs-of-inputspec-for-more-detail">see API docs of InputSpec for more detail<a class="headerlink" href="#see-api-docs-of-inputspec-for-more-detail" title="Permanent link">&para;</a></h1>
-<p>self.input_spec = [tf.keras.layers.InputSpec(shape=input_shape)]</p>
-<h1 id="weights-that-work-as-transfer-probability-of-each-tags">weights that work as transfer probability of each tags<a class="headerlink" href="#weights-that-work-as-transfer-probability-of-each-tags" title="Permanent link">&para;</a></h1>
-<p>self.chain_kernel = self.add_weight(
-shape=(self.units, self.units),
-name="chain_kernel",
-initializer=self.chain_initializer,
-regularizer=self.chain_regularizer,
-constraint=self.chain_constraint,
-)</p>
-<h1 id="weight-of-to-tag-probability-and-tag-to-probability">weight of <START> to tag probability and tag to <END> probability<a class="headerlink" href="#weight-of-to-tag-probability-and-tag-to-probability" title="Permanent link">&para;</a></h1>
-<p>if self.use_boundary:
-self.left_boundary = self.add_weight(
-shape=(self.units,),
-name="left_boundary",
-initializer=self.boundary_initializer,
-regularizer=self.boundary_regularizer,
-constraint=self.boundary_constraint,
-)
-self.right_boundary = self.add_weight(
-shape=(self.units,),
-name="right_boundary",
-initializer=self.boundary_initializer,
-regularizer=self.boundary_regularizer,
-constraint=self.boundary_constraint,
-)</p>
-<p>if self.use_kernel:
-self._dense_layer = tf.keras.layers.Dense(
-units=self.units,
-activation=self.activation,
-use_bias=self.use_bias,
-bias_initializer=self.bias_initializer,
-kernel_regularizer=self.kernel_regularizer,
-bias_regularizer=self.bias_regularizer,
-kernel_constraint=self.kernel_constraint,
-bias_constraint=self.bias_constraint,
-dtype=self.dtype,
-)
-else:
-self._dense_layer = lambda x: tf.cast(x, dtype=self.dtype)</p>
-<p>super(CRF, self).build(input_shape)</p>
-<p>def call(self, inputs, mask=None, **kwargs):</p>
-<h1 id="mask-tensorshapebatch_size-sequence_length-dtypebool-or-none">mask: Tensor(shape=(batch_size, sequence_length), dtype=bool) or None<a class="headerlink" href="#mask-tensorshapebatch_size-sequence_length-dtypebool-or-none" title="Permanent link">&para;</a></h1>
-<p>if mask is not None:
-if tf.keras.backend.ndim(mask) != 2:
-raise ValueError("Input mask to CRF must have dim 2 if not None")</p>
-<h1 id="left-padding-of-mask-is-not-supported-due-the-underline-crf-function">left padding of mask is not supported, due the underline CRF function<a class="headerlink" href="#left-padding-of-mask-is-not-supported-due-the-underline-crf-function" title="Permanent link">&para;</a></h1>
-<h1 id="detect-it-and-report-it-to-user">detect it and report it to user<a class="headerlink" href="#detect-it-and-report-it-to-user" title="Permanent link">&para;</a></h1>
-<p>first_mask = None
-if mask is not None:
-left_boundary_mask = self._compute_mask_left_boundary(mask)
-first_mask = left_boundary_mask[:, 0]</p>
-<h1 id="remember-this-value-for-later-use">remember this value for later use<a class="headerlink" href="#remember-this-value-for-later-use" title="Permanent link">&para;</a></h1>
-<p>self.mask = mask</p>
-<p>if first_mask is not None:
-no_left_padding = tf.math.reduce_all(first_mask)
-msg = "Currently, CRF layer do not support left padding"
-with tf.control_dependencies(
-[
-tf.debugging.assert_equal(
-no_left_padding, tf.constant(True), message=msg
-)
-]
-):
-self.potentials = self._dense_layer(inputs)
-else:
-self.potentials = self._dense_layer(inputs)</p>
-<h1 id="appending-boundary-probability-info">appending boundary probability info<a class="headerlink" href="#appending-boundary-probability-info" title="Permanent link">&para;</a></h1>
-<p>if self.use_boundary:
-self.potentials = self.add_boundary_energy(
-self.potentials, mask, self.left_boundary, self.right_boundary
-)</p>
-<p>self.sequence_length = self._get_sequence_length(inputs, mask)</p>
-<p>decoded_sequence, _ = self.get_viterbi_decoding(
-self.potentials, self.sequence_length
-)</p>
-<p>return decoded_sequence</p>
-<p>def <em>get_sequence_length(self, input</em>, mask):</p>
+<p>"""Linear chain conditional random field (CRF).</p>
+<p>Examples:</p>
+<p>```python
+from tensorflow_addons.layers import CRF
+from tensorflow_addons.losses import crf_loss</p>
+<p>model = Sequential()
+model.add(Embedding(3001, 300, mask_zero=True)</p>
+<p>crf = CRF(10)
+model.add(crf)</p>
+<p>model.compile('adam', loss=crf_loss)</p>
+<p>model.fit(x, y)
+```</p>
+<p>Arguments:
+units: Positive integer, dimensionality of the output space,
+should equal to tag num.
+chain_initializer: Initializer for the <code>chain_kernel</code> weights matrix,
+used for the CRF chain energy.
+(see <a href="../initializers.md">initializers</a>).
+chain_regularizer: Regularizer function applied to
+the <code>chain_kernel</code> weights matrix.
+chain_constraint: Constraint function applied to
+the <code>chain_kernel</code> weights matrix.
+use_boundary: Boolean (default True), indicating if trainable
+start-end chain energies should be added to model.
+boundary_initializer: Initializer for the <code>left_boundary</code>,
+'right_boundary' weights vectors,
+used for the start/left and end/right boundary energy.
+boundary_regularizer: Regularizer function applied to
+the 'left_boundary', 'right_boundary' weight vectors.
+boundary_constraint: Constraint function applied to
+the <code>left_boundary</code>, <code>right_boundary</code> weights vectors.
+use_kernel: Boolean (default True), indicating if apply
+a fully connected layer before CRF op.
+kernel_initializer: Initializer for the <code>kernel</code> weights matrix,
+used for the linear transformation of the inputs.
+kernel_regularizer: Regularizer function applied to
+the <code>kernel</code> weights matrix.
+kernel_constraint: Constraint function applied to
+the <code>kernel</code> weights matrix.
+use_bias: Boolean (default True), whether the layer uses a bias vector.
+bias_initializer: Initializer for the bias vector.
+bias_regularizer: Regularizer function applied to the bias vector.
+bias_constraint: Constraint function applied to the bias vector.
+activation: default value is 'linear', Activation function to use.</p>
+<p>Input shape:
+3D tensor with shape: <code>(batch_size, sequence_length, feature_size)</code>.</p>
+<p>Output shape:
+2D tensor (dtype: int32) with shape: <code>(batch_size, sequence_length)</code>.</p>
+<p>Masking:
+This layer supports masking
+(2D tensor, shape: <code>(batch_size, sequence_length)</code>)
+for input data with a variable number of timesteps.
+This layer output same make tensor,
+NOTICE this may cause issue when you
+use some keras loss and metrics function which usually expect 1D mask.</p>
+<p>Loss function:
+Due to the TF 2.0 version support eager execution be default,
+there is no way can implement CRF loss as independent loss function.
+Thus, user should use loss method of this layer.
+See Examples (above) for detailed usage.</p>
+<p>References:
+- <a href="https://en.wikipedia.org/wiki/Conditional_random_field">Conditional Random Field</a></p>
 </div>
-<div class="codehilite"><pre><span></span><code>        <span class="n">tensorflow_addons</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">crf</span><span class="p">)</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">bi</span><span class="o">-</span><span class="n">direction</span> <span class="n">masking</span> <span class="p">(</span><span class="n">left</span>
-        <span class="n">padding</span> <span class="o">/</span> <span class="n">right</span> <span class="n">padding</span><span class="p">),</span> <span class="n">it</span> <span class="n">support</span> <span class="n">right</span> <span class="n">padding</span> <span class="n">by</span> <span class="n">tell</span> <span class="n">it</span> <span class="n">the</span>
-        <span class="n">sequence</span> <span class="n">length</span><span class="o">.</span>
-
-        <span class="n">this</span> <span class="n">function</span> <span class="ow">is</span> <span class="n">compute</span> <span class="n">the</span> <span class="n">sequence</span> <span class="n">length</span> <span class="kn">from</span> <span class="nn">input</span> <span class="ow">and</span>
-        <span class="n">mask</span><span class="o">.</span>
+<div class="codehilite"><pre><span></span><code>    <span class="nd">@typechecked</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">units</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">chain_initializer</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Initializer</span> <span class="o">=</span> <span class="s2">&quot;orthogonal&quot;</span><span class="p">,</span>
+        <span class="n">chain_regularizer</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Regularizer</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">chain_constraint</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Constraint</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">use_boundary</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">boundary_initializer</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Initializer</span> <span class="o">=</span> <span class="s2">&quot;zeros&quot;</span><span class="p">,</span>
+        <span class="n">boundary_regularizer</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Regularizer</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">boundary_constraint</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Constraint</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">use_kernel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">kernel_initializer</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Initializer</span> <span class="o">=</span> <span class="s2">&quot;glorot_uniform&quot;</span><span class="p">,</span>
+        <span class="n">kernel_regularizer</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Regularizer</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">kernel_constraint</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Constraint</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">use_bias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">bias_initializer</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Initializer</span> <span class="o">=</span> <span class="s2">&quot;zeros&quot;</span><span class="p">,</span>
+        <span class="n">bias_regularizer</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Regularizer</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bias_constraint</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Constraint</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">activation</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Activation</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CRF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>if mask is not None:
-sequence_length = self.mask_to_sequence_length(mask)
-else:</p>
-<h1 id="make-a-mask-tensor-from-input-then-used-to-generate-sequence_length">make a mask tensor from input, then used to generate sequence_length<a class="headerlink" href="#make-a-mask-tensor-from-input-then-used-to-generate-sequence_length" title="Permanent link">&para;</a></h1>
-<p>input_energy_shape = tf.shape(input_)
-raw_input_shape = tf.slice(input_energy_shape, [0], [2])
-alt_mask = tf.ones(raw_input_shape)</p>
-<p>sequence_length = self.mask_to_sequence_length(alt_mask)</p>
-<p>return sequence_length</p>
-<p>def mask_to_sequence_length(self, mask):</p>
-</div>
-<div class="codehilite"><pre><span></span><code>        <span class="n">sequence_length</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int8</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">sequence_length</span>
+<p>setup mask supporting flag, used by base class (the Layer)
+because base class's init method will set it to False unconditionally
+So this assigned must be executed after call base class's init method</p>
+<div class="codehilite"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">supports_masking</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_compute_mask_right_boundary</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">units</span>  <span class="c1"># numbers of tags</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_boundary</span> <span class="o">=</span> <span class="n">use_boundary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_bias</span> <span class="o">=</span> <span class="n">use_bias</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_kernel</span> <span class="o">=</span> <span class="n">use_kernel</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">activations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">activation</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">kernel_initializer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">kernel_initializer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain_initializer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chain_initializer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boundary_initializer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boundary_initializer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias_initializer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bias_initializer</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">kernel_regularizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">kernel_regularizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain_regularizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chain_regularizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boundary_regularizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boundary_regularizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias_regularizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bias_regularizer</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">kernel_constraint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">kernel_constraint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain_constraint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chain_constraint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boundary_constraint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boundary_constraint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias_constraint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bias_constraint</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>"""input mask: 0011100, output left_boundary: 0000100."""</p>
-<h1 id="shift-mask-to-left-by-1-0011100-0111000">shift mask to left by 1: 0011100 =&gt; 0111000<a class="headerlink" href="#shift-mask-to-left-by-1-0011100-0111000" title="Permanent link">&para;</a></h1>
-<p>offset = 1
-left_shifted_mask = tf.concat(
-[mask[:, offset:], tf.zeros_like(mask[:, :offset])], axis=1
-)</p>
-<h1 id="note-below-code-is-different-from-keras_contrib">NOTE: below code is different from keras_contrib<a class="headerlink" href="#note-below-code-is-different-from-keras_contrib" title="Permanent link">&para;</a></h1>
-<h1 id="original-code-in-keras_contrib">Original code in keras_contrib:<a class="headerlink" href="#original-code-in-keras_contrib" title="Permanent link">&para;</a></h1>
-<h1 id="end_mask-kcast">end_mask = K.cast(<a class="headerlink" href="#end_mask-kcast" title="Permanent link">&para;</a></h1>
-<h1 id="kgreaterselfshift_leftmask-mask">K.greater(self.shift_left(mask), mask),<a class="headerlink" href="#kgreaterselfshift_leftmask-mask" title="Permanent link">&para;</a></h1>
-<h1 id="kfloatx">K.floatx()<a class="headerlink" href="#kfloatx" title="Permanent link">&para;</a></h1>
-<h1 id="_1">)<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h1 id="has-a-bug-confirmed">has a bug, confirmed<a class="headerlink" href="#has-a-bug-confirmed" title="Permanent link">&para;</a></h1>
-<h1 id="by-the-original-keras_contrib-maintainer">by the original keras_contrib maintainer<a class="headerlink" href="#by-the-original-keras_contrib-maintainer" title="Permanent link">&para;</a></h1>
-<h1 id="luiz-felix-github-lzfelix">Luiz Felix (github: lzfelix),<a class="headerlink" href="#luiz-felix-github-lzfelix" title="Permanent link">&para;</a></h1>
-<h1 id="0011100-0111000-0000100">0011100 &gt; 0111000 =&gt; 0000100<a class="headerlink" href="#0011100-0111000-0000100" title="Permanent link">&para;</a></h1>
-<p>right_boundary = tf.greater(mask, left_shifted_mask)</p>
-<p>return right_boundary</p>
-<p>@staticmethod
-def _compute_mask_left_boundary(mask):</p>
-</div>
-<p>shift mask to right by 1: 0011100 =&gt; 0001110</p>
-<div class="codehilite"><pre><span></span><code>        <span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="n">right_shifted_mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
-            <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">mask</span><span class="p">[:,</span> <span class="p">:</span><span class="n">offset</span><span class="p">]),</span> <span class="n">mask</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="n">offset</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<p>values will be assigned in method</p>
+<div class="codehilite"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">input_spec</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+<p>value remembered for loss/metrics function</p>
+<div class="codehilite"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">potentials</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+<p>global variable</p>
+<div class="codehilite"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">chain_kernel</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dense_layer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_boundary</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_boundary</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+        <span class="n">input_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+</code></pre></div>
+
+<p>see API docs of InputSpec for more detail</p>
+<div class="codehilite"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">input_spec</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)]</span>
+</code></pre></div>
+
+<p>weights that work as transfer probability of each tags</p>
+<div class="codehilite"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">chain_kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_weight</span><span class="p">(</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;chain_kernel&quot;</span><span class="p">,</span>
+            <span class="n">initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chain_initializer</span><span class="p">,</span>
+            <span class="n">regularizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chain_regularizer</span><span class="p">,</span>
+            <span class="n">constraint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chain_constraint</span><span class="p">,</span>
         <span class="p">)</span>
 </code></pre></div>
 
-<p>0011100 &gt; 0001110 =&gt; 0010000</p>
-<div class="codehilite"><pre><span></span><code>        <span class="n">left_boundary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span>
-            <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">right_shifted_mask</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-        <span class="p">)</span>
-</code></pre></div>
-
-<p>left_boundary = tf.greater(mask, right_shifted_mask)</p>
-<div class="codehilite"><pre><span></span><code>        <span class="k">return</span> <span class="n">left_boundary</span>
-
-    <span class="k">def</span> <span class="nf">add_boundary_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">potentials</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">expand_scalar_to_3d</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</code></pre></div>
-
-<p>expand tensor from shape (x, ) to (1, 1, x)</p>
-<div class="codehilite"><pre><span></span><code>            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-
-        <span class="n">start</span> <span class="o">=</span> <span class="n">expand_scalar_to_3d</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">expand_scalar_to_3d</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">potentials</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
-                <span class="p">[</span><span class="n">potentials</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">start</span><span class="p">,</span> <span class="n">potentials</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<p>weight of <START> to tag probability and tag to <END> probability</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_boundary</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">left_boundary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_weight</span><span class="p">(</span>
+                <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,),</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;left_boundary&quot;</span><span class="p">,</span>
+                <span class="n">initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boundary_initializer</span><span class="p">,</span>
+                <span class="n">regularizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boundary_regularizer</span><span class="p">,</span>
+                <span class="n">constraint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boundary_constraint</span><span class="p">,</span>
             <span class="p">)</span>
-            <span class="n">potentials</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
-                <span class="p">[</span><span class="n">potentials</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">potentials</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">end</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">right_boundary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_weight</span><span class="p">(</span>
+                <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,),</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;right_boundary&quot;</span><span class="p">,</span>
+                <span class="n">initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boundary_initializer</span><span class="p">,</span>
+                <span class="n">regularizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boundary_regularizer</span><span class="p">,</span>
+                <span class="n">constraint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boundary_constraint</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_kernel</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dense_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span>
+                <span class="n">units</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
+                <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span>
+                <span class="n">use_bias</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_bias</span><span class="p">,</span>
+                <span class="n">bias_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_initializer</span><span class="p">,</span>
+                <span class="n">kernel_regularizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_regularizer</span><span class="p">,</span>
+                <span class="n">bias_regularizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_regularizer</span><span class="p">,</span>
+                <span class="n">kernel_constraint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_constraint</span><span class="p">,</span>
+                <span class="n">bias_constraint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_constraint</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">start</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">start_mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_compute_mask_left_boundary</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">start</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dense_layer</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-            <span class="n">end_mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_compute_mask_right_boundary</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">end</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">potentials</span> <span class="o">=</span> <span class="n">potentials</span> <span class="o">+</span> <span class="n">start_mask</span> <span class="o">*</span> <span class="n">start</span>
-            <span class="n">potentials</span> <span class="o">=</span> <span class="n">potentials</span> <span class="o">+</span> <span class="n">end_mask</span> <span class="o">*</span> <span class="n">end</span>
-        <span class="k">return</span> <span class="n">potentials</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CRF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">get_viterbi_decoding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">potentials</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </code></pre></div>
 
-<p>decode_tags: A [batch_size, max_seq_len] matrix, with dtype <code>tf.int32</code></p>
-<div class="codehilite"><pre><span></span><code>        <span class="n">decode_tags</span><span class="p">,</span> <span class="n">best_score</span> <span class="o">=</span> <span class="n">crf_decode</span><span class="p">(</span>
-            <span class="n">potentials</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain_kernel</span><span class="p">,</span> <span class="n">sequence_length</span>
+<p>mask: Tensor(shape=(batch_size, sequence_length), dtype=bool) or None</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input mask to CRF must have dim 2 if not None&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>left padding of mask is not supported, due the underline CRF function
+detect it and report it to user</p>
+<div class="codehilite"><pre><span></span><code>        <span class="n">first_mask</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">left_boundary_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_mask_left_boundary</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+            <span class="n">first_mask</span> <span class="o">=</span> <span class="n">left_boundary_mask</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+<p>remember this value for later use</p>
+<div class="codehilite"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span>
+
+        <span class="k">if</span> <span class="n">first_mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">no_left_padding</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_all</span><span class="p">(</span><span class="n">first_mask</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Currently, CRF layer do not support left padding&quot;</span>
+            <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">control_dependencies</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span>
+                        <span class="n">no_left_padding</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="kc">True</span><span class="p">),</span> <span class="n">message</span><span class="o">=</span><span class="n">msg</span>
+                    <span class="p">)</span>
+                <span class="p">]</span>
+            <span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">potentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dense_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">potentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dense_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</code></pre></div>
+
+<p>appending boundary probability info</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_boundary</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">potentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_boundary_energy</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">potentials</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_boundary</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_boundary</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence_length</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+
+        <span class="n">decoded_sequence</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_viterbi_decoding</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">potentials</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span>
         <span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">decode_tags</span><span class="p">,</span> <span class="n">best_score</span>
+        <span class="k">return</span> <span class="n">decoded_sequence</span>
 
-    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</code></pre></div>
-
-<p>used for loading model from disk</p>
-<div class="codehilite"><pre><span></span><code>        <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-            <span class="s2">&quot;use_boundary&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_boundary</span><span class="p">,</span>
-            <span class="s2">&quot;use_bias&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_bias</span><span class="p">,</span>
-            <span class="s2">&quot;use_kernel&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_kernel</span><span class="p">,</span>
-            <span class="s2">&quot;kernel_initializer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">kernel_initializer</span>
-            <span class="p">),</span>
-            <span class="s2">&quot;chain_initializer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">chain_initializer</span>
-            <span class="p">),</span>
-            <span class="s2">&quot;boundary_initializer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">boundary_initializer</span>
-            <span class="p">),</span>
-            <span class="s2">&quot;bias_initializer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">initializers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_initializer</span><span class="p">),</span>
-            <span class="s2">&quot;activation&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">activations</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">),</span>
-            <span class="s2">&quot;kernel_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">kernel_regularizer</span>
-            <span class="p">),</span>
-            <span class="s2">&quot;chain_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">chain_regularizer</span>
-            <span class="p">),</span>
-            <span class="s2">&quot;boundary_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">boundary_regularizer</span>
-            <span class="p">),</span>
-            <span class="s2">&quot;bias_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_regularizer</span><span class="p">),</span>
-            <span class="s2">&quot;kernel_constraint&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_constraint</span><span class="p">),</span>
-            <span class="s2">&quot;chain_constraint&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain_constraint</span><span class="p">),</span>
-            <span class="s2">&quot;boundary_constraint&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">boundary_constraint</span>
-            <span class="p">),</span>
-            <span class="s2">&quot;bias_constraint&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bias_constraint</span><span class="p">),</span>
-        <span class="p">}</span>
-        <span class="n">base_config</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CRF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">base_config</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
-
-    <span class="k">def</span> <span class="nf">compute_output_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
-        <span class="n">output_shape</span> <span class="o">=</span> <span class="n">input_shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">output_shape</span>
-
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_sequence_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
 </code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>"""keep mask shape [batch_size, max_seq_len]"""
-return mask</p>
-<p>def get_negative_log_likelihood(self, y_true):
-y_true = tf.cast(y_true, tf.int32)
-self.sequence_length = tf.cast(self.sequence_length, tf.int32)</p>
-<p>log_likelihood, _ = crf_log_likelihood(
-self.potentials, y_true, self.sequence_length, self.chain_kernel
-)</p>
-<p>return -log_likelihood</p>
-<p>def get_loss(self, y_true, y_pred):</p>
-<h1 id="we-dont-use-y_pred-but-caller-pass-it-anyway-ignore-it">we don't use y_pred, but caller pass it anyway, ignore it<a class="headerlink" href="#we-dont-use-y_pred-but-caller-pass-it-anyway-ignore-it" title="Permanent link">&para;</a></h1>
-<p>return self.get_negative_log_likelihood(y_true)</p>
-<p>def get_accuracy(self, y_true, y_pred):
-judge = tf.cast(tf.equal(y_pred, y_true), tf.keras.backend.floatx())
-if self.mask is None:
-return tf.reduce_mean(judge)
-else:
-mask = tf.cast(self.mask, tf.keras.backend.floatx())
-return tf.reduce_sum(judge * mask) / tf.reduce_sum(mask)</p>
-<p>def <strong>call</strong>(self, inputs, <em>args, </em><em>kwargs):
-outputs = super(CRF, self).<strong>call</strong>(inputs, </em>args, **kwargs)</p>
-<h1 id="a-hack-that-add-_keras_history-to-eagertensor-make-it-more-like-normal-tensor">A hack that add _keras_history to EagerTensor, make it more like normal Tensor<a class="headerlink" href="#a-hack-that-add-_keras_history-to-eagertensor-make-it-more-like-normal-tensor" title="Permanent link">&para;</a></h1>
-<p>for tensor in tf.nest.flatten(outputs):
-if not hasattr(tensor, "_keras_history"):
-tensor._keras_history = (self, 0, 0)</p>
-<p>return outputs</p>
-<p>@property
-def _compute_dtype(self):</p>
-<h1 id="fixed-output-dtype-from-underline-crf-functions">fixed output dtype from underline CRF functions<a class="headerlink" href="#fixed-output-dtype-from-underline-crf-functions" title="Permanent link">&para;</a></h1>
-<p>return tf.int32</p>
-<p>class ConditionalRandomFieldLoss(object):
-def <strong>init</strong>(self, name: str = "crf_loss"):
-self.name = name</p>
-<p>def get_config(self):
-return {"name": self.name}</p>
-<p>def <strong>call</strong>(self, y_true, y_pred, sample_weight=None):
-crf_layer = y_pred._keras_history[0]</p>
-<h1 id="check-if-last-layer-is-crf">check if last layer is CRF<a class="headerlink" href="#check-if-last-layer-is-crf" title="Permanent link">&para;</a></h1>
-<p>if not isinstance(crf_layer, CRF):
-raise ValueError(
-"Last layer must be CRF for use {}.".format(self.<strong>class</strong>.<strong>name</strong>)
-)</p>
-<p>loss_vector = crf_layer.get_loss(y_true, y_pred)</p>
-<p>return tf.keras.backend.mean(loss_vector)</p>
-<p>crf_loss = ConditionalRandomFieldLoss()</p>
+<p>"""Currently underline CRF fucntion (provided by
+tensorflow_addons.text.crf) do not support bi-direction masking (left
+padding / right padding), it support right padding by tell it the
+sequence length.</p>
+<p>this function is compute the sequence length from input and
+mask.</p>
 </div>
+<div class="codehilite"><pre><span></span><code>        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sequence_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_to_sequence_length</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+</code></pre></div>
+
+<p>make a mask tensor from input, then used to generate sequence_length</p>
+<div class="codehilite"><pre><span></span><code>            <span class="n">input_energy_shape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">input_</span><span class="p">)</span>
+            <span class="n">raw_input_shape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">input_energy_shape</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">alt_mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">raw_input_shape</span><span class="p">)</span>
+
+            <span class="n">sequence_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_to_sequence_length</span><span class="p">(</span><span class="n">alt_mask</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sequence_length</span>
+
+    <span class="k">def</span> <span class="nf">mask_to_sequence_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>"""compute sequence length from mask."""
+sequence_length = tf.cast(tf.reduce_sum(tf.cast(mask, tf.int8), 1), tf.int64)
+return sequence_length</p>
+<p>@staticmethod
+def _compute_mask_right_boundary(mask):</p>
+</div>
+<p>shift mask to left by 1: 0011100 =&gt; 0111000</p>
+<div class="codehilite"><pre><span></span><code>        <span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">left_shifted_mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">mask</span><span class="p">[:,</span> <span class="n">offset</span><span class="p">:],</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">mask</span><span class="p">[:,</span> <span class="p">:</span><span class="n">offset</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+</code></pre></div>
+
+<p>NOTE: below code is different from keras_contrib
+Original code in keras_contrib:
+end_mask = K.cast(
+  K.greater(self.shift_left(mask), mask),
+  K.floatx()
+)
+has a bug, confirmed
+by the original keras_contrib maintainer
+Luiz Felix (github: lzfelix),</p>
+<p>0011100 &gt; 0111000 =&gt; 0000100</p>
+<div class="codehilite"><pre><span></span><code>        <span class="n">right_boundary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">left_shifted_mask</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">right_boundary</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_compute_mask_left_boundary</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>"""input mask: 0011100, output left_boundary: 0010000."""</p>
+<h1 id="shift-mask-to-right-by-1-0011100-0001110">shift mask to right by 1: 0011100 =&gt; 0001110<a class="headerlink" href="#shift-mask-to-right-by-1-0011100-0001110" title="Permanent link">&para;</a></h1>
+<p>offset = 1
+right_shifted_mask = tf.concat(
+[tf.zeros_like(mask[:, :offset]), mask[:, :-offset]], axis=1
+)</p>
+<h1 id="0011100-0001110-0010000">0011100 &gt; 0001110 =&gt; 0010000<a class="headerlink" href="#0011100-0001110-0010000" title="Permanent link">&para;</a></h1>
+<p>left_boundary = tf.greater(
+tf.cast(mask, tf.int32), tf.cast(right_shifted_mask, tf.int32)
+)</p>
+<h1 id="left_boundary-tfgreatermask-right_shifted_mask">left_boundary = tf.greater(mask, right_shifted_mask)<a class="headerlink" href="#left_boundary-tfgreatermask-right_shifted_mask" title="Permanent link">&para;</a></h1>
+<p>return left_boundary</p>
+<p>def add_boundary_energy(self, potentials, mask, start, end):
+def expand_scalar_to_3d(x):</p>
+<h1 id="expand-tensor-from-shape-x-to-1-1-x">expand tensor from shape (x, ) to (1, 1, x)<a class="headerlink" href="#expand-tensor-from-shape-x-to-1-1-x" title="Permanent link">&para;</a></h1>
+<p>return tf.reshape(x, (1, 1, -1))</p>
+<p>start = expand_scalar_to_3d(start)
+end = expand_scalar_to_3d(end)
+if mask is None:
+potentials = tf.concat(
+[potentials[:, :1, :] + start, potentials[:, 1:, :]], axis=1
+)
+potentials = tf.concat(
+[potentials[:, :-1, :], potentials[:, -1:, :] + end], axis=1
+)
+else:
+mask = tf.keras.backend.expand_dims(tf.cast(mask, start.dtype), axis=-1)
+start_mask = tf.cast(self._compute_mask_left_boundary(mask), start.dtype)</p>
+<p>end_mask = tf.cast(self._compute_mask_right_boundary(mask), end.dtype)
+potentials = potentials + start_mask * start
+potentials = potentials + end_mask * end
+return potentials</p>
+<p>def get_viterbi_decoding(self, potentials, sequence_length):</p>
+<h1 id="decode_tags-a-batch_size-max_seq_len-matrix-with-dtype-tfint32">decode_tags: A [batch_size, max_seq_len] matrix, with dtype <code>tf.int32</code><a class="headerlink" href="#decode_tags-a-batch_size-max_seq_len-matrix-with-dtype-tfint32" title="Permanent link">&para;</a></h1>
+<p>decode_tags, best_score = crf_decode(
+potentials, self.chain_kernel, sequence_length
+)</p>
+<p>return decode_tags, best_score</p>
+<p>def get_config(self):</p>
+<h1 id="used-for-loading-model-from-disk">used for loading model from disk<a class="headerlink" href="#used-for-loading-model-from-disk" title="Permanent link">&para;</a></h1>
+<p>config = {
+"units": self.units,
+"use_boundary": self.use_boundary,
+"use_bias": self.use_bias,
+"use_kernel": self.use_kernel,
+"kernel_initializer": tf.keras.initializers.serialize(
+self.kernel_initializer
+),
+"chain_initializer": tf.keras.initializers.serialize(
+self.chain_initializer
+),
+"boundary_initializer": tf.keras.initializers.serialize(
+self.boundary_initializer
+),
+"bias_initializer": tf.keras.initializers.serialize(self.bias_initializer),
+"activation": tf.keras.activations.serialize(self.activation),
+"kernel_regularizer": tf.keras.regularizers.serialize(
+self.kernel_regularizer
+),
+"chain_regularizer": tf.keras.regularizers.serialize(
+self.chain_regularizer
+),
+"boundary_regularizer": tf.keras.regularizers.serialize(
+self.boundary_regularizer
+),
+"bias_regularizer": tf.keras.regularizers.serialize(self.bias_regularizer),
+"kernel_constraint": tf.keras.constraints.serialize(self.kernel_constraint),
+"chain_constraint": tf.keras.constraints.serialize(self.chain_constraint),
+"boundary_constraint": tf.keras.constraints.serialize(
+self.boundary_constraint
+),
+"bias_constraint": tf.keras.constraints.serialize(self.bias_constraint),
+}
+base_config = super(CRF, self).get_config()
+return dict(list(base_config.items()) + list(config.items()))</p>
+<p>def compute_output_shape(self, input_shape):
+output_shape = input_shape[:2]
+return output_shape</p>
+<p>def compute_mask(self, input_, mask=None):</p>
+</div>
+<div class="codehilite"><pre><span></span><code>        <span class="k">return</span> <span class="n">mask</span>
+
+    <span class="k">def</span> <span class="nf">get_negative_log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_true</span><span class="p">):</span>
+        <span class="n">y_true</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+        <span class="n">log_likelihood</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">crf_log_likelihood</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">potentials</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain_kernel</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="o">-</span><span class="n">log_likelihood</span>
+
+    <span class="k">def</span> <span class="nf">get_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+</code></pre></div>
+
+<p>we don't use y_pred, but caller pass it anyway, ignore it</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_negative_log_likelihood</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_accuracy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+        <span class="n">judge</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">floatx</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">judge</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">floatx</span><span class="p">())</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">judge</span> <span class="o">*</span> <span class="n">mask</span><span class="p">)</span> <span class="o">/</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CRF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+<p>A hack that add _keras_history to EagerTensor, make it more like normal Tensor</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">tf</span><span class="o">.</span><span class="n">nest</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">outputs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="s2">&quot;_keras_history&quot;</span><span class="p">):</span>
+                <span class="n">tensor</span><span class="o">.</span><span class="n">_keras_history</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">outputs</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_compute_dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</code></pre></div>
+
+<p>fixed output dtype from underline CRF functions</p>
+<p><a name="ref:ConditionalRandomFieldLoss"></a></p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span>
+
+
+<span class="k">class</span> <span class="nc">ConditionalRandomFieldLoss</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;crf_loss&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">crf_layer</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">_keras_history</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+<p>check if last layer is CRF</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">crf_layer</span><span class="p">,</span> <span class="n">CRF</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Last layer must be CRF for use </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">loss_vector</span> <span class="o">=</span> <span class="n">crf_layer</span><span class="o">.</span><span class="n">get_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loss_vector</span><span class="p">)</span>
+
+
+<span class="n">crf_loss</span> <span class="o">=</span> <span class="n">ConditionalRandomFieldLoss</span><span class="p">()</span>
+</code></pre></div>
                 
                   
                 

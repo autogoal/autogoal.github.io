@@ -599,6 +599,25 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      General-purpose AutoML
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        General-purpose AutoML
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
       Solving UCI datasets
@@ -627,6 +646,59 @@
     <a href="examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
       Solving MEDDOCAN 2019
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Using Neural Networks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Using Neural Networks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/tests.examples.nn_cars/" title="Solving CARS with Keras" class="md-nav__link">
+      Solving CARS with Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/tests.examples.nn_meddocan/" title="Solving MEDDOCAN with Keras" class="md-nav__link">
+      Solving MEDDOCAN with Keras
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -986,14 +1058,14 @@ The following code will run for approximately 5 minutes on a classic dataset.</p
 Make sure to <a href="https://autogoal.github.io/guide/">read the documentation</a> for more information.</p>
 <h2 id="installation">⚙️ Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>The easiest way to get AutoGOAL up and running with all the dependencies is to pull the development Docker image, which is somewhat big:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker pull autogoal/autogoal</span>
+<div class="codehilite"><pre><span></span><code>docker pull autogoal/autogoal
 </code></pre></div>
 
 <p>Instructions for setting up Docker are available <a href="https://www.docker.com/get-started">here</a>.</p>
 <p>Once you have the development image downloaded, you can fire up a console and use AutoGOAL interactively.</p>
 <p><img alt="" src="https://autogoal.github.io/shell.svg" /></p>
 <p>If you prefer to not use Docker, or you don't want all the dependencies, you can also install AutoGOAL directly with pip:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">pip install autogoal</span>
+<div class="codehilite"><pre><span></span><code>pip install autogoal
 </code></pre></div>
 
 <p>This will install the core library but you won't be able to use any of the underlying machine learning algorithms until you install the corresponding optional dependencies. You can install them all with:</p>
@@ -1007,7 +1079,7 @@ Make sure to <a href="https://autogoal.github.io/guide/">read the documentation<
 </blockquote>
 <h2 id="cli">💻 CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
 <p>You can use AutoGOAL directly from the CLI. To see options just type:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">autogoal</span>
+<div class="codehilite"><pre><span></span><code>autogoal
 </code></pre></div>
 
 <p>Using the CLI you can train and use AutoML models, download datasets and inspect the contrib libraries without writing a single line of code.</p>
@@ -1017,7 +1089,7 @@ Make sure to <a href="https://autogoal.github.io/guide/">read the documentation<
 <p>An online demo app is available at <a href="https://autogoal.github.io/demo">autogoal.github.io/demo</a>.
 This app showcases the main features of AutoGOAL in interactive case studies.</p>
 <p>To run the demo locally, simply type:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker run -p 8501:8501 autogoal/autogoal</span>
+<div class="codehilite"><pre><span></span><code>docker run -p 8501:8501 autogoal/autogoal
 </code></pre></div>
 
 <p>And navigate to <a href="http://localhost:8501">localhost:8501</a>.</p>
@@ -1066,7 +1138,7 @@ In general, everything you can import from <code>autogoal</code> without undersc
 <li><a href="https://autogoal.github.io/api/autogoal"><strong>API</strong></a>: Details about the public API for AutoGOAL.</li>
 </ul>
 <p>The HTML version can be deployed offline by downloading the <a href="https://hub.docker.com/autogoal/autogoal">AutoGOAL Docker image</a> and running:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker run -p 8000:8000 autogoal/autogoal mkdocs serve -a 0.0.0.0:8000</span>
+<div class="codehilite"><pre><span></span><code>docker run -p 8000:8000 autogoal/autogoal mkdocs serve -a 0.0.0.0:8000
 </code></pre></div>
 
 <p>And navigating to <a href="http://localhost:8000">localhost:8000</a>.</p>

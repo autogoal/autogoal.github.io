@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://autogoal.github.io/api/autogoal.contrib.torch._bert/">
+        <link rel="canonical" href="https://autogoal.github.io/api/autogoal.contrib.transformers._bert/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Autogoal.contrib.torch. bert - AutoGOAL</title>
+        <title>Autogoal.contrib.transformers. bert - AutoGOAL</title>
       
     
     
@@ -138,7 +138,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Autogoal.contrib.torch. bert
+                Autogoal.contrib.transformers. bert
               
             </span>
           
@@ -512,6 +512,25 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      General-purpose AutoML
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        General-purpose AutoML
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../examples/tests.examples.solving_uci_datasets/" title="Solving UCI datasets" class="md-nav__link">
       Solving UCI datasets
@@ -540,6 +559,59 @@
     <a href="../../examples/tests.examples.solving_meddocan_2019/" title="Solving MEDDOCAN 2019" class="md-nav__link">
       Solving MEDDOCAN 2019
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Using Neural Networks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Using Neural Networks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_cars/" title="Solving CARS with Keras" class="md-nav__link">
+      Solving CARS with Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/tests.examples.nn_meddocan/" title="Solving MEDDOCAN with Keras" class="md-nav__link">
+      Solving MEDDOCAN with Keras
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -807,10 +879,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/autogoal/autogoal/edit/main/docs/api/autogoal.contrib.torch._bert.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/autogoal/autogoal/edit/main/docs/api/autogoal.contrib.transformers._bert.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Autogoal.contrib.torch. bert</h1>
+                  <h1>Autogoal.contrib.transformers. bert</h1>
                 
                 <p><a name="ref:BertEmbedding"></a></p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="n">AlgorithmBase</span>
@@ -843,18 +915,18 @@ embedding = bert.run(sentence)
 embedding.shape
 (3, 768)
 embedding
-array([[ 0.3887945 , -0.22509816,  0.24768752, ...,  0.7490128 ,
-0.00565467, -0.2144883 ],
-[ 0.1428812 , -0.25218996,  0.19961214, ...,  0.964931  ,
-0.5816741 , -0.2297722 ],
-[ 0.63840234, -0.09097156, -0.80802155, ...,  0.9195696 ,
-0.27364567,  0.14955777]], dtype=float32)</p>
+array([[ 0.38879532, -0.22509766,  0.24768747, ...,  0.7490126 ,
+0.00565394, -0.21448825],
+[ 0.14288183, -0.25218976,  0.19961306, ...,  0.96493024,
+0.58167326, -0.22977187],
+[ 0.63840294, -0.09097129, -0.80802095, ...,  0.91956913,
+0.27364522,  0.14955784]], dtype=float32)</p>
 </blockquote>
 </blockquote>
 </blockquote>
 <p>```</p>
 <h5 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h5>
-<p>On the first use the model <code>best-base-multilingual-cased</code>
+<p>On the first use the model <code>bert-base-multilingual-cased</code>
 from <a href="https://github.com/huggingface/transformers">huggingface/transformers</a>
 will be downloaded. This may take a few minutes.</p>
 <p>If you are using the development container the model should be already downloaded for you.</p>
@@ -880,43 +952,51 @@ will be downloaded. This may take a few minutes.</p>
 
         <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">check_files</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="n">BertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">,</span> <span class="n">local_files_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+            <span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">,</span> <span class="n">local_files_only</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="n">BertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">)</span>
+        <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Word</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">MatrixContinuousDense</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">BertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
-            <span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
-                <span class="s2">&quot;bert-base-multilingual-cased&quot;</span>
-            <span class="p">)</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">:</span>
-            <span class="n">sentence_hash</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">input</span><span class="p">))</span>
-            <span class="n">cache_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;cached_bert_</span><span class="si">{</span><span class="n">sentence_hash</span><span class="si">}</span><span class="s2">.npy&quot;</span>
-
-            <span class="k">if</span> <span class="n">cache_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">cache_path</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">BertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+                    <span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">,</span> <span class="n">local_files_only</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+                    <span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">,</span> <span class="n">local_files_only</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                    <span class="s2">&quot;BERT requires to run `autogoal contrib download transformers`.&quot;</span>
+                <span class="p">)</span>
 
         <span class="n">bert_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">]</span>
-        <span class="n">bert_senquence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode_plus</span><span class="p">(</span>
+        <span class="n">bert_sequence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode_plus</span><span class="p">(</span>
             <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">tokens</span> <span class="ow">in</span> <span class="n">bert_tokens</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">],</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span>
         <span class="p">)</span>
+
         <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-            <span class="n">encoded_tokens</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">bert_senquence</span><span class="p">)</span>
-            <span class="n">encoded_tokens</span> <span class="o">=</span> <span class="n">encoded_tokens</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">bert_sequence</span><span class="p">)</span><span class="o">.</span><span class="n">last_hidden_state</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">matrix</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">token</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
             <span class="n">contiguous</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bert_tokens</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="n">vectors</span> <span class="o">=</span> <span class="n">encoded_tokens</span><span class="p">[</span><span class="n">count</span> <span class="p">:</span> <span class="n">count</span> <span class="o">+</span> <span class="n">contiguous</span><span class="p">,</span> <span class="p">:]</span>
+            <span class="n">vectors</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="n">count</span> <span class="p">:</span> <span class="n">count</span> <span class="o">+</span> <span class="n">contiguous</span><span class="p">,</span> <span class="p">:]</span>
             <span class="n">vector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_merge</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
             <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="n">contiguous</span>
 
         <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">:</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cache_path</span><span class="p">,</span> <span class="n">matrix</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">matrix</span>
 
@@ -939,7 +1019,7 @@ will be downloaded. This may take a few minutes.</p>
 <p class="admonition-title">Note</p>
 <p>Transforms a sentence into a list of vector embeddings using a Bert pretrained English model.</p>
 <h5 id="notes_1">Notes<a class="headerlink" href="#notes_1" title="Permanent link">&para;</a></h5>
-<p>On the first use the model <code>best-base-multilingual-cased</code> from
+<p>On the first use the model <code>bert-base-multilingual-cased</code> from
 <a href="https://github.com/huggingface/transformers">huggingface/transformers</a>
 will be downloaded. This may take a few minutes.</p>
 <p>If you are using the development container the model should be already downloaded for you.</p>
@@ -961,17 +1041,21 @@ will be downloaded. This may take a few minutes.</p>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Seq</span><span class="p">[</span><span class="n">Sentence</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tensor3</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">BertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
-            <span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
-                <span class="s2">&quot;bert-base-multilingual-cased&quot;</span>
-            <span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">BertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+                    <span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">,</span> <span class="n">local_files_only</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+                    <span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">,</span> <span class="n">local_files_only</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                    <span class="s2">&quot;BERT requires to run `autogoal contrib download transformers`.&quot;</span>
+                <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Tokenizing...&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">pad_to_max_length</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">pad_to_max_length</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span>
         <span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
 

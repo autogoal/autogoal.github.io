@@ -1,83 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://autogoal.github.io/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/cli/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/faq/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/dependencies/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/contributing/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/guide/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/guide/tests.guide.predefined/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/guide/tests.guide.include_algorithm/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/guide/tests.guide.cfg/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/guide/tests.guide.graph/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/guide/tests.guide.functional/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/examples/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/examples/tests.examples.solving_uci_datasets/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/examples/tests.examples.solving_haha_2019/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/examples/tests.examples.solving_meddocan_2019/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://autogoal.github.io/examples/tests.examples.nn_cars/</loc>
+     <lastmod>2021-04-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://autogoal.github.io/examples/tests.examples.nn_meddocan/</loc>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/api/autogoal.__init__/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/api/autogoal.__main__/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/api/autogoal.grammar.__init__/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/api/autogoal.contrib.__init__/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://autogoal.github.io/api/autogoal.contrib.sklearn.__init__/</loc>
-     <lastmod>2021-04-04</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
